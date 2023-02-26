@@ -1,0 +1,804 @@
+\vbox{
+\c{\bigrmb Chapter 4.}
+\vskip 1cm
+\c{\bigrm RISING AXISYMMETRIC GAS BUBBLES.}
+\vskip 15pt
+\hbox{\bf 4.1 Introduction.}
+\vskip 5pt
+}
+The rise of air bubbles in water is one of the most common examples
+of two-phase flow experienced in everyday life. It is not surprising,
+therefore that a significant effort has been focused on trying
+to understand some of the associated phenomena. From a mathematical
+point of view, the complexity of the problem is due to the fact that
+the bubble shape is itself an unknown. Even for the steady state
+problem of a bubble rising at its terminal velocity
+it is difficult to get accurate solutions to the general case 
+except by using sophisticated numerical techniques. There are,
+however, several known results and approximations for certain special 
+cases. These and other topics
+are covered in detail in, for instance, Clift, Grace and Weber (1978). As
+an introduction, we give some of the more fundamental models here,
+before going on to consider the numerical techniques used in this chapter.
+\vskip 15pt
+\c{\it 4.1.1 Analytical results.}
+\vskip 5pt
+For very small bubbles, with Reynolds number, 
+$Re=2Ua/\nu$ ($U$ being the rise speed, $a$ the bubble radius and $\nu$
+the kinematic viscosity),
+much smaller than unity, viscous forces will dominate inertial forces and 
+we can get a good picture of the flow field by assuming that it can be
+represented by the Stokes flow equations. 
+In the case when inertia is completely neglected, the 
+gas bubble (or liquid drop) takes on a spherical shape
+(see for example Taylor and Acrivos, 1964).
+
+We may easily solve for the flow field around a spherical 
+bubble. As the density and dynamic viscosity of the gas are
+substantially less than those of
+surrounding liquid, we may ignore the internal dynamics of the bubble
+itself. 
+For boundary conditions, assume that there is no flow across the bubble
+surface, that
+normal stresses are continuous, apart from a contribution due to
+surface tension, and that tangential stresses vanish.
+Were we dealing with a drop,
+we would have to take into consideration
+the effect of its internal circulation, driven by a non-zero
+tangential stress at the interface.
+In fact, it is straightforward to 
+generalise the Stokes flow solution to a drop of arbitrary
+density and viscosity for which the rigid sphere and bubble are the
+extreme cases. 
+
+To solve the problem, introduce a Stokes' stream function, $\psi$, and 
+consider the equation $D^4\psi=0$ where 
+$$D^2={\partial^2\over\partial r^2}+{\sin\theta\over 
+r^2}{\partial\over\partial
+\theta}\left({1\over\sin\theta}{\partial\over\partial\theta}\right),
+\eqno(4.1.1)$$
+subject to the conditions above and the far-field 
+condition $\psi\sim-(Ur^2/2)\sin^2\theta$ as
+$r\rightarrow\infty$. The solution obtained, it should be noted,
+is not valid in the far field, where it can be shown that
+if $r=O(aRe^{-1})$, the neglected inertia terms in the equations of motion
+contribute to the same order as the retained viscous terms.
+
+The drag, $D$, on the bubble can be determined directly by integrating
+the stress over the bubble surface, namely
+$$D=k_i\int_C\sigma_{ij}n_jdS,\eqno(4.1.2)$$
+where $\sigma_{ij}$ is the stress tensor, $n_j$ is the inward normal
+to $C$, the bubble surface, and $k_i$ is the unit vector in the
+direction of motion. This immediately
+gives the result $D=4\pi\mu Ua$. Often,
+the drag coefficient, $C_D$, is quoted in text books on the subject. This is 
+defined as the ratio of the drag to the dynamic pressure multiplied by
+the projected area of the bubble in the direction of motion.
+In practice, for non-spherical objects, 
+this projected area is taken to be that of a sphere 
+of equal volume. Thus
+$$C_D={4\pi\mu Ua\over {1\over 2}\rho U^2 \pi a^2}={16\over Re}.
+\eqno(4.1.3)$$
+For an early account see, for example, Levich (1962).
+
+The drag can also be used to estimate the terminal velocity, 
+$U_0$,
+by equating it to the buoyancy force $4\pi a^3\rho g/3$,
+giving a value of $U_0=a^2 g/3\nu$. These results
+agree well with experimental data for bubbles in
+water which are of less than about $0.01cm$ in diameter.
+The tendency for bubbles to deform slightly from spherical
+is due to the effect of inertia (see for example Taylor and Acrivos, 1964).
+By matching a low Reynolds number inner expansion to an Oseen outer
+solution, for the general case of a drop,
+Taylor and Acrivos (1964) derived expressions for the
+drag and the shape deformation. 
+They found an expression for the ellipticity, the ratio of cross-stream
+to with-stream axes, $\chi$. This turns out to be an expression
+in terms of the Weber number, $W=2a\rho U^2/\sigma$, which is based on
+the ratio of inertial pressure variations to the pressure jump due
+to surface tension.
+This is surprising since inertial effects are only small, and one
+would expect the shape to depend on a ratio of the viscous stress to the
+surface tension pressure jump, in terms of a capillary number,
+$Ca=\mu U/\sigma$. If, however, as pointed out by Harper (1972),
+the ellipticity 
+of a bubble or drop with fore and aft symmetry depended on the 
+capillary number at first order, the axis ratio would not be invariant
+under replacement of $U$ by $-U$.
+Taylor and Acrivos' (1964) expression for the ellipticity is
+given by $\chi=1+5W/32+O(W^2/Re)+O(WRe)$.
+
+For large Reynolds numbers, Levich (1949) estimated the 
+boundary layer thickness, $\delta$, around a spherical bubble to be of
+order $(\nu a/U)^{1/2}=a/Re^{1/2}$ --- as is
+the case for a solid sphere. Thus
+it is appropriate to model such high Reynolds number flows in the usual
+way, by considering all vorticity to be confined to a thin boundary layer
+at the bubble's surface. 
+Levich (1949) also showed that as the surface is stress free, the
+normal derivative of the velocity must change by $O(U/a)$, so that the
+velocity change due to the boundary layer is $O(\delta U/a)$, as
+opposed to $O(U)$ in the solid sphere case. As $\delta/a\ll 1$ the
+boundary layer perturbation to the velocity is much smaller than
+the irrotational velocity, whereas velocity gradients are of the same order.
+As the volume of the boundary layer is much smaller than the volume of
+the region surrounding the bubble where these gradients are of the
+same order, the first order energy dissipation rates for the 
+potential flow and the exact flow for large Reynolds number are 
+equal. The drag can thus be calculated by considering the 
+energy dissipation rate for the potential flow case.
+
+Solving Laplace's equation for
+a sphere moving at speed $U$ through a fluid at rest at infinity,
+we get the well-known result $\phi=-(a^3/2r^2)U\cos\theta$.
+Since for irrotational flow $\nabla\bd{u}$ is already symmetric,
+this is just the rate-of-strain tensor and the
+energy dissipation rate, integrated over an infinite volume, $V$,
+bounded internally by the bubble, can be written as
+$$\eqalign{\Phi&=2\mu\int_V{\partial u_i\over\partial x_j}
+{\partial u_i\over\partial x_j}dV,\cr
+&=\mu\int_{\partial V}{\partial q^2\over\partial n}dS,}
+\eqno(4.1.4)$$
+on using the divergence theorem, where $q=|\bd{u}|$.
+Equating $\Phi$, given by (4.1.4), to $UD$,
+where $D$ is the drag, and substituting
+$\bd{u}=\nabla\phi$ gives 
+$$D=12\pi\mu Ua,\eqno(4.1.5)$$
+so that, rather than (4.1.3), in this case we get
+$$C_D={48\over Re},\eqno(4.1.6)$$
+a result first calculated by Levich (1949).
+It is interesting to note that integrating the normal stress
+for the potential flow over the bubble, gives a drag coefficient of
+$32/Re$. The reason for this discrepancy, as was pointed out by Moore (1963),
+is that the neglected pressure perturbation due to the 
+boundary layer also contributes to the drag at the same order.
+
+By taking into account energy dissipated in the boundary layer
+and wake, Moore (1963)
+found the first order correction to the drag coefficient (4.1.6)
+for spherical bubbles. His value is
+$$C_D={48\over Re}\left(1-{2.21\over Re^{1/2}}+\ldots\right).\eqno(4.1.7)$$
+For larger bubbles, the Weber number will not be so small and so the 
+bubble shape will deviate from that of a sphere.
+For large Reynolds numbers, the ellipticity is given by
+\hbox{$\chi=1+9W/64+O(W^2)$}.
+It is possible to form the corresponding expression for the
+drag coefficient for $W\ll 1$ (see Moore, 1965),
+when the bubble is assumed to be ellipsoidal.
+\vskip 15pt
+\c{\it 4.1.2 Numerical methods.}
+\vskip 5pt
+Many fundamental
+free-boundary problems, particularly those in bubble dynamics,
+exhibit a symmetry about a central axis. It is therefore not surprising
+that boundary element techniques similar to those described in earlier
+chapters have been developed to exploit this feature
+of axisymmetry. Indeed,
+there are many difficulties associated with a fully three-dimensional 
+method, not the least being the increased computational times
+involved with the number of nodes required to maintain a reasonable
+resolution on a two-dimensional surface mesh. Examples of
+3D codes have however been successfully used by, for instance,
+Chahine (1991) and Harris (1992).
+This highlights the beauty of 
+two-dimensional problems where symmetry has very little effect 
+on the method that has to be used.
+In effect, the axisymmetric method reduces a three-dimensional
+problem to a two-dimensional one. This is done in the obvious
+way by representing the bubble as a curve in a half-plane containing
+the axis of symmetry. The azimuthal integration in the Green's
+formula can then be carried out analytically and written in terms
+of complete elliptic integrals.
+
+There are many examples of uses of axisymmetric boundary element 
+methods in the literature. The analogue of the techniques introduced
+in Chapter 2 were used for cavitation bubbles by Guerri et al (1981),
+Blake et al (1986, 1987) and Taib (1985). An alternative integral 
+equation approach was used by Miksis, Vanden Broeck and Keller (1981)
+to find steady-state solutions for a bubble in a constant velocity 
+stream.
+In this article they also calculate the energy
+dissipation and hence the drag coefficient and terminal
+velocity, which compare well with the values
+of Moore (1965). In a later paper --- Miksis et al (1982) --- 
+the same authors considered a bubble rising under gravity and
+included the effects of normal viscous stresses in their
+pressure balance (see \S 4.4). More sophisticated, finite difference
+techniques have also been developed. Ryskin and Leal (1984) used an orthogonal
+mapping technique to solve the steadily 
+rising bubble problem. Unsteady viscous flows
+with a free-surface can also be treated accurately using front tracking finite 
+difference
+codes (see Unverdi and Tryggvason, 1992)
+
+\vskip 15pt
+\hbox{\bf 4.2 The axisymmetric boundary integral method.}
+\nobreak
+\vskip 5pt
+We now give a brief overview of the differences between the 
+two-dimensional Green's formula method of Section 2.5 and the method
+used here to solve axisymmetric problems. Green's formula is given
+by (2.2.12) where in this case
+$$G(\bd{x},\bd{x}')={1\over 4\pi |\bd{x}-\bd{x}'|},
+\eqno (4.2.1)$$
+is the free-space Green's function for the three-dimensional Laplace 
+equation and $C$ is the bubble surface.
+In the examples given here, modified versions of the
+code of Best and Kucera (1992) were used. 
+The routines use cubic splines to interpolate
+$N+1$ nodes, $\bd{x}_i$, $i=0,\ldots,N$, which are  
+given in cylindrical polar coordinates by $(r_i,0,z_i)$.
+Note that nodes $0$ and $N$ lie on the
+central axis at the bottom and top respectively. The splines take the form
+$$\eqalignno{\bd{q}(s,\theta)\big|_{\theta=0}=&
+(r(s),0,z(s))=\bd{q}_{0i}+\bd{q}_{1i}(s-s_i)+
+\bd{q}_{2i}(s-s_i)^2+\bd{q}_{3i}(s-s_i)^3,&(4.2.2)\cr
+\noalign{\hbox{and}}
+\phi(s)=&\phi_{0i}+\phi_{1i}(s-s_i)+
+\phi_{2i}(s-s_i)^2+\phi_{3i}(s-s_i)^3,&(4.2.3)}$$
+for $s_i\le s\le s_{i+1}$, $i=0,\ldots,N-1$.
+Here, $\phi$ represents the potential along the surface and
+$s_i$ is the cumulative arc-length from node $0$ to node $i$.
+
+In order to obtain an accurate arc-length,
+Best and Kucera (1992) use an iterative scheme.
+Define $\delta s_i\equiv~s_i~-~s_{i-1}$ and set
+$$\eqalignno{\delta s_i^{(0)}=&|\bd{x}_i-\bd{x}_{i-1}|,&(4.2.4)\cr
+\noalign{\hbox{and}}
+\delta s_i^{(j+1)}=&\int_{s_{i-1}^{(j)}}^{s_i^{(j)}}
+\left |{\partial\bd{q}\over \partial s}\right |ds,
+\quad j=0,1,\ldots .&(4.2.5)}$$
+After each approximation, the spline coefficients 
+for $\hbox{\bf q}$ are calculated to ensure that it runs through the 
+$N+1$ nodes with continuous first and second derivatives. The end conditions
+used are that the top and bottom of the bubble are  horizontal  as is
+required physically.
+The method converges very quickly, at which point the 
+corresponding spline for the potentials can be constructed, with
+end conditions dictated by symmetry, that $\partial\phi/\partial 
+s=0$ at $s=0$ and $s=s_N$.
+
+The unknown potential derivatives, $\psi_i$, are parametrised linearly
+by arc-length, namely
+$$\psi(s)=\psi_{i-1}{(s_i-s)\over \delta s_i}+
+\psi_i{(s-s_{i-1})\over \delta s_i},\eqno (4.2.6)$$
+for $s_{i-1}\le s\le s_i, i=1,\ldots,N$.
+
+In the axisymmetric case, it is necessary to deal with the 
+azimuthal integrations separately.
+We may write the three dimensional
+form of Green's formula, analogous to (2.2.12), evaluated on the bubble as
+$$\eqalign{{1\over 2}\phi(\bd{x}_i)=k+
+&\int_0^{s_N}{\partial\phi\over\partial n}(\bd{q}(s,0))\left\{
+\int_0^{2\pi}G(\bd{x}_i,\bd{q}(s,\theta))r(s)d\theta\right\}ds
+\cr
+-&\int_0^{s_N}\phi(\bd{q}(s,0))\left\{
+\int_0^{2\pi}{\partial G\over\partial n_q}(\bd{x}_i,
+\bd{q}(s,\theta))r(s)d\theta\right\}ds.}\eqno(4.2.7)$$
+Here the functions $\bd{q}(s,\theta)$ are given in terms
+of the splines by $(r(s),\theta,z(s))$,
+in cylindrical polar co-ordinates. As the Green's function vanishes
+at infinity, the constant, $k$, is the limiting value of the potential there.
+
+The inner integrals of (4.2.7) over the angle $\theta$ can be 
+expressed in closed form (see Taib (1985)) as follows
+$$\eqalign{\int_0^{2\pi}{\partial G\over\partial n_q}
+(\bd{x}_i,\bd{q}(s,\theta))r(s)d\theta
+=&{1\over\pi}{r(s)\over \bigl((r(s)+r_i)^2+(z(s)-z_i)^2\bigr)^{3/2}}
+\Bigg\{{2\over k^2(s)}{dz\over ds}r_iK(k(s))\cr
+&+\left[{dz\over ds}(r(s)+r_i)-{dr\over ds}(z(s)-z_i)
+-{2\over k^2(s)}{dz\over ds}r_i\right]
+{E(k(s))\over 1-k^2(s)}\Bigg\},
+}\eqno(4.2.8)$$
+and
+$$\int_0^{2\pi}G(\bd{x}_i,\bd{q}(s,\theta))r(s)d\theta
+={1\over\pi}{K(k(s))r(s)\over\bigl((r(s)+r_i)^2+(z(s)-z_i)^2)\bigr)^{1/2}},
+\eqno (4.2.9)$$
+Here
+$$k^2(s)={4r(s)r_i\over (r(s)+r_i)^2+(z(s)-z_i)^2},\eqno (4.2.10)$$
+and $K(k)$ and $E(k)$ are complete elliptic integrals of the first
+and second kind respectively. These are calculated from the approximate 
+formulae
+$$\eqalign{K(k)=P(1-k^2)-Q(1-k^2)\log(1-k^2),\cr
+E(k)=R(1-k^2)-S(1-k^2)\log(1-k^2),}\eqno(4.2.11)$$
+where $P$, $Q$, $R$ and $S$ are polynomials tabulated in Hastings (1955). 
+
+In an analogous manner to that explained in Chapter 2, we 
+can substitute (4.2.6) into (4.2.7) to
+obtain a system of \hbox{$N+1$} algebraic equations,
+$${1\over 2}\phi_i+A_i=k+\sum_{j=1}^N(B_{ij}\psi_{j-1}+C_{ij}\psi_j),
+\quad i=0,\ldots,N,\eqno(4.2.12)$$
+where,
+if we denote the azimuthal integrals (4.2.8) and (4.2.9) 
+by $\alpha_i(s)$ and $\beta_i(s)$ respectively,
+$$\eqalignno{
+A_i=&\int_0^{s_N}\phi(s)\alpha_i(s)ds,&(4.2.13)\cr
+B_{ij}=&\int_{s_{j-1}}^{s_j}
+\left({{s_j-s}\over\delta s_j}\right)\beta_i(s)ds,&(4.2.14)\cr
+\noalign{\hbox{and}}
+C_{ij}=&\int_{s_{j-1}}^{s_j}
+\left({s-s_{j-1}\over\delta s_j}\right)\beta_i(s)ds.&(4.2.15)}$$
+Numerical integration is done via Gauss quadrature, and the 
+weak singularity is dealt with by using a logarithmic Gauss-type scheme.
+
+Two problems are considered here. The first is a simple extension
+of Chapter 2,
+that is modelling a constant volume bubble rising through an
+infinite fluid under gravity. The second problem is that of finding 
+the steady state of a rising bubble --- the problem considered in detail
+by Miksis et al (1982).
+\vskip 15pt
+\hbox{\bf 4.3 The rise of constant volume bubbles.}
+\vskip 5pt
+This section is the axisymmetric analogue of the Chapter 2
+problem. The only difference being the inclusion of surface tension 
+effects. It is a straightforward extension to allow more than one bubble
+positioned on the central axis, so we formulate the problem for the more
+general case of $M$ bubbles. In this way, the
+interaction of several bubbles can be examined. 
+
+The solution domain, $\Omega_-$, is defined to be the 
+infinite region bounded internally by each of the bubbles $C_m$, 
+$(m=1,\ldots,M)$.
+Normals, as previously, are taken as pointing outwards
+from $\Omega_-$, into the gaseous phase.
+Initially, bubbles are 
+spherical with non-dimensional radii $r_m$, lengths being scaled
+with respect to the radius of bubble $1$,
+which we denote by $a$.
+Bubble $m$ is initially
+positioned on the $z-$axis at a distance $\gamma_m(>0)$ 
+below the centre of bubble $1$ which is situated at the origin.
+At the start of the calculations, the fluid is assumed at rest
+so we take $\phi\equiv 0$ at $t=0$ and the constant, $k$, of equations
+(4.2.7) and (4.2.12) is chosen to be zero.
+As before we scale times with respect to 
+$(a/g)^{1/2}$
+and pressures by the factor $\rho ga$.
+
+For air bubbles larger than about $1mm$ in radius, rising at terminal
+velocity in water, the 
+corresponding Reynolds numbers are of the order of $700$
+(see Levich, 1962; Clift, Grace and Weber, 1978).
+We can therefore assume that the potential flow
+model of the previous chapters will give realistic
+results when applied to the problem of axisymmetric
+bubble rise.
+
+With the above scalings, the Bernoulli equation becomes
+$${p_\infty}=p+{1\over2}|\bd{u}|^{2}+
+{\partial\phi\over\partial t}+z,\eqno(4.3.1)$$
+where $p_\infty$ is the fluid pressure at infinity
+at $z=0$.
+
+If viscous stresses in the thin boundary layers
+are ignored, a pressure balance may be used 
+across each interface.
+The pressure just outside the surface $C_m$ $(m=1,\ldots,M)$ is given by 
+$$p=p_m(t)-{4\kappa\over E_o},\eqno (4.3.2)$$
+where $\kappa$ is twice the mean curvature
+and again $E_o={4\rho ga^2/\sigma}$ is the E\"otvos number.
+Here, $p_m(t)$ $(m=1,\ldots,M)$ is the pressure inside the $m$th bubble.
+
+Combining (4.3.1) and (4.3.2), evaluated initially and at a general time, and 
+employing the substantial derivative
+gives an equation for the time evolution of the 
+potential on $C_m$,
+$${D\phi\over Dt}\Big|_{C_m}={1\over 2}|\bd{u}|^{2}-z-\gamma_m+
+{4\over E_o}(\kappa-\kappa_m)+p_m(0)-p_m(t).\eqno (4.3.3)$$
+In (4.3.3), $\kappa_m(=2/r_m)$ is the initial
+curvature for bubble $m$. Note that, by definition,
+$\kappa_1=2$ and $\gamma_1=0$.
+
+In order to eliminate the unknown pressure terms in (4.3.3) we introduce, 
+as in the previous chapter, a function $f$ defined on $\partial\Omega$
+by
+$$f\Big|_{C_m}=\phi\Big|_{C_m}+k_m,\eqno(4.3.4)$$
+where
+$$k_m(t)=\int_0^t(p_m(t')-p_m(0))dt',\eqno(4.3.5)$$
+for $m=1,\ldots,M$, and again we work with $f$ rather than $\phi$.
+With this definition, the dynamic condition (4.3.3) becomes
+$${Df\over Dt}\Big|_{C_m}={1\over 2}|\bd{u}|^{2}-z-\gamma_m+
+{4\over E_o}(\kappa-\kappa_m), \quad m=1,\ldots,M.\eqno (4.3.6)$$
+
+Each surface $C_m$ is now represented parametrically 
+by the function $\bd{q}_m(s,\theta,t)$.
+The kinematic condition expresses the assumption that there is
+no mass transfer across interfaces,
+so that particles that lie on a surface
+will remain there and move with its local velocity. Hence
+for the time dependent surface parametrisation, we have
+$${\partial \bd{q}_m\over\partial t}(s,\theta,t)=
+\nabla\phi(\bd{q}_m(s,\theta,t),t),\quad m=0,\ldots,M.\eqno(4.3.7)$$
+The surface $B_m$, the projection of $C_m$ into the half-plane $\theta=0$,
+is discretised using $N_m+1$ nodes
+interpolated by cubic splines as described in section 4.2.
+The curvature of $B_m$,
+required in the boundary condition (4.3.6), is
+obtained directly from the splines.
+
+To keep the bubble volumes constant, constraint equations
+in the form of the line integrals
+$$\int_{B_m}{\partial\phi\over\partial n}rds=0,\quad m=1,\ldots,M
+\eqno (4.3.8)$$
+are used.
+
+The calculation of the integrals that make up the boundary integral method
+is essentially as described in section 4.2 except that all of the surfaces
+must now be integrated over for each observation point.
+At each time-step, equations analogous to (4.2.12) and 
+the discrete form of (4.3.8) are solved to yield the
+normal velocities and the constants, $k_m$. The  
+bubble is then stepped through time using the boundary conditions
+(4.3.6) and (4.3.7). A trapezium rule is used for the time integrations.
+\vskip 15pt
+\hbox{\bf 4.4 Steady rise of a bubble through a viscous fluid.}
+\nobreak
+\vskip 5pt
+Consider a bubble rising in a viscous fluid at high Reynolds number.
+Below, we describe a method
+similar to that of Miksis, Vanden-Broeck and Keller (1982), to find
+the steady-state shape reached. They assumed that the bubble 
+remains at a fixed height, otherwise its volume would increase and no 
+steady state could be reached. Viscous forces were included in their
+model in as much as viscous stresses were incorporated into 
+the normal stress balance across the bubble surface. There is also 
+a pressure drop due to the thin boundary layer that exists in 
+the real high Reynolds number flow, but Miksis et al (1982) showed
+this to be negligible compared with the normal stress component,
+$\sigma_{rr}$, on the upper part of the bubble surface. On the lower
+part of the bubble, this pressure drop is not negligible and 
+this, together with the turbulent wake, it was argued, reduces confidence
+in the shape of this part of the bubble as predicted by their calculations.
+
+The formulation of the model used here
+is slightly different from that 
+used by Miksis et al (1982). The method described below was used because it
+was reasonably straightforward to adapt the existing
+boundary integral program of Best and Kucera (1992), 
+although unfortunately it uses more equations. In common with their method
+however it is equally applicable to drops falling as to bubbles rising.
+
+Assume that the fluid around the bubble is incompressible with 
+density, $\rho$, and kinematic viscosity, $\nu$. The bubble is moving
+upward through the fluid at a steady speed, $U$. 
+As explained in section 4.1.1, the change in velocity due to a viscous 
+free-surface boundary layer is $o(U)$. We may therefore assume that 
+the flow can be represented by a velocity potential, $\phi$, so
+that $\nabla^2\phi=0$ outside the bubble which, as usual, we
+denote by $\Omega_-$. Denote the bubble surface itself by $C$.
+At infinity, the fluid is taken to be at rest and the potential
+assumed to vanish there.
+On the bubble there is no normal component of velocity
+relative to $C$, so we must have that, on $C$,
+$${\partial\phi\over\partial n}=Un_z,\eqno (4.4.1)$$
+where $n_z$ is the $z$-component of the unit normal to the bubble.
+
+A normal stress balance on $C$, taking into account the density of gas
+(or liquid), $\rho_b$, inside the bubble gives
+$$p_b-\rho_bgz=p-2\rho\nu{\partial u_n\over\partial n}+\sigma\kappa,\eqno 
+(4.4.2)$$
+where $p_b$ is the ambient pressure within the bubble, $\kappa$ is
+the sum of the curvatures, $\sigma$ is the surface tension and $p$ is
+the pressure on the outside of the interface. If, as in Miksis et al (1982),
+we take the pressure jump across the boundary layer as being
+insignificant, then we may equate $p$ to the pressure outside
+the boundary layer and use Bernoulli's theorem for the potential
+flow region. First, we introduce a frame of reference where the bubble
+is at rest by defining the potential $\psi=\phi-Uz$, so that $\psi\sim-Uz$
+at infinity. 
+This transformation alleviates the need to calculate
+$\partial\phi/\partial t$ in the moving frame.
+Hence we may write down Bernoulli's equation as
+$${p_\infty\over\rho}+{1\over 2}U^2={p\over\rho}+
+{1\over 2}|\nabla\phi-U\bh{k}|^2+gz.\eqno (4.4.3)$$
+If we now eliminate the pressure, $p$, from (4.4.2) and (4.4.3) we get
+$${p_\infty-p_b+{1\over 2}\rho 
+U^2\over\rho}=gz\left(1-{\rho_b\over\rho}\right)
++2\nu{\partial u_n\over\partial n}-{\sigma\kappa\over\rho}+
+{1\over 2}|\bd{u}|^2-U{\partial\phi\over\partial z}+{1\over 2}U^2.
+\eqno (4.4.4)$$
+Following Miksis et al (1982), scale velocities with respect to $U$ and 
+lengths with respect to an equivalent radius, $r_e$, defined from
+the volume, $V=4\pi r_e^3/3$. This reduces (4.4.4) to
+$$1+\gamma+{3\over 4}C_Dz+{8\over Re}{\partial^2\phi\over\partial n^2}
+-{4\over W}\kappa+|\bd{u}|^2-2{\partial\phi\over\partial z}=0,
+\eqno (4.4.5)$$
+where the parameters are defined by
+$$\eqalign{Re&={2Ur_e\over\nu},\cr
+W&={2U^2r_e\rho\over \sigma},}\qquad
+\eqalign{C_D&={8\over 3}\left(1-{\rho_b\over\rho}\right){gr_e\over U^2},\cr
+\gamma&={p_b-p_\infty-{1\over 2}\rho U^2\over{1\over 2}\rho U^2}.}
+\eqno (4.4.6)$$
+
+To solve for the shape of the bubble and the potential on the bubble, the
+intersection of the bubble surface, $C$, with the half-plane containing 
+the axis of symmetry can be 
+discretised and represented using an even number of nodes $N=2K$
+interpolated using  cubic splines as defined above
+by (4.2.2) to (4.2.5). The linear interpolant (4.2.6) gives
+the normal derivative of the potential in terms of its nodal values.
+To describe the properties of the fluid itself, we use the
+Morton number, 
+$$M=\left(1-{\rho_b\over\rho}\right){g\rho^3\nu^4\over \sigma^3},
+\eqno (4.4.7)$$
+and to describe the flow,
+the Miksis et al `cavitation' number, $\gamma$.
+The unknown parameters are the Reynolds number, $Re$, the
+Weber number, $W$, and the drag coefficient, $C_D$. 
+As the problem is axisymmetric, the end nodes are
+explicitly placed on the central axis but at unknown heights.
+We fix the height of the bubble by insisting that it is at its widest at
+$z=0$, and explicitly set $z_K=0$.
+Bearing this in mind, we see that there are a total of $3N+3$ unknowns.
+The effect of a different choice for the bubble
+height, for example setting $z_0$ to zero, would be to introduce a constant into
+equation (4.4.5) and so alter the effective value of $\gamma$.
+The physical requirements that
+$dz/ds=0$ and $\partial\phi/\partial s=0$ on the axis are also explicit
+in view of the spline end conditions given in section 4.2.
+
+It is more convenient to write the term in (4.4.5) involving a
+second normal derivative of the potential in terms of tangential 
+derivatives which are readily calculated numerically from the
+splines. As $\phi$ is harmonic,
+$${\partial^2\phi\over\partial n^2}=-\left({\partial u_t\over\partial s}-
+\kappa^{(t)}u_n+{\bd{u}\cdot\bh{r}\over r}\right),\eqno(4.4.8)$$
+where $\kappa^{(t)}$ is the curvature of the surface in the plane $\theta=0$.
+
+In order to determine the unknowns, Green's formula (2.2.12)
+with $G$ given by (4.2.1) and $k=0$,
+is employed to relate the potential and its normal derivative, the latter of 
+which is given by the condition (4.4.1).
+This is discretised as described in section 4.2
+and, written in the form of (4.2.12), it represents $N+1$ equations.
+
+The Bernoulli condition (4.4.5), likewise gives $N+1$ equations.
+The volume of the bubble is also known: in non-dimensional
+variables, it is
+$$V={4\over 3}\pi.\eqno (4.4.9)$$
+Since $r$ and $z$ are discretised separately, whereas Miksis et al (1982),
+in principle, use $z_i=z(r_i)$ for a known set of values
+$r_i$, we need to 
+fix which one of the infinite number of solutions to take.
+To do this, we set the spacing between all the nodes 
+on the upper surface equal and, separately, all spacings on the lower surface 
+are set equal, namely
+$$\delta s_1=\delta s_2=\ldots=\delta s_K,\quad\hbox{and}\quad 
+\delta s_{K+1}=\ldots=\delta s_N.\eqno (4.4.10)$$
+This gives another $N-2$ equations
+and allows us to choose node $K$ to coincide with the maximum bubble
+radius expressed by the equation 
+$$\bh{n}_K\cdot\bh{k}=0.\eqno(4.4.11)$$
+
+Finally, we use the fact that the Reynolds number may be 
+calculated explicitly in terms of the other parameters
+$$Re=\left({3C_DW^3\over 4M}\right)^{1\over 4}.\eqno (4.4.12)$$
+
+We now have sufficiently many independent equations to solve the
+problem.
+However, as was pointed out above, the 
+drag calculated from the inviscid flow, and therefore which would be
+produced by a solution of these equations,
+does not take into account
+the pressure perturbation of the boundary layer which contributes
+to the drag at the lowest order. In order to compensate for this
+(Miksis et al, 1982)
+we can replace the Reynolds number in (4.4.12) by the value given 
+by Levich's (1949) expression for the drag (see \S 4.1.1).
+This gives the Morton number as
+$$M={3\pi^4C_D^5W^3\over 1024I^4},\eqno(4.4.13)$$
+where $I$ is the non-dimensional form of the energy dissipation
+rate
+$$I=\int_C{\partial\over\partial n}|\nabla\phi|^2dS.\eqno(4.4.14)$$
+Using (4.4.13) in place of (4.4.12) allows a more accurate
+results in the light of the above. After the solution has been found,
+(4.4.12) can then be used to determine a better value for the Reynolds
+number.
+
+For computational purposes the integrand of (4.4.14) is written as
+$$2\left(u_n{\partial^2\phi\over\partial n^2} + 
+u_t{\partial u_n\over\partial s}+u_t^2\kappa^{(t)}\right).\eqno(4.4.15)$$
+
+The system of non-linear equations (4.4.5), (4.4.8), (4.4.9), (4.4.10),
+(4.4.11) and (4.4.12) can then be solved using
+a modified version of Newton's method, where derivatives for the 
+Jacobian are approximated by a simple finite-difference scheme.
+As a starting point, the asymptotic solutions for large $\gamma$,
+given in Miksis et al (1982), are used. In order to get 
+convergence for other values of $\gamma$ the procedure is run
+repeatedly with smaller and smaller values.
+As the Morton number is typically much less than unity, (4.4.13)
+is divided by $M$ in order to allow unbiased determination of the error
+for this equation.
+\vskip 15pt
+\hbox{\bf 4.5 Results.}
+\vskip 5pt
+The following pages show examples of output for the two problems 
+considered in sections 4.3 and 4.4.
+Figures 4.1(a)-(d) show the time evolution for single bubbles
+accelerating from rest at $t=0$. In 4.1(a) the largest bubble,
+with an E\"otvos number of $212$,
+is considered, so that buoyancy forces are much stronger 
+than surface tension. Consequently, a narrow jet of fluid forms below the 
+bubble, eventually impacting on the upper surface, at which
+point the calculations break down.
+In reality, the bubble would evolve into a toroidal vortex ring bubble
+similar to those modelled by Lundgren and Mansour (1991).
+As the E\"otvos number decreases, corresponding 
+to smaller bubbles and higher values of surface tension, the jet
+becomes slower and less pointed. In figure 4.1(b), where $E_o=29.8$,
+the jet only just reaches the far side of the bubble before widening and 
+forming a jet directed radially outwards,
+ultimately pinching off a toroidal bubble and leaving behind a spherical cap.
+
+As the E\"otvos number decreases further, the size of the toroidal bubble 
+that splits off decreases as the jet becomes shorter and wider. For the case 
+$E_o=13.2$, shown in figure 4.1(c),
+the bubble eventually evolves into a shape resembling a skirted bubble.
+Experimentally observed skirted bubbles (Bhaga and Weber,
+1981) rising steadily in viscous fluids are only observed 
+for intermediate Reynolds numbers (between about $10$ and $100$),
+with large E\"otvos numbers (between about $300$ and $1000$).
+As the jet broadens, the skirt thins and the curvature at its rim increases
+until surface tension forces pull it back up to the position shown in the
+final frame. This particular bubble seems to be close to the limiting
+size whereby bubbles larger than this develop a jet which pinches off
+a thin ring and bubbles smaller than this form a jet so wide that the
+bubble forms a crescent shape when viewed in profile.
+
+Figure 4.1(d), a slightly smaller bubble, $E_o=4.8$ is shown. Here
+the effect of surface tension is again exhibited pulling back the rim,
+this time just as a very slow jet starts to form. As the bubble accelerates
+and thins due to the increasing pressure difference across 
+its surface, it begins to develop a secondary jet or dimple on its underside. 
+
+As the bubble becomes thinner and the acceleration decreases,
+the pressure difference between the upper and 
+lower surfaces due to the hydrostatic gradient and the time rate
+of change of the velocity potential becomes less.
+The curvature of the upper and lower surfaces thus become equal
+and the lower dimple is matched by an upper one. Eventually these
+meet, transforming the bubble into a toroidal geometry.
+
+In summary, there seem to be two clear cut-off points which, although
+we have made no attempt to locate them accurately, seem to occur around
+$E_o=30$ and $E_o=13$. The first of these corresponds to the change from the
+jet impacting at a single
+point --- or at least over some simply connected region ---
+of the upper surface, to the jet impacting on a ring --- or doubly
+connected region --- thus breaking the bubble up into a single
+toroidal bubble or a toroidal bubble together with a spherical cap
+respectively.
+The other bifurcation point is when the impact ring reaches
+the rim of the bubble, so that the bubble remains intact, although 
+the resulting high curvature at the rim subsequently pulls it back towards the 
+centre of the bubble.
+We should point out that continuing these calculations indefinitely
+to ascertain the long-term behaviour of the bubbles that remain in one piece
+can be seen as somewhat unrealistic in that we are ignoring
+the drag on the bubble which would ensure that they would
+reach a terminal rise speed, rather than keep on accelerating, albeit
+slower as the added mass increases.
+
+The similarity between figure 4.1 and the results of 
+Chapter 2 are clear, showing the value of the study
+of two-dimensional bubbles as an indication of the
+behaviour in the axisymmetric case.
+The major difference between this and the two-dimensional case
+is that due to the greater mobility of the fluid moving in a 
+three dimensional geometry, liquid is more easily drawn in to form a 
+jet. Consequently for large bubbles jets may penetrate the
+bubble and impinge on its upper surface. For the two-dimensional
+case, this is not so: even for effectively infinite E\"otvos numbers
+the jet broadens out due to the downward pull of gravity before 
+being able to reach the far side. The broadening jet in the axisymmetric
+case is a result of surface tension acting so as to prevent 
+the sharpening of the jet, rather than of gravity alone.
+
+In figures 4.2(a) and (b),
+the interaction of two identical bubbles is examined. 
+In each case, $\gamma_1=0$ and $\gamma_2=-2.5$.
+In 4.2(a), $E_o=212$ and we find that the jet of the upper bubble
+is noticeably broader than that of the lower bubble, and 
+slightly broader than the case of 
+a single bubble of the same size (see figure 4.1(a)). 
+However the increased pressure at the
+top of the lower bubble, as compared to case when this second  
+bubble is not there, (see figure 4.5(a))
+has the effect of making the tip speed of 
+the jet on the upper bubble slightly faster than for a single bubble of 
+equal size. This can be seen by comparing figures 4.1(a) and 4.2(a)
+at $t=0.91$ and $t=1.2$.
+Although the upper part of the lower bubble
+is pulled upwards slightly with the jet of fluid into the upper bubble,  
+this effect is not as great as in 
+the two-dimensional case (Robinson, 1992; Robinson et 
+al, 1993). The volume flow rate across a normal to a
+sphere, radius $a$, placed in a uniform stream, $\phi\sim Uz$ at infinity
+is $U\pi a\sin^2\theta$, per unit length of normal.
+The corresponding rate for a cylinder is $Ul\sin\theta$,
+where $l$ is the length of the cylinder. 
+Since for small $\theta$ the expression for the spherical case
+is an order of magnitude smaller, we may expect that 
+the fluid in the jet of the axisymmetric bubble to originate mainly
+from the sides rather than from the underneath. Comparing
+figures 2.1 and 4.1(a) --- both for large bubbles with buoyancy 
+dominant --- seems to bear this out:
+the initial jet is much narrower for the case of the cylindrical bubble.
+The result of this when a second bubble obstructs the flow 
+beneath the upper bubble is that the jet speed in the top one
+is largely unaffected as the bulk of the volume is drawn from
+the sides, so that the lower bubble is not drawn into the jet
+as much as it is in the two-dimensional case.
+The lower jet differs little from the jet of a single bubble except 
+that careful comparison with figure 4.1(a) shows it to be
+slightly faster. This can be seen as a result
+of the lower bubble becoming thinner due to the flow around the upper
+bubble, and therefore rising faster ---
+a similar `slipstreaming' behaviour was reported for the 
+two-dimensional case (Robinson, 1992; Robinson et al, 1993).
+
+For smaller bubbles, $E_o=13.2$, shown in 
+figure 4.2(b), the interaction is less strong
+due to the bubbles widening as very broad jets form, thus
+increasing their separation.
+However ring bubbles at the bottom of both bubbles are
+now seen to split off
+rather than be pulled back by surface tension as in the case of the 
+single bubble. This is likely to be as a result of slightly faster jets
+as in figure 4.2(a).
+In general, the effect of the following bubble is the same as for the
+larger bubbles in the previous figure, for instance in the final frames
+of both figures the lower bubble is taller and wider than the upper one.
+
+Figure 4.3(a) shows how the high pressure due to surface tension
+on the concave sections of the bubble of figure 4.1(c)
+acts against further lengthening of the jet. The low pressure around the 
+ring tip (figure 4.3(b)) of the bubble intensifies as the jet broadens.
+Here unlike the two bubble case of figure 4.5 (corresponding to figure
+4.2(b)), the high pressure below 
+the bubble does not extend far into the broad jet, so that the low pressure 
+is able to pull back the rim before the jet pinches it off.
+Figure 4.4 shows the pressure distribution for the two bubbles shown in
+figure 4.2(a)
+
+The bubble shapes for the steady-state problem of section 4.4
+are shown in figure 4.6(a) and (b)
+for the cases $M=1.75\times 10^{-7}$, and $M=10^{-5}$
+respectively. In each case $\gamma$
+decreases in successive frames.
+These compare well with the results of Miksis et al (1982).
+As one may expect, as $\gamma$
+is reduced due to the pressure difference between the points on the
+axis and at the edge of the bubble increasing, the Weber number, $W$, 
+which relates this pressure difference to the pressure drop due to surface
+tension increases and the bubble thus becomes more elliptical
+(see \S 4.1.1). A smaller 
+Morton number has the effect of decreasing the buoyancy and viscosity and 
+increasing surface tension. One effect of decreasing buoyancy is to 
+lessen the pressure difference on the 
+upper and lower surfaces thus increasing
+fore and aft symmetry of the bubble. The case for the larger Morton number 
+shows that
+the lower surface has become slightly concave for $\gamma=0$, while the upper 
+surface is strongly curved in the opposite direction.
+
+Figure 4.7(a) shows the relationship between the drag coefficient and the 
+Reynolds number. This agrees with the calculations of Miksis et al 
+(1982). For much larger Morton numbers (above about $4\times 10^{-3}$),
+the curve relating the drag to the Reynolds number does not
+have a minimum value as it does here (Harper, 1972; Bhaga and Weber, 1981).
+
+Figure 4.7(b) shows the effect of the bubble ellipticity,
+$\chi=2r_K/(z_N-z_0)$, on the Weber number.
+The case for $M=0$, which is calculated using the method described 
+in section 4.4 by neglecting the viscous and the buoyancy terms
+from equation (4.4.5), is also included.
+This reduces the number of unknowns by $2$.
+In addition, equation (4.4.13) was dropped as was (4.4.11) which
+is redundant due to the symmetry of the new problem. The results show
+a maximum value for the Weber number, as identified by Moore (1965),
+at about $3.59$. Miksis et al (1981) found this value to be $3.23$.
+

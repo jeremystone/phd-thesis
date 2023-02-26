@@ -1,0 +1,68 @@
+%Bioreactor
+\vbox{
+\setcoordinatesystem units <4pt,4pt>
+$$
+%Container
+\setlinear
+\putrule from -15 35 to -15 5
+\putrule from -10 0 to 10 0
+\putrule from 15 5 to 15 35
+\putrule from -15.3 35 to -15.3 5
+\putrule from -10 -.3 to 10 -.3
+\putrule from 15.3 5 to 15.3 35
+\putrule from -15.3 35 to -15 35
+\putrule from 15.3 35 to 15 35
+\circulararc -90 degrees from -10 0 center at -10 5
+\circulararc 90 degrees from 10 0 center at 10 5
+\circulararc -90 degrees from -10 -.3 center at -10 5
+\circulararc 90 degrees from 10 -.3 center at 10 5
+%Stirrer
+\putrule from 1 40 to 1 10
+\putrule from 1 10 to -1 10
+\putrule from -.7 40 to -.7 10
+\putrule from -1 10 to -1 40
+\putrule from -1 10 to 1 10
+\putrule from 5 10 to 10 10
+\putrule from 10 10 to 10 15
+\putrule from 10 15 to 5 15
+\putrule from 5 15 to 5 10
+\putrule from -5 10 to -10 10
+\putrule from -10 10 to -10 15
+\putrule from -10 15 to -5 15
+\putrule from -5 15 to -5 10
+\putrule from -5 13 to -1 13
+\putrule from -5 12 to -1 12
+\putrule from 1 13 to 5 13
+\putrule from 1 12 to 5 12
+%Sparger
+\putrule from 7 7 to 7 3
+\putrule from 7 3 to 25 3
+\putrule from 8 7 to 8 4
+\putrule from 8 4 to 25 4
+%Bubbles
+\circulararc 360 degrees from -4 20 center at -3 20
+\circulararc 360 degrees from 4 22 center at 4.7 22
+\circulararc 360 degrees from -10 30 center at -9.5 30
+\circulararc 360 degrees from 6.8 8 center at 7.5 8.5
+%Free surface
+\putrule from -15 33 to -1 33
+\putrule from 1 33 to 15 33
+%Labels
+\plot -8 12 -35 15 /
+\put {Impeller} at -35 17
+\plot -4.5 20.3 -30 35 /
+\plot -10.5 30.3 -30 35 /
+\put {Gas bubbles} at -30 37
+\plot 0 25 20 35 /
+\put {Impeller shaft} at 20 37
+\plot 20 3.5 30 8 /
+\put {Air sparger} at 30 10
+$$
+{
+\baselineskip 15pt
+\medrm
+\parindent 0pt
+Figure 1.1. Components of a bioreactor, with the air sparger
+placed beneath the agitator.
+}
+}

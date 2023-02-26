@@ -1,0 +1,1401 @@
+\vbox{
+\c{\bigrmb Chapter 5.}
+\vskip 1cm
+\c{\bigrm BURSTING BUBBLES.}
+\vskip 15pt
+\hbox{\bf 5.1 Introduction.}
+\vskip 5pt
+} 
+\c{\it 5.1.1 Summary.}
+\vskip 5pt
+When a small bubble bursts at a gas/liquid interface,
+the fluid motion subsequent to film rupture is
+driven by surface tension. The 
+high curvature at the rim of intersection of the bubble with the
+free-surface creates a large pressure difference
+which rapidly pulls it outward and downward. 
+At the same time, the base is drawn inwards as
+the cavity wall straightens. Eventually, the converging flow near the
+base causes a liquid jet to be thrown upward at high speed,
+often several metres per second. 
+The jet, as it rises, may break up into a number of drops. The corresponding
+downward jet may be expected to advect vorticity from the boundary
+layer around the bubble cavity into the region below.
+Various aspects of this motion have been studied experimentally
+by a number of researchers --- Kientzler, Arons, Blanchard and Woodcock (1954),
+Newitt, Dombrowski and Knelman (1954), Garner, Ellis and Lacey (1954)
+and MacIntyre (1972).
+A numerical model based on an inviscid boundary integral 
+scheme is used in this chapter to model these bursting processes. 
+Viscous effects are included in an attempt to model the 
+boundary layer and the subsequent distribution of vorticity in the
+downward jet region.
+\vskip 15pt
+\c {\it 5.1.2 Background.}
+\vskip 5pt
+The first event occurring when a bubble bursts is the rupture of the
+thin lamella that separates the bubble from the atmosphere above
+the free-surface.
+There is a substantial body of literature relating to films
+and film drainage. The assumptions
+that must be made when dealing with thin films are completely 
+different from those used below for a bubble in a high Reynolds 
+number flow. Here, viscosity plays an important role in 
+determining the drainage and stability properties of lamellae.
+Film stability has three main causes (see for example 
+Bikerman, 1973). 
+The first of these is
+surface viscosity, whereby the presence of surfactants causes the
+film surfaces to have a higher viscosity than the central parts.
+This viscosity can be non-Newtonian and may also give the surfaces of the 
+film crust-like properties which can, like a solid,
+resist stresses up to a certain yield point. Another stability mechanism
+is the Marangoni effect --- a kind of restoring property for
+contaminated surfaces. If a film thins over a small region, the 
+surface area will increase locally thus decreasing the surfactant
+concentration there. The resulting surface tension gradient can pull the 
+surrounding surface towards the thin region. The fluid beneath the surface
+flows with it because of viscosity, thus thickening the film.
+Repulsion of the opposite sides of the surface 
+due to electrical dipoles is the third cause of stability.
+Acting against these electrostatic forces there are 
+London-van der Waals forces that tend to pull the two sides of the
+film together, thus increasing the tendency to rupture. However
+both of these forces act over a very short range (of the
+order of $100nm$) and
+have an effect in only the latter stages of thinning.
+Early on, while the film is thicker,
+there are two main mechanisms for drainage.
+Obviously, one is gravity.
+The second is due to Plateau borders 
+(see Bikerman, 1973). These are 
+regions of high surface curvature, 
+particularly in foams, causing low pressures at the `corners' of a bubble. 
+This mechanism is not so important when applied to a single 
+bubble, where the curvature is almost
+constant before it bursts.
+
+With respect to bubbles approaching a free-surface, 
+experimental and theoretical aspects are considered
+in a number of papers.
+Allan, Charles and Mason (1961) measured the thickness of the film
+above a bubble. They found that the thinnest part of the film
+moves out from the centre to a circular rim.
+The radius of this rim, $c$, which remains almost constant, 
+was found to agree well with the expression 
+$c=\sqrt{E_o/6}$, based on a balance of surface tension and buoyancy
+forces, where $E_o$ is the E\"otvos number.
+The thinning rates found also match theoretical
+estimates based on a pair of parallel discs or on the 
+film between a rigid sphere and a free-surface. They also observed 
+that the presence of
+surfactants markedly reduced the thinning rates.
+
+Hahn, Chen and Slattery (1985) used a lubrication theory approximation
+including the effects of London-van der Waals forces
+to model the draining of a film above a bubble. 
+In this way they were able to obtain
+estimates for the rupture time, taken as the time for the rim 
+thickness to become zero. 
+However, they mentioned that the geometry used, which
+prevents any asymmetric instabilities, and the assumption that there
+is no tangential motion on the surfaces due to the presence of
+surfactants, means that the model gives only an upper bound for 
+the rupture time. Electrostatic
+repulsion was also neglected.
+
+The effect of the approach speed of a bubble
+towards a free-surface was investigated by Kirkpatrick and Lockett (1974).
+They found that for larger velocities (above about $1cm/sec$
+for $2.5mm$ radius bubbles in water),
+the thinning process
+does not have time to complete before the bubble is decelerated to
+rest by surface tension, which may then push it back into the 
+fluid. In contrast, a bubble that is released just below the surface
+and so does not have time to accelerate to its terminal velocity
+is found to burst almost immediately, without bouncing. A simple mathematical 
+model, based on the fact that the rate of thinning 
+is inversely related to the area of the film was developed, 
+leading to the same general conclusion. Minor impurities in the water
+were found to be insignificant, but with a larger amount of surfactant
+($0.6$ molar sodium chloride)
+the coalescence times became longer, with
+little to distinguish between low and high approach velocities.
+
+A film is said to be
+unstable (Scheludko, 1962), if there is some critical thickness at which point
+small perturbations on the surface will
+grow causing a hole to appear (Vrij, 1966) which,
+provided that it is big enough (Taylor and Michael, 1973), then expands due to
+surface tension, thus rupturing the film. 
+One of the earliest investigations of film rupturing was by 
+Lord Rayleigh (1891), who applied high-speed photography to 
+view the bursting of soap films. Newitt et al (1954) show a 
+photograph which exhibits clearly the breakup of a liquid film
+into a `lace-like' structure of liquid threads, each of which breaks
+up into a number of tiny droplets. 
+The fluid in the film gathers up into a toroidal rim which 
+often breaks irregularly into a number of threads (Rayleigh, 1891;
+Ranz, 1959) which then break into more tiny droplets. 
+This rim itself is expanding too rapidly to
+be broken up by capillary ripples, as in the case of the jet (MacIntyre, 1972).
+Instead,
+this breakup is due to the effects of variations of surface tension and film 
+thickness and, in the case of bubble burst, this is coupled with the 
+effect of turbulence from the escaping air.
+The droplets formed in the film are much smaller than the
+jet drops mentioned below (Newitt et al, 1954; Garner et al 1954) and
+are projected sideways by the expansion of the bursting film and upwards
+by the rush of gas as the pressure in the bubble is released.
+Droplet speeds may be as high as $10m\,s^{-1}$ (Resch et al, 1986).
+By exploiting a simple
+energy balance argument, Culick (1960) showed that the speed 
+of the retreat of the film is given approximately by 
+$v=\sqrt{2\sigma/h\rho}$ where $h$ is the film thickness,
+usually just a few microns.
+By comparing the portion of the energy used in the inelastic 
+acceleration of fluid entering the rim with the viscous energy dissipation,
+he showed that the length of fluid being
+accelerated is about $h\mu v/\sigma$, which is typically of the 
+order of the film thickness.
+
+The subsequent bubble bursting motion which takes place on a longer
+time-scale --- a few milliseconds as opposed to
+times of the order of $100\mu s$ for the film rupture (Resch et al, 1986)
+--- is better suited to study by high-speed photographic methods. 
+After film rupture, 
+what remains of the toroidal film rim was observed by MacIntyre (1972)
+to follow a ripple down the sides of the bubble. This flow converges at the 
+base of the bubble and a high-speed jet is thrown upwards.
+By using dyes in the fluid, it was shown by MacIntyre
+that the liquid in the jet originates in a thin layer surrounding the 
+bubble crater.
+Very little mixing of the dye with surrounding fluid during jet formation 
+indicated that the flow at the base of the jet is irrotational. MacIntyre was also able
+to observe the corresponding downward jet of fluid that must occur on
+grounds of momentum conservation by its effect of propelling tiny bubbles
+into the fluid beneath the bursting bubble.
+Kientzler et al (1954) also show clear pictures of the complete bursting process
+from immediately after the film rupture up to and including the formation and breakup
+of the high-speed liquid jet. 
+
+The fact that a narrow jet breaks up into a number of drops is well known.
+Rayleigh (1878), by considering the change in surface area
+of a jet subjected to a symmetric disturbance, showed it to be stable provided
+that the wavelength of the perturbation is shorter than 
+the circumference of the
+jet. The  most destructive mode was shown to have wavelength
+$\lambda\approx 4.508\times 2a$ where $a$ is the jet radius.
+
+The evidence above relating to the origin of the material in the jet 
+is significant in the study of cell damage by bubbles, since 
+it has been reported by Blanchard and Syzdek (1972) that bacteria 
+tend to become adsorbed onto bubble surfaces. Similar results have been
+found for insect cells by Bavarian, Fan and Chalmers (1991). This 
+was followed up by Chalmers and Bavarian (1991) who claimed
+that the hydrodynamic forces due to the shear in the boundary layer
+around the walls of the bubble cavity
+are sufficiently large to kill cells. They
+also postulated a second mechanism based on Culick's (1960)
+finding of the small length
+of fluid accelerating as the rupturing film recedes.
+Cells may be struck by the advancing toroidal rim as they sit on
+a stationary part of the bursting lamella. Experiments
+by Kowalski (1991) also highlight this as a likely cause of
+cell damage.
+\vskip 15pt
+\c {\it 5.1.3 Aims.}
+\vskip 5pt
+The primary aim of this chapter is to produce a numerical
+model of a bursting bubble, which agrees with the experimental 
+results indicated above. In particular, the model should predict 
+the high-speed liquid jet, together with
+the corresponding downward jet.
+Calculations can then be made of the stresses imposed on a particle
+in the vicinity of a bursting bubble.
+The effects of viscosity, leading to a boundary layer and high shear rates, are 
+also of interest as they may further increase the damaging potential of the
+burst. An estimate of the contribution to the stress on a cell
+due to shear in the downward jet region is also sought. Such information
+may provide useful evidence for or against particular
+proposed cell damage mechanisms. 
+
+We do not address a numerical study
+of the film rupturing process itself, nor do we discuss here
+the stresses on a particle resting on the film as it breaks:
+this will be left for the future. 
+We will use the term `burst' to refer to the events that occur
+after the completion of the film rupturing process.
+Although we neglect the dynamics of the film rupture it is 
+important to consider the effect that the film has on the position of
+a bubble at a free-surface.
+Since it is clear that the burst will be driven by the potential energy
+stored in the initial bubble configuration, both in terms of
+surface energy and buoyancy,
+the starting shape and height of the bubble with respect to the free-surface
+is critical in determining the consequent flow.
+\vskip 15pt
+\hbox{\bf 5.2 Problem statement.}
+\vskip 15pt
+\c{\it 5.2.1 Inviscid formulation.}
+\vskip 5pt
+The photographic evidence of Kientzler et al (1954) indicates that
+Reynolds numbers for a bubble bursting, 
+from the time just after film rupture to the 
+rise of the jet, are of the order of $1000$.
+We may therefore assume that, up until the formation of the jet,
+any vorticity is limited to thin boundary
+layers around the air/water interfaces, so that the velocity
+distribution may be reasonably represented by
+potential flow, $\bd{u}=\nabla\phi$.
+Again, as we are only interested in bubbles in close
+proximity to the free-surface, we assume that any rising bubbles
+remain of fixed volume.
+
+The solution domain, $\Omega_-$
+(see figure 5.1), is defined to be the 
+semi-infinite region bounded above by the free-surface, $C_0$, and
+internally by the bubbles \hbox{$C_m$, $(m=1,\ldots,M)$}.
+The free-surface coincides with the $(x,y)$-plane at infinity. 
+
+Formally, this problem is a simple extension of that in section 4.3
+with a free-surface included.
+Here bubble $m$ is situated on the $z-$axis at a distance 
+$\gamma_m(>0)$ below $C_0$.
+As the bursting phenomenon is dominated by surface tension forces,
+especially for the smaller bubbles, we scale times with respect to 
+$(\rho a^3/\sigma)^{1/2}$
+and pressures by the factor $\sigma/a$, $\sigma$ being the surface tension
+and $a$ the radius of bubble $1$.
+
+The code was written to allow bubbles to either rise up to an
+initially flat free-surface and burst as they reach it,
+or so that a bubble will have just burst
+at $t=0^-$, when the calculation is started. The latter option
+allows us to include more physical reality into the problem 
+without worrying too much about surface drainage. The method
+for finding the initial surface shape in this case is discussed in section 5.2.2.
+
+The E\"otvos number, $E_o={4\rho ga^2/\sigma}$, again
+enters as an explicit parameter in the boundary conditions. It
+measures the bubble size and represents the 
+square of the ratio of the two time-scales associated with the
+collapse, due to surface tension,
+of a spherical cavity whose contents remain fixed
+at the ambient pressure of the fluid and with the rise of a bubble due
+to gravity. 
+During bubble burst, this parameter therefore measures
+the relative importance of bubble rise and bubble collapse.
+For the smallest bubbles, the effect of buoyancy
+will clearly be secondary to surface tension forces.
+\vskip 10pt
+\input fig51
+\vskip 10pt
+If we again define 
+$$f\Big|_{C_m}=\phi\Big|_{C_m}+k_m,\eqno(5.2.1)$$
+with $k_m$ given by (4.3.5) for $m=0,\ldots,M$
+(note that $k_0=0$ for all times),
+the dynamic condition for updating $f$ on the
+boundaries is 
+$${Df\over Dt}\Big|_{C_m}={1\over 2}|\bd{u}|^{2}-
+{E_o\over 4}(z+\gamma_m)+
+\kappa-\kappa_m, \quad m=0,\ldots,M.\eqno (5.2.2)$$
+
+We again use the constraint equations (4.3.8) to fix the
+bubble volumes as they rise.
+\vskip 15pt
+\c {\it 5.2.2 Initial configuration.}
+\nobreak
+\vskip 5pt
+\nobreak
+Certain questions have to be addressed in order to produce a good 
+model of the bursting process.
+As the film above the bubble will be very thin, we
+assume for the purposes of this chapter that the film itself will
+have no significant effect on the subsequent motion.
+The rupture of the film may have dire consequences for cells
+adsorbed onto the upper surface of the bubble, but
+this is neglected in this investigation.
+ 
+If we can ignore the film, then
+when a bubble is `burst' numerically, a decision 
+still has to be made as
+to the amount of film above the bubble to remove before reconnecting
+the bubble cavity to the free-surface. This will invariably be
+greater than the total amount of fluid in an actual
+film because of the difficulty in calculating
+the bubble and surface motion with
+the bubble much closer to the surface 
+than the length of a single boundary integral element (see \S 5.3).
+However, numerical experimentation has shown that, provided not too
+much fluid above the bubble is thrown away, this
+has little effect on the subsequent bursting motion.
+It would, in any case, be inappropriate to assume that the 
+irrotational model can accurately predict the fluid flow
+in the film when it becomes thin.
+In the case where surfactants are present various physico-chemical phenomena
+such as surface viscosity may become important so that stress-free
+interfacial boundary conditions become invalid.
+It is thus hard to see how the rupture time 
+can be determined based on the calculated thickness of the
+film other than by matching a modified lubrication
+layer for the film onto the inviscid model.
+The rupture-time calculations of Hahn et al (1985) 
+are likewise difficult to implement, firstly because they are 
+inaccurate as indicated in section 5.1.2, but also because of the 
+problem of identifying with any certainty
+their initial time, when the draining rate 
+of the film above the bubble is independent of radial position.
+It is suggested, however, that this time 
+will be close to the time that the bubble comes to rest at the surface.
+
+It seems clear, that one of the most important factors determining 
+the motion following film rupture, in terms of the energy released, 
+is the height
+of the top of the bubble above the equilibrium free-surface position. 
+The experimental study of Kirkpatrick and Lockett (1974)
+indicates that bubbles moving at speeds approaching terminal
+velocity, upon reaching the free-surface, tend to 
+bounce a couple of times before bursting.
+It has also been observed (see for example Newitt et al 1954 or 
+Allan et al, 1961) that a bubble may rest for a short time at the  
+free-surface before bursting.
+In any case, we assume that the thinning of the film
+and the instabilities which
+eventually rupture it when it reaches a critical
+thickness are to some extent asynchronous with the bouncing 
+of the bubble and that,
+on average, 
+a bubble will burst at its static equilibrium position when the 
+buoyancy force is equal to the downward component of surface tension.
+For a spherical bubble in a pure liquid, 
+the non-dimensional height above the surface of the top of the
+bubble is approximately
+$$h=1-\sqrt{1-E_o/6}.\eqno(5.2.3)$$
+This is equivalent to the formula given by
+Allan et al (1961) for the radius
+of the rim of intersection of the free-surface
+and the bubble, in terms of the bubble radius.
+Here, we use a pressure balance to find the equilibrium bubble 
+and meniscus shapes, employing equation (5.2.3) as a first approximation.
+If $\sigma_{ij}$ are the surface tensions of the interfaces $(i,j)$,
+(see figure 5.2) then 
+force balances in the $r$ and $z$ directions give us respectively,
+$$\eqalignno{
+\sigma_{13}\cos\theta_c=&\sigma_{12}\cos\phi_c+
+\sigma_{23}\cos\psi_c-{K\over r_c}&(5.2.4)\cr
+\noalign{\hbox{and}}
+\sigma_{13}\sin\theta_c=&\sigma_{12}\sin\phi_c+\sigma_{23}\sin\psi_c,
+&(5.2.5)}$$
+where $K$ is the line tension from the intersection of the three interfaces.
+A subscript $c$ denotes evaluation at this contact line.
+In general, the value of $K$ depends on the geometric configuration 
+of the interfaces 
+as well as the physical properties of the fluids 
+(see Ivanov, Kralchevsky and Nikolov, 1986).
+\vskip 10pt
+\input fig52
+\vskip 10pt
+It is convenient at this point to follow Ivanov et al (1986) and
+rescale lengths with respect to the 
+mean radius of curvature, $b$, of the lowest point of the bubble.
+Correspondingly scaled quantities will be indicated by an overbar.
+We also introduce the quantity $\beta=\rho g b^2/\sigma$ (similar to the 
+E\"otvos number, $E_o$), where $\sigma=\sigma_{12}=\sigma_{23}$.
+If we write $\bar{\tau}=\sigma_{13}/\sigma$ and $\bar{K}=K/b\sigma$,  
+the experimental evidence of Ivanov et al (1986) suggests that 
+$$|\bar{\tau}-2|\ll 1,\quad\hbox{and}\quad|\bar{K}|\ll 1.\eqno(5.2.6)$$
+As angles $\theta_c$, $\phi_c$ and $\psi_c$ must be acute, (5.2.4) and (5.2.5) give
+approximate solutions, 
+$\theta_c=(\phi_c+\psi_c)/2$ and
+$\phi_c=\psi_c$, namely $\theta_c=\phi_c=\psi_c$.
+
+Let $(\bar{R},\bar{Z})$ be the rectangular coordinates of a point
+in a half-plane containing the axis of symmetry, centred on the lowest
+point of the bubble crater.
+A simple consideration of the pressure jump across the interface 
+$(1,2)$ shows that
+the shape of the bubble cavity is described by the differential system
+$$\eqalignno{
+{d\bar{R}\over d\phi}=
+&{\bar{R}\cos\phi\over(2+\beta \bar{Z})\bar{R}-\sin\phi},&(5.2.7)\cr
+{d\bar{Z}\over d\phi}=&-\tan\phi{d\bar{R}\over d\phi},&(5.2.8)}$$
+with boundary conditions
+$$\bar{R}=\bar{Z}=0,\quad\hbox{at}\quad\phi=\pi.\eqno(5.2.9)$$
+We denote the values of $\bar{R}$ and $\bar{Z}$ at $\phi=\phi_c$ 
+by $\bar{Z}_c$ 
+and $\bar{R}_c$ respectively.
+
+Similarly, the meniscus (interface $(2,3)$) has shape 
+$\bar{z}=\bar{h}(\bar{r})$
+which is governed by the second-order
+equation
+$$\bar{h}''=\left(-{\bar{h}'\over r}+\beta\bar{h}(1+\bar{h}'^2)^{1/2}\right)
+(1+\bar{h}'^2),\eqno(5.2.10)$$
+with the two-point boundary conditions
+$$\bar{h}'(\bar{R}_c)=-\tan\psi_c,\quad\hbox{and}\quad\bar{h}(\infty)=0.
+\eqno(5.2.11)$$
+Aymptotic solutions for both the bubble cavity and meniscus shapes 
+exist for small values of $\beta$ and $\bar{R}_c$ respectively 
+(see Ivanov et al, 1986
+and Lo, 1983). However, for larger bubbles these 
+expressions are less accurate and 
+so a numerical solution is used here.
+
+The system given by (5.2.10) and (5.2.11)
+can be solved using a technique similar to that of Princen
+(1963), by choosing a value for $\bar{h}_c\equiv\bar{h}(\bar{R}_c)$ and  
+performing a simple bisection search
+depending on whether the solution tends to infinity or dips below 
+the $z=0$ plane.
+It is not possible for the interface shape in static
+equilibrium to have a maximum above or a minimum below the 
+$(x,y)$-plane: the curvature at such a stationary point 
+would be inconsistent with the hydrostatic pressure difference.
+Since the meniscus meets the bubble at $\bar{r}=\bar{R}_c$, 
+we have that the bubble
+position in the fluid is given by
+$$\bar{z}=\bar{Z}(\phi)+\bar{h}_c-\bar{Z}_c.\eqno(5.2.12)$$
+
+We further assume the film separating the bubble
+from the atmosphere to be very
+thin and thus gravity forces negligible compared to the effect 
+of pressure so that
+the film may be taken to be spherical with radius $\bar{c}$.
+Using this to equate the pressure in the bubble given in terms of the 
+pressure jump across the spherical
+film, with that given by the hydrostatic pressure at the bottom
+plus a corresponding jump due to 
+surface tension there, gives 
+$${4\over\bar{c}}=2+\beta(\bar{Z}_c-\bar{h}_c).\eqno(5.2.13)$$
+Since the dome is spherical, $\bar{R}_c=\bar{c}\sin\theta_c$ and,
+bearing in mind that the critical angles are assumed equal,
+(5.2.13) can be written as
+$$\bar{R}_c\left(1+{\beta\over 2}(\bar{Z}_c-\bar{h}_c)\right)=
+2\sin\phi_c.\eqno(5.2.14)$$
+
+Equation (5.2.14) fixes the height of the bubble in the 
+fluid, but we also need an equation to
+set the volume.
+The volume of the bubble with the new scalings is
+$$\bar{V}=4\pi(E_o/4\beta)^{3/2}/3.\eqno(5.2.15)$$
+Note that the volume, $\bar{V}$, is calculated by adding the 
+volume for the region of the bubble below the ring of
+intersection, $\bar{V}_{12}$, which can be found numerically, to the 
+volume of the spherical dome with radius 
+given by equation (5.2.13), thus
+$$\bar{V}=\bar{V}_{12}+\pi\left[{2\over3}\big(\bar{c}^3-
+(\bar{c}^2-\bar{R}_c^2)^{3/2}\big)-
+\bar{R}_c^2(\bar{c}^2-\bar{R}_c^2)^{1/2}\right].\eqno(5.2.16)$$
+The solution method is to firstly select an approximation
+for the unknown variables, $\phi_c$
+and $\beta$. These are given by the assumption that the bubble 
+is almost spherical, radius $a$ with the
+top a non-dimensional height above the free-surface given by (5.2.3), so that
+$$\bar{R}_c^{(0)}=\sqrt{E_o/6},\eqno(5.2.17)$$ 
+thus
+$$\phi_c^{(0)}=\arcsin(\bar{R}_c^{(0)}),\eqno(5.2.18)$$
+and
+$$\beta^{(0)}=E_o/4.\eqno(5.2.19)$$
+For this initial approximation, we must restrict $E_o$ to be less than $6$, 
+which imposes a maximum on the bubble radius of about $0.34cm$.
+Newton iteration is used to calculate the values of $\phi_c$ and
+$\beta$ subject to
+the equations (5.2.14) and (5.2.15) with $\bar{V}$ given by (5.2.16).
+
+An alternative bursting mechanism 
+which will work well only for
+small bubbles, but that illustrates the importance of a physically realistic
+bursting procedure for larger bubbles can be used for bubbles that have
+been followed numerically from a distance below the free-surface. 
+This is to simply burst the bubble when its uppermost nodes become 
+closer to the free-surface than some critical distance.
+Any points on the bursting
+bubble or free-surface closer together than some other prescribed distance
+are removed. The remains of the bubble and free-surface
+are then re-joined to form an indented free-surface. We assume that 
+the burst takes place in an instant, so that the potentials on the
+other parts of the bubble are unaffected. 
+Note, however, that when the $m$th bubble bursts the constant, $k_m$, 
+must be subtracted
+from the  potentials on that bubble before re-connecting it
+to the free-surface.
+To smooth the new surface
+slightly at the join, a new node is added at the 
+midpoint of the first nodes removed from the 
+old surfaces and the potential at this node
+is simply taken as the average of the potentials at the 
+old two nodes.
+The calculation is then allowed to continue.
+This method of bursting can be anticipated to 
+result in a significant overestimate of the energy release
+when a large bubble bursts, as shown below.
+\vskip 15pt
+\hbox{\bf 5.3 Solution by boundary integral method.}
+\vskip 5pt
+The solution method relies on writing Laplace's equation for the
+potential, $\phi$, in the form of 
+an integral equation, which can be solved in a discrete form.
+Define the surfaces $\partial\Omega$, the
+boundary of $\Omega_-$, and $C=C_0(R)\cup \tilde C_0(R)
+\cup C_1 \cup\cdots\cup C_M$,
+where $\tilde C_0(R)$ is a spherical arc of radius $R$, centred at a
+point $\bd{x}^\star\in\Omega_-\setminus\partial\Omega$,
+and take  $C_0(R)$ to be
+the finite portion of $C_0$ extending as far as
+$\tilde C_0(R)$, in such a  way that $\tilde C_0(R)\cup C_0(R)$ encloses
+all of the $C_m$, $(m=1,\ldots,M)$.
+If we now chose a point $\bd{x}$ on $\partial\Omega$,
+we may use Green's integral formula written in the form
+$$\phi(\bd{x}^\star)-\phi(\bd{x})=\int_C
+\left(G(\bd{x}^\star,\bd{x}'){\partial\phi\over\partial n}(\bd{x}')-
+(\phi(\bd{x}')-\phi(\bd{x})){\partial G\over\partial n'}
+(\bd{x}^\star,\bd{x}')\right)dS',\eqno(5.3.1)$$
+where
+$$G(\bd{x}^\star,\bd{x}')={1\over 4\pi |\bd{x}^\star
+-\bd{x}'|},
+\eqno (5.3.2)$$
+is the fundamental solution of the three-dimensional Laplace 
+equation. As the fluid is at rest at infinity,
+we assert that $\phi(\bd{x})\rightarrow 0$
+as $|\bd{x}|\rightarrow\infty$
+and so for $\bd{x}'\in\tilde C_0(R)$, 
+$dS=O(R^2)$,
+$\phi=O(1/R)$
+and $\partial\phi/\partial n=O(1/R^2)$ as $R\rightarrow\infty$.
+It is clear that the integral over 
+$\tilde C_0(R)$ (with the exception of the term in $\phi(\bd{x})$
+which approaches the value $-\phi(\bd{x})/2$)
+behaves as $1/R$ and so vanishes when we take the limit
+$R\rightarrow\infty$. We also take the
+limit $\bd{x}^\star\rightarrow\bd{x}$, which is trivially
+done, due to the regularity of the integral.
+As the principal value integral of the remaining term 
+in $\phi(\bd{x})$ is now zero, 
+$${1\over 2}\phi(\bd{x})=\int_{\partial\Omega}
+\left(G(\bd{x},\bd{x}'){\partial\phi\over\partial n}(\bd{x}')-
+\phi(\bd{x}'){\partial G\over\partial n'}
+(\bd{x},\bd{x}')\right)dS',\quad \bd{x}\in \partial\Omega.
+\eqno(5.3.3)$$
+Finally, substituting $f$ for $\phi$ as in (5.2.1)
+and using the fact that $k_0(t)\equiv 0$, gives the expression
+$${1\over 2}f(\bd{x})=k_m+\int_{\partial\Omega}
+\left(G(\bd{x},\bd{x}'){\partial\phi\over\partial n}(\bd{x}')-
+f(\bd{x}'){\partial G\over\partial n'}
+(\bd{x},\bd{x}')\right)dS',\quad \bd{x}\in C_m,
+\quad m=0,\ldots,M.
+\eqno(5.3.4)$$
+The integral equation (5.3.4) is
+in a form suitable for use in the program described below
+which is a modified version of the code of Best and Kucera (1992), which
+was originally designed for cavitation 
+and explosion bubbles in an infinite fluid.
+
+Initially, nodes are equally spaced by arc length on the bubbles, but
+on the free-surface, they are placed
+on the portion $0\le r\le R_{max}$ of $B_0$, for some large $R_{max}$,
+with the non-linear distribution
+$$r_0i={iR_{max}\over 2N_0}\left(1+(i-N_0-1)^{-2}\right),
+\quad i=0,\ldots,N_0,\eqno(5.3.5)$$
+so that points are distributed more densely near the axis, where 
+resolution is particularly important. Subsequently, $R_{max}$ is allowed to alter
+dynamically with the position of the end node on the free-surface,
+namely
+$R_{max}(t)=r_{0N_0}$.
+Similarly we define $Z_{max}(t)=z_{0N_0}$ and $F_{max}(t)=f_{0N_0}$.
+
+In order to evaluate the integral over the infinite free-surface,
+an approximate expression is required for the quantities in the integrand
+of (5.3.4).
+The motion of a bursting bubble may be thought of as a superposition
+of harmonic modes of which the spherically symmetric mode, 
+corresponding to the isotropic collapse of a cavity due to surface tension
+may be represented by a potential sink. The potential may therefore be 
+expected to contain a term $-\dot RR^2/r$, with the cavity radius,
+$R(t)$, governed by a differential equation
+similar to the Rayleigh equation for spherical cavitation 
+bubbles, but driven by surface tension rather than a 
+constant pressure difference. 
+A consideration of the linearised boundary
+conditions for large $r$ indicates that at $z=0$,
+$\partial^2\phi/\partial t^2\sim -\partial\phi/\partial z$.
+This condition is not satisfied by the source or sink alone but is satisfied 
+by a potential that falls off as $r^{-3}$.
+Indeed, the solution to the linearised free-surface
+response to a sink contains a source of equal strength as an image in
+the free-surface, thus resulting in a dipole far field. For a source of
+strength $m(t)$ at $\bd r=\bd x=(0,0,-h)$,
+using methods similar to those in section 3.3,
+it can be shown that the potential in this case,
+in the absence of surface tension, is given by
+$$\phi(\bd r)=m(t)\left\{{1\over |\bd r-\bd x|}-{1\over |\bd r-\bd x'|}
+\right\}+
+2\int_0^\infty e^{\xi(z-h)}J_0(\xi r)
+\int_0^t m(\tau)\xi^{1/2}\sin[\xi^{1/2}(t-\tau)]d\tau d\xi,$$
+where $\bd x'=(0,0,h)$ is the position of the image singularity
+and $J_0$ is a zeroth order Bessel function.
+As the source strength in the integrand, $m(t)$, is bounded on the interval $(0,t)$,
+we can expand the integrand of the time integral in a power series
+and interchange the order of integration and summation. Upon using the
+fact that the zeroth order 
+Hankel transform, with respect to $r$, of a unit source at the origin
+is $\xi^{-1}e^{\xi z}$ for $z\le 0$, and differentiating repeatedly 
+with respect to $z$, we can write the potential in the form (see
+for example Stoker, 1957, p190)
+$$\phi(\bd r)=m(t)\left\{{1\over |\bd r-\bd x|}-{1\over |\bd r-\bd x'|}
+\right\}+
+2\sum_{i=1}^\infty\left\{{\partial^i\over\partial z^i}
+\left(1\over|\bd r -\bd x'|\right)
+\int_0^t m(\tau)(-1)^{i-1}{(t-\tau)^{2i-1}\over(2i-1)!}d\tau\right\}.$$
+Hence at the free-surface, the dipole term of the summed quantity
+dominates the potential so that $\phi\sim r^{-3}$ as $r\rightarrow\infty$.
+The assumption of a dipolar far field is also consistent with the fully
+non-linear boundary conditions and implies that the free-surface 
+elevation is also of order $r^{-3}$ for large $r$. Thus for the purposes of the
+numerical computations, we write for $r\ge R_{max}$
+$$f_0(r)=F_{max}\left({R_{max}\over r}\right)^3\quad\hbox{and}\quad
+z_0(r)=Z_{max}\left({R_{max}\over r}\right)^3.\eqno(5.3.6)$$
+A similar asymptotic technique was used in the 
+boundary integral method of Oguz and Prosperetti (1989),
+to calculate the motion of the contact line between a drop and 
+a free-surface.
+
+As described in Chapter 4, cubic splines are used to interpolate
+the surface nodes.
+Since the spline for the free-surface 
+only reaches as far as $r=R_{max}$, the end conditions
+there are
+$${\partial z_0\over\partial s}={-3z/r\over
+\left(1+(3z/r)^2\right)^{1/2}},\quad
+{\partial r_0\over\partial s}=\left(1+(3z/r)^2\right)^{-1/2}\quad
+\hbox{and}\quad
+{\partial f_0\over\partial s}={-3f/r\over
+\left(1+(3z/r)^2\right)^{1/2}},\eqno(5.3.7)$$
+thus ensuring continuity of first derivative
+with the analytic portion of the free-surface.
+The corresponding asymptotic form for the normal derivative
+of the potential, for large $r$ is also $r^{-3}$, thus
+we assume
+$$\psi_0(r)=\Psi_{max}\left({R_{max}\over r}\right)^3,
+\eqno(5.3.8)$$
+for $r\ge R_{max}$, where $\Psi_{max}=\psi_{0N_0}$.
+\vskip 15pt
+\hbox{\bf 5.4 Viscous effects.}
+\vskip 15pt
+\c{\it 5.4.1 Boundary layer approximation.}
+\vskip 5pt
+As mentioned in section 5.1, it has been proposed that a possible
+cause of cell damage is high shear stresses
+in the boundary layer of a bursting bubble.
+Independent calculations by Chalmers (1992) suggest
+that the shear stresses occurring
+in the downward jet, particularly for small
+bubbles, may be large enough to cause cell damage.
+It is therefore of interest to calculate the vorticity development
+in the downward jet region to try and ascertain the magnitude
+of stresses there.
+It is also important to gain information as to the effect of viscosity
+on the interface motion, particularly on the development of the jet
+where high rates of strain are expected.
+
+There have been a number of studies where weak viscous effects have 
+been included into otherwise inviscid boundary integral formulations.
+Miksis, Vanden-Broek and Keller (1982) included a modified
+boundary condition into calculations of the steady state 
+shape of a rising  bubble (see Chapter 4).
+Their modification took into account
+only the change in the normal stress at the surface due to viscosity,
+and ignored the pressure drop across the boundary layer itself
+which, as they noted, becomes particularly 
+important on the lower part of the bubble.
+
+This was taken a stage further by
+Lundgren and Mansour (1988), where an analysis
+of the boundary layer equations resulted in expressions for 
+the pressure difference and normal component of the velocity 
+perturbation due to the viscous layer.
+For completeness, we indicate the method of
+Lundgren and Mansour and then describe a way in which this
+can be extended so that the 
+tangential component of the boundary layer velocity
+can be obtained. With this information it is possible to
+identify approximate initial conditions for  
+the vorticity distribution as the jet is about to form and 
+thus gain greater understanding of the flow in the 
+downward jet.
+
+Lundgren and Mansour's method
+(referred to as LM) is as follows.
+The velocity field is written in the 
+form $\bd{v}=\bd{u}+\bd{U}$,
+where $\bd{u}=\nabla\phi$ is the usual potential flow field
+and $\bd{U}=\nabla\times\bd{A}$ is the rotational flow.
+For uniqueness, $\bd{A}$ is taken to be zero outside
+the boundary layer. Since the flow is axisymmetric,
+$\bd{A}=A\uh{\theta}$. Likewise, the total pressure may be written
+as $p^\star=p+P$, where $P$ is the perturbation 
+in pressure due to the boundary layer.
+The viscous
+boundary conditions are the usual ones for a free-surface.
+Firstly, a balance of normal stress on either side of all
+interfaces is required:
+$$-p_m(t)+\kappa=-p^\star+2Re^{-1}\bh{n}\cdot\nabla\bd{v}\cdot\bh{n},
+\quad m=0,\ldots,M.\eqno(5.4.1)$$
+Secondly, due to the relatively low dynamic
+viscosity of the air, there should be no tangential stress at the surfaces:
+$$\bh{t}\cdot\nabla\bd{v}\cdot\bh{n}+
+\bh{n}\cdot\nabla\bd{v}\cdot\bh{t}=0.\eqno(5.4.2)$$
+Here, $\bh{t}$ and $\bh{n}$ are the tangent and normal to the generator of the 
+axisymmetric bubble.
+The Reynolds number, $Re$, is given by $(\sigma a/\rho\nu^2)^{1/2}$.
+
+On assuming that the boundary layer is thin, with thickness 
+$\delta$, and that the 
+variation along a surface is of order unity, LM
+use the zero tangential stress condition (5.4.2) to 
+make the approximation
+$${\partial U_t\over\partial n}= -2\bh{t}\cdot\nabla\bd{u}
+\cdot\bh{n}+O(\delta^2),\eqno(5.4.3)$$
+which shows that $U_t=O(\delta)$ with $A=O(\delta^2)$
+and from mass conservation $U_n=O(\delta^2)$. 
+Here, subscripts $n$ and $t$ refer to 
+normal and tangential components of a local curvilinear coordinate
+system fitted to the instantaneous interface shape.
+A consideration
+of the normal and tangential components of the Navier-Stokes
+equations shows that for viscous terms to be retained,
+the boundary layer thickness must be related to the Reynolds number
+by $\delta=Re^{-1/2}$. Upon neglecting variations of $P$
+across the boundary layer, LM are able to integrate the 
+tangential equation across it and produce an
+equation for the development of $A$ at the surface. Likewise
+the normal equation is integrated across the boundary layer
+to give an expression for $P$ at a surface, in terms of $A$
+and the irrotational velocity, $\bd{u}$.
+Before giving these expressions it  is
+convenient, for brevity, to introduce the
+notation:
+$${D\{\bd{w}\}h\over Dt}\equiv{\partial h\over\partial t}
++\bd{w}\cdot\nabla h.\eqno(5.4.4)$$
+This is a generalisation of the usual material derivative,
+where the rate-of-change of a function of the flow field
+is taken following points that move with a velocity $\bd{w}$.
+This notation will prove useful when we consider the 
+calculation of the tangential velocity due to the boundary layer,
+but is appropriate here.
+The final boundary conditions found by LM give, 
+in the context of the bubble bursting problem,
+$${D\{\bd{u}+U_n\bh{n}\}A\over Dt}=
+-A\left(2{\partial u_t\over\partial s}-2\kappa^{(t)}u_n+
+{\bd{u}\cdot\bh{r}\over r}\right)+2Re^{-1}\left(
+{\partial u_n\over\partial s}+\kappa^{(t)}u_t\right)+O(\delta^3),\eqno(5.4.5)$$
+where $U_n=(\partial (rA)/\partial s)/r$ and
+$\kappa^{(t)}$ is the curvature of the interface in 
+a plane through the axis of symmetry.
+For the potential,
+$$\eqalign{{D\{\bd{u}+U_n\bh{n}\}\phi\over Dt}=&
+{1\over 2}|(\bd{u}+U_n\bh{n})|^2
++p_m(0)-p_m(t)-{E_o\over 4}(z+\gamma_m)
++\kappa-\kappa_m\cr
+&+2A\left({\partial u_n\over\partial s}+\kappa^{(t)}u_t\right)
++2Re^{-1}\left({\partial u_t\over\partial s}
+-\kappa^{(t)}u_n+{\bd{u}\cdot\bh{r}\over r}\right)+O(\delta^3).}\eqno(5.4.6)$$
+The modification to the pressure is likewise given by 
+$$P=2A\bh{t}\cdot\nabla\bd{u}\cdot\bh{n}+O(\delta^3).\eqno(5.4.7)$$
+The model of LM is insufficient if we wish to go on to approximate
+the flow field after the boundary layer separates from the
+bubble cavity as the jet is about to form, since it does not
+include a scheme for calculating the total tangential velocities
+in the layer: the contribution to the tangential velocities is
+an order of magnitude higher than
+to the normal velocities.
+To do this, we solve a partial differential
+equation based on the tangential component of the 
+boundary layer equation (LM's equation (4.18) with a total Lagrangian
+derivative),
+$${dU_t\over dt}+U_t\bh{t}\cdot\nabla\bd{u}\cdot\bh{t}=
+Re^{-1}{\partial^2U_t\over\partial n^2}+O(\delta^2),\eqno(5.4.8)$$
+subject to the boundary conditions (5.4.3) at the surface
+and $U_t\rightarrow 0$ outside the thin boundary layer.
+                                      
+Equation (5.4.8) can be solved using a finite difference scheme, by
+fitting a grid of points to the boundary layer
+region. If we wish to continue to use
+the model of LM and the boundary integral scheme, it is possible to 
+use (5.4.8) as an equation for the Lagrangian evolution of particles 
+moving through the fluid in the viscous layer. As the problem is
+inherently unsteady,
+these grid points will move in relation to one another and thus it will
+be difficult to keep track of which nodes are closest to each other
+for the purpose of calculating derivatives. 
+(For a review of techniques for following closest nodes in
+such problems
+see for example Boris, 1989). Alternatively, a scheme could be     
+devised whereby points are re-meshed after each time step
+to keep them on a more convenient grid. However a technique is used 
+here in which  the need to re-position at each time step is removed, 
+except when the usual repositioning of surface 
+nodes is performed in the boundary integral scheme. The idea uses the
+fact that the bubble or free-surface is a stress-free interface,
+and consequently a material line that is normal to a surface
+will remain, locally, orthogonal --- see appendix C.
+Since this orthogonality is only local to the point on the surface,
+we `linearise' the Lagrangian time derivative by writing
+$${d\over dt}={D\{\bd{v}\}\over Dt}={D\{\bd{v}_0-\eta(\bh{n}\cdot\nabla
+\bd{v})\big|_0\}\over Dt}
++(\bd{v}-\bd{v}_0+\eta(\bh{n}\cdot\nabla\bd{v})\big|_0)\cdot\nabla,
+\eqno(5.4.9)$$
+where $\eta$ is the normal distance from a point to the surface
+and the subscript $0$ denotes evaluation at the surface.
+It is clear from (5.4.9) that as $\eta\rightarrow 0$ the approximate 
+Lagrangian derivative --- following points moving at
+velocities $\bd{v}^\star\equiv\bd{v}_0-\eta(\bh{n}\cdot\nabla\bd{v})\big|_0$
+--- becomes exact. Writing (5.4.8) in terms of this
+derivative gives us
+$${D\{\bd{v}^\star\}U_t\over
+Dt}=Re^{-1}{\partial^2U_t\over\partial n^2}-
+U_t\bh{t}\cdot\nabla\bd{u}\cdot\bh{t}-
+(\bd{v}-\bd{v}_0+\eta(\bh{n}\cdot\nabla\bd{v})\big|_0)
+\cdot\nabla U_t+O(\delta^2).\eqno(5.4.10)$$
+The virtue of this approach is that if we follow
+mesh points which move with velocities given by
+$\bd{v}^\star$, then 
+as this is the exact Lagrangian derivative at the surface where
+the zero tangential stress condition (5.4.2) is applicable,
+the mesh lines normal to the surface will remain normal at 
+the surface. The linearisation further ensures that these lines
+remain straight since
+the transformation mapping the line to its new position a short time later
+is linear (as $\bh{n}\cdot\nabla\bd{v}^\star=
+(\bh{n}\cdot\nabla\bd{v})\big|_0$).
+The advantages over
+more usual Lagrangian finite difference schemes are that normal
+derivatives are always simple to evaluate;
+there is no need to store the position of the mesh points,
+only their distances from the surface; and, as
+mentioned above, there is no need to re-position the points
+other than occasionally as dictated by the underlying boundary integral
+scheme (see \S 5.4.2).
+
+The new term on the right-hand side of (5.4.10) as compared with 
+(5.4.8) can be shown to be of order $\delta^2$ in the boundary
+layer. As we can assume that the potential flow field changes
+slowly in the boundary layer, we can view the potential flow
+part of $\bd{v}^\star$ as the error in the Taylor expansion of
+$\bd{u}$ and so if $\eta=O(\delta)$,
+$$(\bd{v}-\bd{v}_0+\eta(\bh{n}\cdot\nabla\bd{v})\big|_0)
+\cdot\nabla U_t=(\bd{U}-\bd{U}_0+
+\eta(\bh{n}\cdot\nabla\bd{U})\big|_0)\cdot\nabla U_t
++O(\delta^2).\eqno(5.4.11)$$
+Splitting the remaining velocities into their normal and tangential
+components, shows the first
+two terms to be of order $\delta^2$, leaving
+$$\eta\left({\partial U_t\over\partial n}\Bigg|_0\bh{t}+
+{\partial U_n\over\partial n}\Bigg|_0\bh{n}\right)\cdot\nabla U_t+
+O(\delta^2).\eqno(5.4.12)$$
+This is of order $\eta\delta$ which is of order $\delta^2$
+in the boundary layer. Knowing $U_t$ to order $\delta$ is 
+consistent with calculating $A$ to order $\delta^2$ since
+$U_t\approx \partial A/\partial n$.
+
+The second term on the right of (5.4.10) can also be approximated.
+Expanding in a Taylor series,
+$$\bh{t}\cdot\nabla\bd{u}\cdot\bh{t}=
+(\bh{t}\cdot\nabla\bd{u}\cdot\bh{t})\big|_0-
+\eta\left[\bh{n}\cdot\nabla(\bh{t}\cdot\nabla\bd{u}\cdot\bh{t})
+\right]\Big|_0
++O(\eta^2).\eqno(5.4.13)$$
+Since this term is multiplied by $U_t$, the first order correction
+in (5.4.13) may be ignored in the boundary layer.
+The final form of (5.4.10) is thus
+$${D\{\bd{v}^\star\}U_t\over
+Dt}=Re^{-1}{\partial^2U_t\over\partial n^2}-
+U_t(\bh{t}\cdot\nabla\bd{u}\cdot\bh{t})\big|_0
++O(\delta^2).\eqno(5.4.14)$$
+Derivatives of $U_t$ are calculated by fitting quadratics to
+nodal values along a normal to the surface, with the value on the 
+surface given by (5.4.3) and $U_t$ assumed zero outside the boundary
+layer. This is then repeated to give the second derivatives.
+
+The rate-of-change of the distance between the surface node
+and a corresponding mesh node on the normal to the surface
+is given by the difference in normal velocity between the 
+surface and the mesh point. Thus if we
+now view $\eta$ as a parametrisation of a mesh normal 
+to a surface with the linearised time derivative, we see that
+$${\partial\eta\over\partial t}=\eta(\bh{n}\cdot\nabla
+\bd{v})\big|_0.\bh{n}.\eqno(5.4.15)$$
+Writing the continuity equation for the potential flow in terms of normal and 
+tangential derivatives, gives
+$${\partial u_n\over\partial n}+{\partial u_t\over\partial s}
+-\kappa^{(t)}u_n+{\bd{u}\cdot\bh{r}\over r}=0,\eqno(5.4.16)$$
+so that (5.4.15) may be written as
+$${\partial\eta\over\partial t}=
+-\eta\left({\partial u_t\over\partial s}-\kappa^{(t)}u_n+
+{\bd{u}\cdot\bh{r}\over r}\right)\Bigg|_0+O(\delta^2).\eqno(5.4.17)$$
+Note that as the linearised derivative matches up with the total derivative
+at the boundary, the evolution of $A$ and of $\phi$ can be approximated
+by using equations (5.4.5) and (5.4.6), however (5.4.6) first needs
+modifying to take account of the tangential component of the derivative 
+by adding a term $U_t\bh{t}\cdot\nabla\phi$ to both sides.
+This order $\delta$ term simply corrects for the
+additional tangential motion without
+otherwise affecting the potential distribution on the surface. 
+We write (5.4.6) as
+$$\eqalign{{D\{\bd{v}_0\}\phi\over Dt}=&
+{1\over 2}\big(|\bd{v}_0|^2-U_t^2\big)
++p_m(0)-p_m(t)-{E_o\over 4}(z+\gamma_m)
++\kappa-\kappa_m\cr
+&+2A\left({\partial u_n\over\partial s}+\kappa^{(t)}u_t\right)
++2Re^{-1}\left({\partial u_t\over\partial s}
+-\kappa^{(t)}u_n+{\bd{u}\cdot\bh{r}\over r}\right)+O(\delta^3).}
+\eqno(5.4.18)$$
+
+We assume that the fluid starts off stationary so that all
+perturbation quantities due to the boundary layer are initially zero. 
+For the case of a bubble bursting, we are thus neglecting any
+vorticity that would have been created in the boundary layer as the bubble
+rose to the surface.
+
+Certain limiting cases as $r\to 0$ need to be calculated. By symmetry,
+$u_t$, $\partial u_n/\partial s$ and $\partial^2 u_t/\partial s^2$
+all vanish on the axis. From this it follows that 
+$\bd{u}\cdot\bh{r}/r\to\bh{t}\cdot\nabla\bd{u}\cdot\bh{t}$
+as $r\to 0$.  For motions starting in a perfect 
+state of rest, $A=0$ on the axis initially and so equation (5.4.5) 
+will ensure that $A$ remains zero there throughout the motion.
+
+Moore (1963), calculated expressions for the boundary layer on a
+spherical bubble moving through a liquid. He found the boundary
+layer approximation to be invalid in a region of width
+$\delta^{1/3}$ near to the rear of the
+bubble due to separation. 
+Vorticity in this region is confined to a layer of thickness $\delta^{1/3}$
+and so viscous forces are no longer as important as inertial forces.
+Closer still to the
+axis of symmetry, the layer thickens further to form a wake, where
+stream surfaces are eventually cylindrical and parallel to the axis. 
+The wake region has width $\delta^{1/2}$ so that again diffusive
+viscous effects are negligible, with the movement of vorticity being
+dominated by advection. 
+We shall assume that a similar, thin wake structure
+also exists in the case of a non-spherical rising bubble
+or for a bursting bubble until the jet forms.
+Jet formation will cause vorticity from a larger region near the underside of
+the bubble cavity to be advected into the downward jet.
+From a modelling viewpoint we can correct for this thin wake to a certain
+extent, provided that the spacing between nodes is not too small,
+by using an appropriate expression for the perturbation to the 
+normal velocity at the node on the axis beneath the bubble. 
+This normal velocity only directly affects adjacent nodes through the
+arc-length derivatives taken on a cubic spline for $A$.
+Indeed, the radial derivative of $A$ which is, apart from a factor of 2, 
+precisely the
+normal velocity at the end node, is required here in order to
+fit the cubic spline to $A$.
+In order to calculate $U_n$ here, we can use the 
+vertical component of the Navier-Stokes equations. Moore's
+estimates indicate that inertial terms dominate both viscous and pressure gradient
+terms, so that we may write
+$$\eqalign{{d\over dt}\left({\partial A\over\partial s}\right)&=
+-{\partial A\over\partial s}{\partial^2\phi\over\partial n^2}+
+{1\over Re}{\partial^2 U_n\over\partial s^2}\cr
+&=2{\partial A\over\partial s}\left({\partial u_t\over\partial s}-\kappa^{(t)}u_n\right)
++{1\over Re}{\partial^2 U_n\over\partial s^2},}\eqno(5.4.19)$$
+on using (5.4.16). The highest order viscous term is retained in order
+to start the calculations off, as at the time the boundary layer
+calculations commence, all perturbations are assumed zero.
+
+If calculations also include rising bubbles, for a cubic spline to be fitted
+to $A$ the value of $\partial A/\partial s$ is also
+required at the top, on the axis of symmetry.
+Similar to equation (C2), it can be shown that
+$${\partial\over\partial s}\left({dA\over dt}\right)=
+{d\over dt}\left({\partial A\over\partial s}\right)
++{\partial A\over\partial s}{d\lambda\over ds}{d\over dt}\left(
+{ds\over d\lambda}\right).\eqno(5.4.20)$$
+From (C2) we also obtain
+$$\bh{t}\cdot\nabla\bd{u}\cdot\bh{t}={d\lambda\over ds}{d\over dt}
+\left({ds\over d\lambda}\right)
++O(\delta).\eqno(5.4.21)$$
+Combining (5.4.20), (5.4.21) and (5.4.5) and taking the limit as $s\rightarrow 0$,
+gives an equation
+for the time evolution of $\partial A/\partial s$ on the axis above a bubble,
+$${d\over dt}\left({\partial A\over\partial s}\right)=
+-4\left({\partial u_t\over\partial s}-\kappa^{(t)}u_n\right)
+{\partial A\over\partial s}
++{2\over Re}\left({\partial^2 u_n\over\partial s^2}+
+\kappa^{(t)}{\partial u_t\over\partial s}\right)+O(\delta^2).\eqno(5.4.22)$$
+The condition on the slope of $A$ at $r=R_{max}$, is found 
+by a consideration of the 
+limiting form of (5.4.5).
+Making use of (5.3.6) and (5.3.8), we see that $A=O(1/r^4)$ as $r\to\infty$.
+
+When the walls of the bubble cavity start to move inwards immediately before
+forming the jet, the 
+vorticity created in the thin boundary layer is advected
+into the bulk of the liquid. 
+The assumption of a thin boundary layer is violated once this 
+separation takes place, causing the boundary layer calculations 
+using the method described above to break down. 
+However, we can follow this 
+advection of vorticity from the boundary layer using the vorticity equation,
+$${D\{\bd{u}\}\ub{\omega}\over Dt}\approx
+{d\ub{\omega}\over dt}=
+\ub{\omega}\cdot\nabla\bd{v}+Re^{-1}\nabla^2
+\ub{\omega}.\eqno(5.4.23)$$
+Since $\ub{\omega}=\omega\uh{\theta}$, (5.4.23) can be written as
+$${D\{\bd{u}\}\omega\over Dt}\approx\omega{\bd{u}\cdot\bh{r}\over r}+
+Re^{-1}\left(\nabla^2\omega-{\omega\over r^2}\right).\eqno(5.4.24)$$
+We assume that the layer is initially thin enough so that derivatives
+of the pertubation velocity across it are larger than those taken
+along it, thus the initial vorticity may be approximated by
+$$\omega={\partial U_t\over\partial n}-{\partial U_n\over\partial s}-
+\kappa^{(t)}U_t\approx{\partial U_t\over\partial n}.\eqno(5.4.25)$$
+As the boundary layer separates, viscous terms will become less important,
+and we may assume that the vorticity development can be described 
+by pure convection
+together with changes brought about by the stretching of vortex rings moving
+towards or away from the central axis.
+Hence by following material points, in the sense defined by the
+potential flow field,
+we can calculate an estimate of the vorticity evolution in both the
+upward and downward
+jets. We examine {\it a posteriori} our assumption 
+that the self-induced motion of the
+vorticity can be neglected when compared 
+to the advection due to the irrotational flow.
+\vskip 15pt
+\c{\it 5.4.2 Repositioning and smoothing.}
+\vskip 5pt
+In order to maintain a good resolution of surfaces,
+it is necessary to reposition 
+points periodically. Points on bubbles are moved 
+so that they are once again evenly 
+spaced. Points on the free-surface are spaced so that the
+arc lengths follow a non-linear 
+distribution similar to that in equation (5.3.5).
+Regular smoothing with the Longuet-Higgins and Cokelet (1976)
+smoothing formula was also required in order to prevent high frequency
+surface oscillations. 
+
+As was mentioned in section 5.4.1, finite difference points in the boundary layer
+are repositioned with nodes on the surfaces. Since these points must always
+lie on normals to the surface, this can be done as follows. The standard
+repositioning of the surface nodes decides between which two 
+old nodes a new node
+is to be placed. Values of $U_t$ on the new boundary layer normal are chosen
+at the same heights as those on the old normal immediately to its left
+by a simple linear interpolation scheme, based on the assumption that
+the surface curvature will not change much from one node to the next, 
+so that the 
+three normals meet at a single point. 
+Hence changes in $U_t$ at nodes equi-distant from the surface on
+the normals will be in the same proportion as the 
+arc lengths along the surface. To do this the value of $U_t$ on the 
+normal immediately to the right of the new normal is also calculated
+at the same height by quadratic interpolation. This is repeated for all 
+nodes on each normal.
+\vskip 15pt
+\hbox{\bf 5.5 Results and discussion.}
+\vskip 5pt
+The methods described in the previous sections allow numerical calculation of
+bubble and interface shapes at various times during bubble rise or burst.
+A number of cases of bubbles bursting 
+are shown in figures 5.3(a)-(f) for different bubble sizes.
+It is clear that the smaller bubbles, as their internal pressures are higher,
+burst from lower in the fluid and thus release a proportionately 
+greater amount of energy in the 
+form of the high-speed liquid jets observed
+experimentally (see for example, MacIntyre, 1972; Kientzler et al, 1954).
+The larger bubbles form wider jets and this is observed in Garner et al (1954).
+The velocity of the
+central node on the free-surface increases sharply as the jet is formed.
+In the figures 5.3(a)-(d), there is a noticeable drop in velocity 
+immediately before the jet begins to rise. This can be seen more clearly
+in a magnification 
+of the motion of figure 5.3(b), shown in figure 5.4. As the cavity walls straighten
+early on in the burst, the bottom rises slowly and flattens off,
+creating a ring of high curvature at the `corner' between the 
+near vertical wall and the horizontal base. The effect of surface tension then pulls
+this ring inwards. Thus the liquid --- which flows from the region of opposite
+curvature near the highest point of the surface --- now flows predominantly
+towards this ring rather than towards the very lowest part of the cavity. The 
+node on the axis of symmetry is then observed to slow down. 
+As the walls close in further,
+an axisymmetric cusp almost occurs and the liquid is forced upwards. 
+This high surface curvature and the subsequent large velocities and
+accelerations suggest possible physical similarities between jet
+formation and the
+classes of free-surface flows considered by Longuet-Higgins (1980, 1983).
+
+The jet accelerates for only a short time, and then slows as it rises. For the first
+three calculations of figure 5.3, the speed of the uppermost point
+increases very slightly, once more due to the thinning of the jet and the breaking off
+of a drop, at which point the calculations must stop.
+As velocities scale with respect to $(\sigma/\rho a)^{1/2}$,
+it is clear that smaller bubbles result in faster jets. 
+
+Compare these calculations with figure 5.5, where a 
+$3mm$ radius bubble is burst from a
+completely submerged position. Here, unlike in figure 5.3(f),
+a high-speed jet is formed. 
+Due to the greater influence of gravity, this jet is wider and
+not as fast as those produced by smaller bubbles,
+which burst with similar initial configurations.
+
+The calculated free-surface shapes before jet production
+are repeated for the $0.75mm$ bubble in figure 5.6 in order to show a 
+comparison with the experimental results of Kientzler et al (1954). 
+Slight differences in the initial motion can be attributed to the fact that the 
+experimental profile starts off slightly lower in the fluid.
+The jet produced in the experiments is asymmetric and
+breaks up significantly earlier than calculated, so that the comparison
+for later times is not so good. This is not shown, due to the difficulty
+of identifying the surface position of the lower part of the jet which,
+in the photographs of Kientzler et al (1954), is obscured by the surrounding
+bubble crater. In addition to the inevitable neglect of asymmetric instabilities,
+node repositioning and smoothing may cause discrepancy
+in the jet shapes.
+Enhancements to the numerical
+procedure, to the surface representation or so that smoothing is no longer required, 
+may improve this. The effect of a boundary layer on the
+jet is discussed below.
+
+The existence of a downward jet in the calculation is confirmed by placing 
+a second bubble directly below the bursting bubble. 
+It can be seen in figure 5.7 that
+the top of the second bubble is firstly pulled up 
+by the effect of the low pressure
+around the highly curved bursting bubble cavity. 
+Then, just as the jet forms, the 
+top of the lower bubble develops a dimple. 
+The lower bubble then begins to rise
+and soon starts to form a jet from below, characteristic
+of bubbles of this size (see Chapter 4).
+ The jet velocity for the bursting bubble reaches a slightly higher
+peak, but is otherwise largely unaffected by the following bubble.
+Likewise, the centroid velocity of the following bubble, indicated by the 
+lower trace of the velocity plot for figure 5.7, undergoes a small dip as the 
+jet of the bursting bubble forms.
+
+Using the boundary layer calculations of section 5.4, we find that
+the surface shapes, up until jet formation, are 
+indistinguishable from those in the figures above. Unfortunately boundary layer separation
+over a significant region occurs
+just before the jet forms (figure 5.8) so that the 
+boundary layer calculation must stop. The dissipative effect of viscosity
+on the jet can be seen by allowing a boundary layer to develop just
+after the jet has begun to form (at
+$t=0.5$ for the $0.75mm$ case). Calculations run as far as the time
+when the droplet at the end of the jet begins to develop. 
+Figure 5.9 shows the resulting jet to be very slightly shorter than in the 
+corresponding potential flow case at the same time.
+
+The pressure in the fluid is calculated using the Bernoulli formula (4.3.1) 
+together with
+the boundary layer modification (5.4.7). To improve resolution near to the 
+surface, where the boundary integral formula for the potential in the fluid is
+badly behaved due to the weakly singular kernel, the pressure there is given by
+$$p^\star-p_\infty={dk_m\over dt}+\kappa_m-\kappa+{\gamma_mE_o\over 4}+
+{2\over Re}\bh{n}\cdot\bd{e}\cdot\bh{n},\eqno(5.5.1)$$
+where $\bd{e}=e_{ij}$ is the rate-of-strain tensor.
+Since the fluid is incompressible,
+$$\bh{n}\cdot\bd{e}\cdot\bh{n}=-{\partial u_t\over\partial s}+u_n\kappa^{(t)}
+-{\bd{u}\cdot\bh{r}\over r}+O(\delta).\eqno(5.5.2)$$
+As cells are more likely to be ripped apart by straining flows than by 
+a strong velocity gradient in one particular direction, 
+when damage can be reduced by the cells rotating with
+the fluid, the energy dissipation rate, $\Phi=2\mu e_{ij}e_{ij}$, gives a
+good indication of the stresses placed on a cell in the fluid, thereby
+providing a possible measure of the damaging nature of a particular flow
+field.
+
+In the fluid, outside the
+boundary layer, the non-zero rates-of-strain are given by
+$$e_{rr}={\partial u_r\over\partial r};\quad e_{\theta\theta}={u_r\over r};
+\quad e_{zz}={\partial u_z\over\partial z}
+\quad\hbox{and}\quad
+e_{rz}={1\over 2}\left\{{\partial u_r\over\partial z}+
+{\partial u_z\over\partial r}\right\}.\eqno(5.5.3)$$
+At the surface, by virtue of the stress-free boundary 
+condition, the rates-of-strain are
+$$\eqalign{
+e_{nn}=-{\partial u_t\over\partial s}+u_n\kappa^{(t)}
+-{\bd{u}\cdot\bh{r}\over r}+O(\delta);\quad e_{tt}=
+{\partial u_t\over\partial s}
+-u_n\kappa^{(t)}+O(\delta)
+\quad\hbox{and}\quad
+e_{\theta\theta}={\bd{u}\cdot\bh{r}\over r}+O(\delta),}\eqno(5.5.4)$$
+with all off-diagonal terms zero.
+By exploiting incompressibility,
+the corresponding dimensional energy dissipation rate at the surface
+may be written as
+$$\Phi=4\mu(e_{nn}^2+e_{tt}^2+e_{nn}e_{tt}).\eqno(5.5.5)$$
+
+The pressures above atmospheric pressure ($dyn\,cm^{-2}$) for the $0.75mm$
+and $3mm$ bubbles are plotted in
+figures 5.10 and 5.11. For the smaller bubble, the initial motion is driven
+by the very high pressure around the rim of the cavity. This is less
+dramatic in the $3mm$ case where gravity also plays a significant role
+in shaping the motion.
+In frames 11(a) and (b),
+the low pressure around the underside of the bubble intensifies
+as a small wave
+that was initially just below the neck of the bubble crater
+moves down the bubble increasing in curvature. This wave can also be seen
+clearly on the second frames of figures 5.3(a)-(c), and moving on 
+figure 5.4.
+MacIntyre (1972) observed another ripple with a smaller wavelength
+immediately in front of this as a possible Crapper capillary wave.
+This is only resolved by the code if a high point density is
+used, for example when $R_{max}$ is reduced to about $5$.
+However, this results in excessively fast, thin jets.
+
+As the walls of the cavity collapse inwards (figure 5.10(b))
+a ring of high pressure can be seen to 
+develop. This then moves downwards until it finally becomes a
+point of high pressure directly beneath the bubble (figure 5.10(c)).
+This pushes fluid upward and downward to produce the
+jets evident in previous figures. The high pressure remains during the 
+early stages of
+jet formation, further accelerating the jet (figure 5.10(d)).
+The pressure in the jet is relatively high due to surface tension which
+acts so as to thin it until one or more drops break off.
+For the large bubble, the pressure rises only slightly as the much smaller jet is
+about to form. This can be seen through the slight upward bending of the
+contour lines of the highly visible hydrostatic pressure.
+
+Figure 5.12 shows that the largest maximum pressures occur for the smallest
+bubbles. 
+This was expected from the experimental studies on cell damage. However, 
+it seems that the pressures themselves
+are insufficient to kill cells, being equivalent to the hydrostatic 
+pressure due to only a few centimetres of water.
+
+Figures 5.13 and 5.14 show the energy dissipation rates ($dyn\,cm^{-2} s^{-1}$)
+for the same times as above. It is 
+seen that the peak energy dissipation rate moves round with the wave of 
+fluid, where the pressure is low,
+increasing in magnitude until the jet forms. 
+MacIntyre (1972) indicated that this ripple was a site where
+high rates of strain were likely.
+Indeed, high rates of strain are to be expected when the jet is forming due to
+the extensional flow around a stagnation point near to the pressure maximum.
+Fluid must be drawn in from the sides towards the axis of symmetry and then rapidly
+accelerated upwards or downwards into one of the jets.
+Such flows are potentially lethal to cells which may be stretched and ruptured
+by the high strain rates.
+Figure 5.15 shows that the maximum energy dissipation rates, which
+occur beneath the
+bubble, immediately before jet formation, increase rapidly with decrease in bubble
+radius. Again, this is in keeping with the finding that cell damage is 
+greater for smaller bubbles. There is no complete agreement
+on the strength of cells. Orton and Wang (1990) suggest that
+stresses of the order of $10^3dyn\,cm^{-2}$ are sufficient to cause
+death, whereas Zhang et al (1991) give cell bursting pressures of
+about $5\times 10^4 dyn\,cm^{-2}$. 
+The calculated maximum energy 
+dissipation rates for the smallest bubbles 
+are equivalent to stresses of the order
+of $10^4dyn\,cm^{-2}$, indicating that bubble bursting can
+create an hydrodynamic environment which may be deadly for cells.
+
+The boundary layer makes almost no difference
+to the calculated values of energy dissipation rate. This
+is mainly because the effect of the boundary layer in ensuring
+zero tangential stress at the surface, is exploited even when no boundary layer 
+is being used in the calculations, in order to improve resolution
+in the contouring program.
+
+It was proposed by Orton and Wang (1990) that cell death rates are 
+closely related to the rate of liquid entrainment from bursting bubbles.
+As it seems reasonable to assume that the underlying cause of cell 
+damage must be some form of hydrodynamic stress, there should be a 
+corresponding relationship between this stress and the entrainment rate.
+To investigate this, we calculated estimates for the 
+volume of the first drop released. 
+The calculated entrainment rates are 
+compared with the jet drop sizes of Garner et al (1954) in figure 5.16.  
+Note that only the size of the first released drop is calculated
+and no allowance is made for the volume of fluid entrained by the rupture of the
+film above the bubble, which is significant for only the largest bubbles
+(see Garner et al, 1954).
+The droplet sizes for the smaller bubbles agree to an order of magnitude.
+Differences are partly because of 
+the difficulty in predicting the precise time and place of disengagement,
+but are also
+due to discrepancies in the jet formation itself pointed out above.
+Smoothing and repositioning of nodal points in the jets may smooth out
+small scale instabilities that would otherwise affect drop formation.
+An interesting point to note is that the calculated entrainment rates seem
+to be at a maximum for bubbles of radii around $2mm$. Even though the
+bubble of figure 5.3(d) does not form a long, thin jet, the relative volume of the 
+drop released is much larger
+than that of the three smallest bubbles studied.
+When this calculation was allowed to continue past the point where
+the drop almost disengaged,
+the code did not break down, but the jet fell back into the fluid. 
+In reality, it would be surely be pinched off by surface tension, before
+falling back into the fluid.
+We can therefore conclude that 
+$2mm$ must be close to the bubble radius beyond which no drop is released. 
+Garner et al (1954) suggest that this
+cut-off point for jet drop formation is at about $2.5mm$.  
+The velocity plot of figure 5.3(d) shows that, at the time of droplet 
+formation, the top of the jet is moving slowly downwards.
+If this is the 
+case, such large droplets near to the cut-off point
+may not have been identified as such by the 
+experimentalists whose methods hinged on observations and detection of drops
+thrown up above the jet.
+That larger droplets are formed for larger bubbles is noted by
+Garner et al (1954), but the sizes are still small in comparison with 
+our calculations.
+
+The approximate vorticity distribution ($s^{-1}$) is shown at three stages of
+jet formation in figure 5.17. This vorticity was created 
+in a boundary layer by the
+initial collapse of the crater for the $0.75mm$ bubble and shed 
+prior to jet formation (figure 5.17(a)).
+Here, it is shown being convected into the bulk of the fluid by
+the formation of the jets.
+The sign of the vorticity in figure 5.17(a) can be explained in terms of the dissipative 
+effect of viscosity, which reduces tangential velocity gradients at stress-free
+surfaces to zero.
+As the vorticity is dominated by $\partial U_t/\partial n$, it
+will be negative in sign when $\partial u_t/\partial n$
+is positive. This was verified by examining the values of
+$\partial u_t/\partial n$ at the time of figure 5.17(a).
+(In fact $\partial u_n/\partial s+\kappa^{(t)}u_t$
+was used as it is easier to calculate accurately, due to the singular nature of
+the boundary integral formulation. See (C6).)
+In figure 5.17(a), the 
+sign of the vorticity was observed to be
+generally opposite to that of the tangential velocity, $u_t$.
+Bearing in mind that normals are directed
+out of the fluid, this implies that at this time
+the tangential flow speed at the surface is 
+generally faster than nearby in the bulk of the fluid.
+
+It should be emphasised that although the vorticity carried into the jet 
+is positive, large negative curvatures and tangential velocities near
+the top of the fully developed jet in figure 5.17(c) and at subsequently times
+ensure that the tangential speed near to the surface is
+greater than at the surface. There is consequently a net 
+negative vorticity at the surface due to additional 
+vorticity created in the boundary layer 
+of the jet which is not accounted for in these figures. 
+In the jet of figure 5.17(b) and in the lower parts of the jet of figure 5.17(c),
+the tangential velocity of the surface is higher so that the
+direction of fluid rotation is as depicted.
+As a droplet begins to develop, a region of positive curvature
+is formed. Thus negative surface values of $\partial u_t/\partial n$
+and positive vorticities are found in this region. 
+If we move further down the jet, the thinning becomes less noticeable and 
+a further change of the sign of the surface vorticity takes place.
+More sign changes are observed to occur around the base of the jet.
+The magnitude of the vorticity suggests that
+viscous effects make only a very small contribution to
+the stresses in the downward jet region.
+

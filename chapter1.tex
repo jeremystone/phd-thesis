@@ -1,0 +1,250 @@
+\vbox{
+\c{\bigrmb Chapter 1.}
+\vskip 1cm
+\c{\bigrmb INTRODUCTION.}
+\vskip 15pt
+\hbox{\bf 1.1 Aims.}
+\vskip 15pt
+}
+Bubbles present us with a startling variety of
+fluid dynamical problems. Although many aspects of
+bubble dynamics can be examined analytically, it is only
+recently, with the advent of sophisticated numerical methods
+and high speed computers, that we have been able to inspect in
+detail complicated unsteady moving boundary problems. 
+The highly non-linear
+nature of the equations of motion make futile most attempts to find
+neat
+mathematical solutions in closed form. Having said this, there are
+methods --- based on a global conservation 
+principle such as energy integrals or virial theorems 
+(Longuet-Higgins, 1983; Oguz and Prosperetti, 1990a)
+or the Kelvin impulse (Blake, 1988) ---
+that one can often use in order to obtain an idea of the
+motions involved. 
+
+Boundary integral methods rely on the
+writing a partial differential equation, in this case
+Laplace's equation, in terms of an integral equation. 
+In the problems dealt with here, the
+integration is carried out over the gas/liquid interface so that
+the dimension of the problem is effectively reduced by one:
+finite element and finite difference techniques
+require discretisation of the whole flow domain. In many 
+`three-dimensional' situations one can further simplify calculations
+by assuming axisymmetry. 
+In terms of computational effort, such an 
+approach is thus relatively cheap.
+For problems where the accurate determination of the
+position of an interface is an
+essential requirement,
+boundary integral methods can be very effective.
+Using such techniques, the motion of points
+along the interfaces can be explicitly
+tracked. Piecewise continuous elements are often employed
+to interpolate between these nodes in order to calculate
+the surface integrations. High order surface representations
+such as cubic splines (Best and Kucera, 1992) parametrised by arc-length
+can afford greater accuracy.
+
+Boundary integral methods have been employed to solve a wide variety
+of free boundary problems in fluid mechanics, including a number in
+bubble dynamics.
+One of the most successful applications is to the field of
+cavitation bubble dynamics.
+A Green's formula approach was used 
+by Guerri, Lucca and Prosperetti (1981),
+Blake, Taib and Doherty
+(1986, 1987) and Taib (1985) to study cavitation bubbles
+near boundaries.  
+Blake and Kucera (1988) tackled
+the problem of water-coning, a phenomenon occurring in oil reservoirs,
+using a steady boundary integral technique. Longuet-Higgins
+and Cokelet (1976) used a boundary integral scheme in conjunction
+with a conformal map to study the 
+overturning of large amplitude surface waves.
+
+The aim of this thesis is to present various aspects of
+bubble dynamics from a largely numerical viewpoint with the
+aid of boundary integral methods. 
+The first chapters deal exclusively with the
+modelling, using a variety of boundary
+integral techniques, of two-dimensional bubbles
+both rising in an infinite fluid and then near to a free-surface. 
+Although two-dimensional bubbles are unrealistic,
+they have similar properties to `real' bubbles. This
+work also provides an introduction to the most commonly used 
+boundary integral techniques for problems in potential flow theory,
+paving the way for the consideration of axisymmetric problems
+in later chapters.
+\vskip 15pt
+\hbox{\bf 1.2 Motivation.}
+\vskip 5pt
+The long-term aims of the project are to study and gain an
+understanding
+of the physics involved in mammalian cell damage in aerated 
+bioreactors. 
+The production of mammalian cells in culture vessels is important 
+for several reasons. The biochemicals produced by cells such as 
+monoclonal antibodies, hormones and enzymes have many uses in medicine.
+The cells themselves may be used in future for transplantation
+and diagnostic purposes.
+
+Bioreactor induced cell damage has been studied experimentally 
+for several years by many researchers: 
+indeed it was a team working in this field in the School
+of Chemical Engineering at the University of Birmingham,
+who suggested this mathematical study. Through the data collected,
+a number of possible damage mechanisms have 
+been proposed. It has been claimed
+(e.g. Tramper et al, 1986) that the high agitation rates,  
+used to circulate nutrients through the
+medium, are detrimental to cells. 
+However, many now believe an overwhelming proportion of
+the damage observed to be
+due to the cells' interactions with bubbles sparged
+through the medium to provide oxygen to the cell culture.
+
+Experiments have often involved actual, scaled down
+bioreactors (figure 1.1, below), but there have been some where cells have 
+been placed in controlled hydrodynamic environments. McQueen and Bailey (1989)
+pumped cells in a medium through capillary tubes which had either smooth
+or sudden constrictions to produce laminar or turbulent flows respectively.
+They found that 
+the viscosity of the fluid did not effect the cell death rates, 
+even though the associated Kolmogorov eddy lengths changed.  By using 
+different
+sized tubes with viscosities adjusted so that the wall shear stresses
+remained constant, they concluded that there are other factors affecting
+cell death as well as just wall shear stresses. 
+However, both they and
+Kunas and Papoutsakis (1989) who used an agitated bioreactor, found 
+that an increase in serum concentration decreased the death rate, these
+latter authors claiming the change to be due to some
+physical factor other than viscosity.
+\vskip 10pt
+\input fig11
+\vskip 10pt
+Using simple bubble columns, with no agitation, 
+Handa, Emery and Spier (1987) and Handa (1986) showed a direct relationship
+between the presence of bubbles and cell death rate. Death rates, per bubble, 
+were found to be higher for small bubbles than for large ones.
+It was also found that Pluronic (a co-polymer of propylene oxide
+and ethylene oxide; a product of BASF, UK) which allows a stable, slowly 
+draining foam, with the bursting of bubbles mainly restricted to its upper
+surface, resulted in lower death rates. They claimed that the presence of an
+anti-foam causes  cell damage as a consequence of shock waves produced by 
+many bubbles bursting at the free-surface, and that without anti-foam,
+rapid draining in unstable foams causes high shear stresses that can 
+cause damage. By showing cell
+death to be independent of the air sparger position and hence bubble
+residence time,
+Kioukia (1990) was able to conclude that, at least for the bubble 
+column case, 
+this damage occurs in a region near to the free-surface.
+
+Al-Rubeai, Chalder and Emery (1990) used laser flow cytometry to study 
+the morphology of damaged cells. They discovered that damage 
+caused by agitation alone was less severe than that occurring when air bubbles
+were being sparged through in which case cells were seen to have been torn 
+apart.
+In another recent paper, Oh, Nienow, Al-Rubeai and
+Emery (1989), it was shown that, under solely surface aeration, cell growth
+and viability does not depend on hydrodynamic conditions, even at very high
+agitation rates. However with sparging, the growth rates become lower and 
+reduce as agitation intensity increases.
+
+A possible cause of damage in stirred reactors
+was suggested by Yang et al (1990). They claimed
+that a bubble stretched until breakup in the trailing 
+vortex near to the tip of the agitator impeller 
+blade will release the built-up surface energy in a 
+potentially damaging shock wave as it bursts
+into many smaller bubbles. Recent experiments by
+Oh, Nienow, Al-Rubeai and Emery (1992) suggest that
+cell damage is increased by positioning the air sparger beneath the
+impeller. The effects of this are however two-fold as it will 
+increase the
+number of bubble/impeller interactions but will also split large bubbles
+into smaller ones which are known to be more lethal at the free-surface.
+
+In the experiments of Kunas and Papoutsakis (1990),
+bubbles are seen to be entrained at the gas/liquid interface of a vortex
+produced in an agitated reactor. The death rate was found to be directly
+related to the size of the surface indentation, namely less damage was 
+recorded if the reactor volume was increased or if the head-space above it was 
+removed altogether. In this latter case cell
+growth, though slower, occurred even at high agitation rates. If, in addition,
+tiny bubbles, moving around at high speeds were present,
+the death rates were still very small compared to the situation where there 
+was a free-surface. 
+Significant agitation damage was only found 
+when Kolmogorov eddy lengths became comparable to the dimensions of the cells.
+
+It has been speculated (Chalmers and Bavarian, 1991) that the
+high acceleration at the rim of a rupturing film,
+such as occurs when a bubble bursts, is a possible cause
+of cell damage. Along similar lines, Kowalski (1991) by concentrating on
+the bursting of a single, large bubble manufactured by placing a pipette 
+into a cell culture medium, claimed that cells trapped in the rupturing
+film may be killed by large compressional forces which occur when the 
+retreating rim breaks into threads which in turn split into droplets.
+The walls of the experimental vessel were found to be littered with cell
+debris, indicating a secondary effect of the burst as a means of
+removing cells from the reactor. He also found that Pluronic allowed
+the cells to drain away with the fluid in the film,
+and thus escape the regions where high stresses
+may be experienced.
+
+It is therefore apparent, given the above overview of just some of the
+recent literature, that there is no complete agreement as to the precise 
+mechanisms responsible, but there is a growing inclination to view the role
+of
+bubbles and their interaction with the free-surface as the prime cause of 
+cell damage in aerated bioreactors.
+\vskip 15pt
+\hbox{\bf 1.3 Summary.}
+\vskip 5pt
+In Chapter 2, an inviscid model of a two-dimensional bubble
+is introduced. Boundary integral techniques, 
+which have had much success previously in bubble dynamics, 
+are then employed to solve for the
+bubble motion. The results obtained are almost identical to those of Baker
+and Moore (1989) and close to 
+the experimental findings of Walters and Davidson (1962). Several different
+boundary integral techniques are employed and compared.
+
+In Chapter 3, the theory is extended to look at the problem of 
+a two-dimensional bubble as it 
+approaches a free-surface. A conformal map technique, similar to that of
+Longuet-Higgins and Cokelet (1976), is used to enable integration over the
+infinite free-surface. This is compared against an 
+asymptotic solution valid for bubbles at large depths.
+
+In Chapter 4, the motion of axisymmetric gas bubbles
+is examined via a boundary integral method.
+Two example problems are examined. The first, as in
+Chapter 2, looks at the case
+of bubbles rising from rest in an infinite fluid. This time we allow
+for bubble-bubble interaction by including a second bubble into the
+calculations.
+The second problem uses an inviscid boundary integral together
+with modified boundary conditions to include some effects
+of viscosity and thus obtain an approximate solution to the 
+steady state of a rising bubble when the drag and buoyancy
+are in balance.
+
+The thesis culminates in Chapter 5, with the development
+of a model for bubbles bursting 
+at a free-surface with a view to developing a greater understanding
+of cell damage in bubble aerated bioreactors.
+A method, based on that of Lundgren and Mansour (1988),
+for including viscous forces via a boundary layer is developed.
+This allows an approximation of the shedding of vorticity
+as the boundary layer separates when a high speed liquid jet
+rises above the fluid.
+
+Finally, in Chapter 6, we summarise the important results and conclusions and
+indicate briefly possible directions for
+future research into the cell damage problem.
+

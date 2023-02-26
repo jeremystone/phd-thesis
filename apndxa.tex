@@ -1,0 +1,147 @@
+\c {\bigrm Appendix A: Derivation of integral equations}
+\c {\bigrm for chapter 2.}
+\vskip 15pt
+\hbox{\bf (i) Source formulation.}
+\vskip 5pt
+For the source formulation, we require the normal derivative of the
+potential which is given for all $\bd{x}$ by the expression
+$$\phi(\bd{x})=k+{1\over 2\pi}\int_C\sigma(\bd{x}')
+\log{1\over|\bd{x}'-\bd{x}|}ds'.\eqno(A1)$$
+Writing $\phi=\Re[W]$, where $W$ is the corresponding complex
+potential, we have
+$$\eqalign{W(z)&=k+{1\over 2\pi}\int_C \sigma(z'(s))
+\log{1\over z'(s)-z}ds\cr
+&=k+{1\over 2\pi}\int_C {\sigma(z')\over\tau(z')}\log{1\over z'-z}dz',}$$
+where $s$ is the arc-length and
+$\tau(z')=dz'/ds$ is the unit tangent at $z'\in C$.
+The potential defined above is continuous across $C$ (see \S 2.2.3) and
+so there is no difficulty evaluating it.
+
+Differentiating and evaluating at $z^\star\in\Omega_\pm$, we get
+$${dW\over dz^\star}={1\over 2\pi}\int_C {\sigma(z')\over\tau(z')}
+{dz'\over z'-z^\star}.$$
+This expression is not continuous across $C$, and so we write it in
+terms of a continuous Cauchy principal value integral and a
+discontinuous term, thus enabling simple evaluation in the limiting
+cases as $z^\star\rightarrow z\in C$.
+
+Writing this last expression in the form
+$${dW\over dz^\star}={1\over 2\pi}\int_C \left({\sigma(z')\over\tau(z')}-
+{\sigma(z)\over\tau(z)}\right){dz'\over z'-z^\star}+
+{1\over 2\pi}{\sigma(z)\over\tau(z)}\int_C {dz'\over z'-z^\star},$$
+and using Cauchy's theorem for the second integral, we get
+$${dW\over dz^\star}={1\over 2\pi}\int_C \left({\sigma(z')\over\tau(z')}-
+{\sigma(z)\over\tau(z)}\right){dz'\over z'-z^\star}+
+\cases{i{\sigma(z)/\tau(z)},&$z^\star\in \Omega_+,$\cr
+0,&$z^\star\in \Omega_-.$}$$
+If $\sigma/\tau$ is piecewise smooth on $C$ then it is
+H\"older continuous so that the integral term is continuous as 
+$z^\star$ crosses $C$. We may thus trivially take the limit as
+$z^\star\rightarrow z$. The corresponding complex velocities we
+denote by $Q_\pm$ for $z^\star\in\Omega_\pm$.
+
+To get the normal (and tangential) derivatives of the real potential,
+$\phi$, note that if $n$ is the normal pointing into the gaseous phase
+and contours are followed in the usual positive sense,
+then $n=i\tau$ and so, resolving in normal and tangential
+directions, we may write, formally
+$$Q_\pm=\left(i{\partial\phi\over\partial n}_\pm+
+{\partial\phi\over\partial s}_\pm\right)\tau=
+\left({\partial\phi\over\partial n}_\pm-
+i{\partial\phi\over\partial s}_\pm\right)n.$$
+Hence clearly
+$${\partial\phi\over\partial n}_\pm=\Re[Q^*_\pm n],
+\quad\hbox{and}\quad
+{\partial\phi\over\partial s}_\pm=\Re[Q^*_\pm \tau],\eqno (A2)$$
+where an asterisk denotes complex conjugation.
+This gives the normal derivative on the fluid side of the bubble as
+$${\partial\phi\over\partial n}={1\over 2\pi}\int_C
+\bigl(\sigma(\bd{x}')\bh{n}(\bd{x})-
+\sigma(\bd{x})\bh{n}(\bd{x}')\bigr)\cdot
+{\bd{x}'-\bd{x} \over |\bd{x}'-\bd{x}|^2}ds',
+\quad\bd{x}\in C,\eqno (A3)$$
+and for the tangential derivative,
+$${\partial\phi\over\partial s}={1\over 2\pi}\int_C
+\bigl(\sigma(\bd{x}')\bh{t}(\bd{x})-
+\sigma(\bd{x})\bh{t}(\bd{x}')\bigr)\cdot
+{\bd{x}'-\bd{x}\over|\bd{x}'-\bd{x}|^2}ds',
+\quad\bd{x}\in C.\eqno (A4)$$
+\vskip 15pt
+\hbox{\bf (ii) Dipole formulation.}
+\vskip 5pt
+For the dipole formulation, the potential is given, for all $\bd{x}$, by
+$$\eqalign{\phi(\bd{x})&=k-{1\over 2\pi}\int_C
+\mu(\bd{x}'){\partial\over\partial n'}\log{1\over|\bd{x}'-
+\bd{x}|}ds'\cr
+&=k+{1\over 2\pi}\int_C \mu(\bd{x}')\bh{n}(\bd{x}')\cdot
+{\bd{x}'-\bd{x}\over|\bd{x}'-\bd{x}|^2}ds'.}$$
+Recall from the derivation of the dipole formulation ({\S 2.2.3}) that
+$\phi$ is not continuous, so we aim to write it in a more convenient form.
+So that the normal and tangential velocities may be derived
+easily, we first write it in complex form for $z^\star\in\Omega_\pm$, $z\in C$
+$$\eqalign{W(z^\star)&=k+{1\over 2\pi}\int_C \mu\bigl(z'(s)\bigr)
+{n\bigl(z'(s)\bigr)\over z'(s)-z^\star}ds\cr
+&=k-{1\over 2\pi i}\int_C \mu(z'){dz'\over z'-z^\star}.}$$
+This may be written as
+$$W(z^\star)=k-{1\over 2\pi i}\int_C \bigl(\mu(z')-\mu(z)\bigr)
+{dz'\over z'-z^\star}-
+\cases{\mu(z),&$z^\star\in\Omega_+,$\cr 0,&$z^\star\in\Omega_-.$}$$
+Taking the limit as $z^\star\rightarrow z$ and evaluating the real part
+for the case $z^\star\in\Omega_-$ gives
+$$\phi(\bd{x})=k+{1\over 2\pi}\int_C
+\bigl(\mu(\bd{x}')-\mu(\bd{x})\bigr)\bh{n}(\bd{x}')\cdot
+{\bd{x}'-\bd{x} \over |\bd{x}'-\bd{x}|^2}ds'.
+\eqno (A5)$$
+To get the derivative, and hence the complex velocities
+for $z^\star\in\Omega_\pm$, note that
+$${dW\over dz^\star}=-{1\over 2\pi i}\int_C \mu(z')
+{\partial\over\partial z^\star}
+\left({1\over z'-z^\star} \right)dz',$$
+where this integral is interpreted as a finite-part integral (see for example
+Martin and Rizzo, 1989).
+Integrating by parts over the closed contour, $C$, gives
+$${dW\over dz^\star}=-{1\over 2\pi i}\int_C {d\mu\over dz'}
+{dz'\over z'-z^\star}.$$
+Taking $z\in C$, this may be written as
+$${dW\over dz^\star}=-{1\over 2\pi i}\int_C
+\left({d\mu\over ds}(z'){1\over\tau(z')}-
+{d\mu\over ds}(z){1\over\tau(z)}\right){dz'\over z'-z^\star}-
+\cases{{d\mu/dz'}(z),&$z^\star\in \Omega_+,$\cr
+0,&$z^\star\in \Omega_-,$}$$
+which, in the limit $z^\star\rightarrow z$ and on use of (A2), immediately
+gives the velocities on the fluid side of the bubble as
+$${\partial\phi\over\partial n}=-{1\over 2\pi}\int_C
+\left({d\mu\over ds}(\bd{x}')\bh{t}(\bd{x})-
+{d\mu\over ds}(\bd{x})\bh{t}(\bd{x}')\right)\cdot
+{\bd{x}'-\bd{x}\over|\bd{x}'-\bd{x}|^2}ds',
+\quad\bd{x}\in C,\eqno (A6)$$
+and
+$${\partial\phi\over\partial s}={1\over 2\pi}\int_C
+\left({d\mu\over ds}(\bd{x}')\bh{n}(\bd{x})-
+{d\mu\over ds}(\bd{x})\bh{n}(\bd{x}')\right)\cdot
+{\bd{x}'-\bd{x}\over|\bd{x}'-\bd{x}|^2}ds',
+\quad\bd{x}\in C.\eqno (A7)$$
+\vskip 15pt
+\hbox{\bf (iii) Vortex formulation.}
+\vskip 5pt
+For the vortex formulation, the potential is precisely that for the
+source formulation multiplied by $i$. Hence from the results of (i),
+the velocities on the fluid side of the bubble are
+$${\partial\phi\over\partial n}=-{1\over 2\pi}\int_C
+\bigl(\Gamma(\bd{x}')\bh{t}(\bd{x})-
+\Gamma(\bd{x})\bh{t}(\bd{x}')\bigr)\cdot
+{\bd{x}'-\bd{x}\over|\bd{x}'-\bd{x}|^2}ds',
+\quad\bd{x}\in C,\eqno (A8)$$
+and
+$${\partial\phi\over\partial s}={1\over 2\pi}\int_C
+\bigl(\Gamma(\bd{x}')\bh{n}(\bd{x})-
+\Gamma(\bd{x})\bh{n}(\bd{x}')\bigr)\cdot
+{\bd{x}'-\bd{x}\over|\bd{x}'-\bd{x}|^2}ds',
+\quad\bd{x}\in C.\eqno (A9)$$
+It can be seen from the form of (A8,9) that $\Gamma$ here corresponds to
+$d\mu/ds$ in the dipole formulation.
+
+
+
+
+

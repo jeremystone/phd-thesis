@@ -1,0 +1,108 @@
+\hsize = 160mm
+\vsize = 230mm
+\hoffset = 5mm 
+\voffset = 5mm 
+\font\timesrm=cmr12
+\font\bf=cmbx12
+\font\bi=cmbxti10 at 12pt
+\font\it=cmti12
+\font\sl=cmsl12
+\font\bigrm=cmr12 scaled \magstep2
+\font\bigrmb=cmbx12 scaled \magstep2
+\font\smrm=cmr8
+\font\medrm=cmr10
+\mathchardef\Gamma="100 \mathchardef\Delta="101
+\mathchardef\Theta="102 \mathchardef\Lambda="103 \mathchardef\Xi="104
+\mathchardef\Pi="105 \mathchardef\Sigma="106 \mathchardef\Upsilon="107
+\mathchardef\Phi="108 \mathchardef\Psi="109 \mathchardef\Omega="10A
+\hfuzz7pt
+\def\c#1{\centerline{#1}}
+\def\l#1{\leftline{#1}}
+\def\linerule{\vskip 12pt\c{\vrule width 4in height 0.4pt depth 0pt}\vskip 
+12pt}
+\def\newline{\hfil\break\vskip -9pt}
+\def\thin{\,}
+\def\abox{\vbox{\hrule\hbox{\vrule height 10pt\hskip
+10pt\vrule}
+  \hrule}\hbox{\hskip 3pt}}
+\def\pvint{\vbox{\vskip -20pt\hrule width 6pt
+ height 0.4pt depth 0pt}\hskip -10pt\int}
+\def\cosec{\mathop{\rm cosec}\nolimits}
+%\headline={\hfil}
+%\footline={\hfil}
+\countdef\pageno=0 \pageno=1
+\newtoks\headline \headline={\hfil}
+\newtoks\footline \footline={\hss\timesrm\folio\hss}
+\def\folio{\ifnum\pageno<0 \romannumeral -\pageno \else\number\pageno \fi}
+\def\nopagenumbers{\footline={\hfil}}
+\def\pagenumbers{\footline={\hss\timesrm-- \folio\ --\hss}}
+\def\advpg{\ifnum\pageno<0 \global\advance\pageno by -1
+  \else\global\advance\pageno by 1 \fi}
+\timesrm
+\def\vec#1{
+  \def\twid{\vbox to .2em{\hbox{$\scriptstyle\sim$}\vskip 0pt minus 10000pt}}
+  \setbox7=\hbox{$\displaystyle #1$}
+  \lower 1\dp7\hbox{\hbox to 0pt{\lower .3em\hbox to 1\wd7{\hskip 0pt minus 
+1000pt
+  \twid\hskip 0pt minus 1000pt}
+  \hskip 0pt minus 10000pt}\raise 1\dp7\hbox{$\displaystyle #1$}}
+}
+\def\pg{\vfill\eject}
+\def\mth{\mathsurround = 0pt}
+\def\ub#1{\vec{#1}}
+\def\uh#1{\vec{\hat #1}\,}
+\def\bd#1{\hbox{\bi #1}\,}
+\def\bh#1{\hbox{\bi \^ #1}}
+\def\s{\smrm}
+\input pictex
+\nopagenumbers
+\input prelims
+\pg
+%
+% Main chapters...
+%
+\pagenumbers
+\pageno = 1
+\baselineskip 24pt plus 0.3pt
+%
+\input chapter1
+\pg
+%
+\input chapter2
+\pg
+%
+\global\advance\pageno by 7
+%%
+\input chapter3
+\pg
+%%
+\global\advance\pageno by 7
+%%
+\input chapter4
+\pg
+%%
+\global\advance\pageno by 12
+%%
+\input chapter5
+\pg
+%%
+\global\advance\pageno by 20
+%%
+\input chapter6
+\pg
+%%
+%%
+\input apndxa
+\pg
+%%
+\input apndxb
+\pg
+%%
+\input apndxc
+\pg
+%%
+\baselineskip 24pt
+\input phdrefs 
+%%
+\end
+

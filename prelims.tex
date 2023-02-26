@@ -1,0 +1,210 @@
+%
+%Title page
+\baselineskip 24pt
+\vskip 3in
+\bigrmb
+\c{Applications of}
+\c{Boundary Integral Methods to}
+\c{Rising and Bursting Bubbles}
+\vskip 5pt
+\bigrm
+\c{By}
+\vskip 5pt
+\c{Jeremy Michael Boulton-Stone}
+\vskip 2in
+\bf
+\baselineskip 18pt
+\c{A thesis submitted to the}
+\c{Faculty of Science}
+\c{of the}
+\c{University of Birmingham}
+\c{for the degree of}
+\c{DOCTOR OF PHILOSOPHY}
+\timesrm
+\vskip 2in
+\hskip 4in
+\vbox{
+\hbox{School of Mathematics}
+\hbox{and Statistics}
+\hbox{University of Birmingham}
+\hbox{B15 2TT}
+\hbox{England}
+\vskip 5pt
+\hbox{March 1993}
+}
+\pg
+%
+%Synopsis
+\c {\bf Synopsis.}
+\vskip 5pt
+Direct and indirect boundary integral methods are introduced and compared
+for the problem of a two-dimensional, constant volume bubble rising 
+under the action of buoyancy in
+an inviscid liquid. It is found that the vortex, dipole and Green's formula
+approaches produce good results
+in agreement with previous theoretical studies and
+with experimental evidence, with the source distribution 
+method breaking down after only a short time. The Green's formula method is
+found to be less stable to perturbed initial conditions. An analytic
+stability analysis indicates  that  a 
+bubble rising with zero surface tension is unstable, but that the one inch
+bubble of Walters and Davidson (1962) is stable to small, short
+wavelength perturbations.
+By using a conformal map, the theory is extended to the case of a 
+two-dimensional bubble near to a free surface, the numerical results 
+of which compare 
+well with an analytic expression for the surface  elevation  due  to  a 
+deeply submerged dipole.
+
+The motions of three-dimensional gas bubbles,
+modelled using the equivalent
+boundary element method for the axisymmetric geometry,  are found to be
+similar to those of their two-dimensional counterparts. 
+Important differences in behaviour, mainly of a quantitative nature, 
+are highlighted, and discussed. 
+Bubble size, though the action of surface tension, is found to have a marked
+effect on the motion, determining whether the bubble will eventually split up
+into one or two smaller bubbles.
+The interaction of two bubbles is also considered, again the differences
+from the equivalent two-dimensional case are explored.
+
+Finally, using numerical techniques developed in the
+previous chapters, bubble bursting is considered in detail. 
+By assuming suitable initial conditions for the interface shape immediately
+after film rupture, the effect of bubble volume on the following motion is
+examined. The findings, that the smallest bubbles
+burst the most violently resulting in greater pressures and energy 
+dissipation rates, are broadly in agreement with the experimental evidence
+for cell damage by bubbles in bioreactors.
+A method for including a boundary layer into the calculations is
+developed. This allows an approximation of the vorticity distribution
+in the region below the bubble.
+The effects of including a boundary layer are found to be small, and the
+magnitude of the vorticity in the downward jet region suggests
+shear rates to be insignificant compared to strain rates predicted by the irrotational flow model.
+\vskip 10pt
+Material based on Chapter 2 has been published
+in {\sl Computer Methods in Applied Mechanics
+and Engineering}, {\bf 102} pp~213-234, 1993;
+and that based on Chapter 3 in the {\sl Journal
+of Engineering Mathematics}, {\bf 27} pp~73-87, 1993.
+\pg
+%
+%Dedication
+\vbox{
+\vskip 4in
+\c {To}
+\vskip 15pt
+\c {My wife, Susan Bernadette.}
+}
+\pg
+%
+%Acknowledgements.
+\vbox{
+\vskip 1in
+\c {\bf Acknowledgments.}
+\vskip 15pt
+I wish to take the opportunity to thank my supervisor, Professor
+John Blake for his enthusiastic encouragement and guidance, together with 
+Mr. Nick Emery, Professor Alvin Nienow
+and Dr. Colin Thomas of the School of 
+Chemical Engineering;
+Dr. Paul Harris
+and Dr. John Best for their assistance in certain aspects of
+the computational side of the work, and Mr. Peter Robinson
+for his friendship and advice.
+\vskip 5pt
+I am also indebted to the University of Birmingham Computing Service
+for use of their facilities
+and to the Science and Engineering Research Council for
+financial support.
+\vskip 5pt
+Finally, I would like to express my sincere gratitude to my wife for 
+her patience and support throughout the past few years.
+}
+\pg
+%
+%Contents.
+\vbox{
+\obeylines
+\vskip 5pt
+\c {\bf Contents.}
+\vskip 5pt
+\hfill Page.
+\vskip 5pt
+{\bf Chapter 1. Introduction.}
+1.1 Aims. \dotfill 1
+1.2 Motivation. \dotfill 2
+1.3 Summary. \dotfill 5
+\vskip 5pt
+{\bf Chapter 2. A two-dimensional bubble in an infinite fluid.}
+2.1 Introduction. \dotfill 7
+2.2 Mathematical preliminaries.
+\itemitem{} 2.2.1 Formulation of the problem. \dotfill 8
+\itemitem{} 2.2.2 Green's theorem. \dotfill 9
+\itemitem{} 2.2.3 Indirect formulations. \dotfill 12
+2.3 Source distribution method.
+\itemitem{} 2.3.1 Formulation. \dotfill 13
+\itemitem{} 2.3.2 Discretisation. \dotfill 14
+\itemitem{} 2.3.3 Time-stepping and repositioning. \dotfill 16
+2.4 Dipole distribution method. \dotfill 18
+2.5 Green's formula method. \dotfill 21
+2.6 Vorticity distribution method. \dotfill 22
+2.7 Results and discussion. \dotfill 23
+2.8 Stability analysis.
+\itemitem{} 2.8.1 Formulation of the equations. \dotfill 27
+\itemitem{} 2.8.2 Solutions and discussion. \dotfill 32
+\vskip 5pt
+{\bf Chapter 3. A two-dimensional bubble near a free surface.}
+3.1 Introduction. \dotfill 41
+3.2 Numerical approach.
+\itemitem{} 3.2.1 Problem formulation. \dotfill 43
+\itemitem{} 3.2.1 Solution by boundary integral method. \dotfill 45
+3.3 Perturbation expansion approximation. \dotfill 49
+3.4 Results and discussion. \dotfill 54
+}
+\pg
+\vbox{
+\obeylines
+\vskip 33pt
+\hfill Page.
+\vskip 5pt
+{\bf Chapter 4. Rising axisymmetric gas bubbles.}
+4.1 Introduction.
+\itemitem {} 4.1.1 Analytical results. \dotfill 66
+\itemitem {} 4.1.2 Numerical methods. \dotfill 70
+4.2 The axisymmetric boundary integral method. \dotfill 71
+4.3 The rise of constant volume bubbles. \dotfill 73
+4.4 Steady rise of a bubble through a viscous fluid. \dotfill 76
+4.5 Results. \dotfill 80
+\vskip 5pt
+{\bf Chapter 5. Bursting bubbles.}
+5.1 Introduction.
+\itemitem{} 5.1.1 Summary. \dotfill 97
+\itemitem{} 5.1.2 Background. \dotfill 97
+\itemitem{} 5.1.3 Aims. \dotfill 101
+5.2 Problem statement.
+\itemitem{} 5.2.1 Inviscid formulation. \dotfill 102
+\itemitem{} 5.2.2 Initial configuration. \dotfill 104
+5.3 Solution by boundary integral method. \dotfill 109
+5.4 Viscous effects.
+\itemitem{} 5.4.1 Boundary layer approximation. \dotfill 112
+\itemitem{} 5.4.2 Repositioning and smoothing. \dotfill 120
+5.5 Results and discussion. \dotfill 121
+\vskip 5pt
+{\bf Chapter 6. Concluding remarks and future developments.}
+6.1 Conclusions. \dotfill 148
+6.2 Future directions.
+\itemitem{} 6.2.1 Bubble/free-surface interactions. \dotfill 152
+\itemitem{} 6.2.2 Film rupture and foam production. \dotfill 154
+\itemitem{} 6.2.3 Cell motion. \dotfill 154
+\vskip 5pt
+{\bf Appendix A: Derivation of integral equations for chapter 2.}\dotfill 156
+\vskip 5pt
+{\bf Appendix B: Details of interpolation scheme for chapter 2.}\dotfill 159
+\vskip 5pt
+{\bf Appendix C: Identities for chapter 5.}\dotfill 161
+\vskip 5pt
+{\bf References.}\dotfill 162
+}
+

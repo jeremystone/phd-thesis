@@ -1,0 +1,50 @@
+\c {\bigrm Appendix C: Identities for chapter 5.}
+\vskip 15pt
+\hbox{(i)}
+
+We may easily show that a material curve that is locally normal to a stress-free
+surface will remain so. First, consider a general material curve indexed by the
+Lagrangian parameter $\lambda$. If the unit tangent
+to the curve is $\bh{m}$ then
+$$\eqalign{
+\bh{m}\cdot\nabla\bd{v}&={\partial\over\partial s}
+\left({d\bd{x}\over dt}\right)\cr
+&={d\lambda\over ds}{\partial\over\partial\lambda}\left(
+{d\bd{x}\over dt}\right).}\eqno(C1)$$
+As both derivatives are taken in a Lagrangian sense, they may
+be interchanged to give
+$$\eqalign{
+\bh{m}\cdot\nabla\bd{v}&={d\lambda\over ds}{d\over dt}\left(
+{ds\over d\lambda}{\partial\bd{x}\over\partial s}\right)\cr
+&={d\bh{m}\over dt}
++\bh{m}{d\lambda\over ds}{d\over dt}\left({ds\over d\lambda}\right).}
+\eqno(C2)$$
+Thus if $\bh{m}$ is chosen to be the normal or tangent to the 
+surface, then
+$$\bh{n}\cdot\nabla\bd{v}\cdot\bh{t}={d\bh{n}\over dt}\cdot\bh{t}
+\quad\hbox{or}\quad
+\bh{t}\cdot\nabla\bd{v}\cdot\bh{n}={d\bh{t}\over dt}\cdot\bh{n}.
+\eqno(C3)$$
+By using (5.4.2) and adding the equations of (C3), we 
+see that for a stress-free surface,
+$${d\bh{n}\cdot\bh{t}\over dt}=0.\eqno(C4)$$
+
+\hbox{(ii)}
+
+In order to calculate normal derivatives of the 
+tangential velocity, $u_t$, we use the fact that $\bd{u}$
+is irrotational to re-write it in terms of tangential derivatives
+of the normal velocity, $u_n$, which can be calculated more
+accurately. As the tangent vector
+is fixed with respect to small changes in the normal direction,
+$$\eqalign{
+{\partial u_t\over\partial n}
+&=\bh{n}\cdot\nabla\bd{u}\cdot\bh{t}.}\eqno(C5)$$
+Since $\bd{u}$ is irrotational, the
+rank-2 tensor $\nabla\bd{u}$ is symmetric, so that the
+right-hand side of (C5) can be re-ordered, giving
+$$\eqalign{
+{\partial u_t\over\partial n}
+&=\bh{t}\cdot\nabla\bd{u}\cdot\bh{n}\cr
+&={\partial u_n\over\partial s}+\kappa^{(t)}u_t.}
+\eqno(C6)$$

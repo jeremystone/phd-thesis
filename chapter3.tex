@@ -1,0 +1,773 @@
+\vbox{
+\c{\bigrmb Chapter 3.}
+\vskip 1cm
+\c{\bigrm A TWO-DIMENSIONAL BUBBLE}
+\c{\bigrm NEAR A FREE-SURFACE.}
+\vskip 15pt
+\hbox{\bf 3.1 Introduction.}
+\vskip 5pt
+}
+This chapter considers the motion of a two-dimensional bubble below 
+a free gas/liquid interface. Free-boundary problems of this nature may be
+dealt with using boundary integral  techniques  similar  to  those
+described in the previous chapter. The situation is, however,
+complicated slightly 
+by the need to evaluate line integrals over the infinite free-surface.
+
+There are many examples of numerical solutions to free-surface problems
+in the literature. An early use of the Green's formula boundary integral 
+method was by Longuet-Higgins and Cokelet (1976). They made a significant
+advance in the problem of the computation of breaking waves by being
+able, for the first time, to calculate the motion well after the 
+interface had become vertical. Later, Baker, Meiron and Orszag (1982)
+developed vortex and dipole distribution methods which they used
+to tackle the same problem.
+Using a vortex method similar to that of Baker et al (1982), Oguz
+and Prosperetti (1990b) were able to obtain some beautiful pictures
+of the jet formed after a drop had impacted on a free-surface.
+
+Vortex methods can be employed to calculate
+the rolling up of a vortex sheet
+(Moore, 1973; Fink and Soh, 1978). These ideas
+can then be extended to study the response of a free-surface
+to a vortex sheet below it (Tryggvason, 1988).
+
+There have also been a number of studies in the field of
+cavitation bubble dynamics. Blake and Gibson (1981) used a 
+discrete ring-source distribution to approximately represent the
+cavitation  bubble  and  adjacent  free-surface  and  follow  the
+bubble's growth and collapse. They were able to
+predict motions that compare well with the experimental results 
+given in their paper. More recently, Blake, Taib and Doherty (1987) used
+a full boundary integral technique to solve the same problem.
+
+In order to solve for the motion of the bubble using a boundary
+integral method, it is necessary to discretise the integral equations
+into a set of algebraic equations. To do this, the relevant 
+quantities such as position and potential have to be known at a 
+finite number of points along the bounding surfaces of the solution
+domain. Thus it can be appreciated that, as mentioned above,
+difficulties arise when one wishes to integrate over the free-surface.
+If the 
+bubble is situated in a finite container, it is possible
+to integrate over the container walls 
+and finite free-surface, thus simplifying the 
+task significantly.
+One way of overcoming the problem of an infinite free-surface
+was used for the axisymmetric case
+by Oguz and Prosperetti (1989) by integrating out for a finite 
+radius and then matching on to a simple first-order expansion for
+the potential and surface elevation. 
+If the velocities at the 
+free-surface are small then a linearised boundary
+condition, namely that the potential vanishes there,
+may be used. This was one of the approaches taken by Blake and 
+Gibson (1981), and was achieved by using the appropriate 
+image of the free-space Green's function in the $z=0$ plane.
+For problems with periodic boundary conditions on the free-surface,
+the integration can be simplified analytically by 
+summing over all identical parts (Baker et al, 1982).
+Alternatively a conformal map may be used as in Longuet-Higgins
+and Cokelet (1976), to transform all periodic parts onto 
+a closed contour.
+
+The method described here is a conformal mapping technique 
+that maps the bubble beneath the 
+flat free-surface onto a bubble within the unit circle.
+The results obtained are compared with a first order perturbation
+expansion for the problem of a submerged dipole.
+\pg
+\hbox{\bf 3.2 Numerical approach.}
+\nobreak
+\vskip 15pt
+\c{\it 3.2.1 Problem formulation.}
+\nobreak
+\vskip 5pt
+Unlike the study of the growth and collapse of cavitation bubbles
+where a bubble can just appear in the fluid near to the surface, 
+in the case of bioreactors described in the introductory chapter, the
+bubbles rise a large distance from a sparger before reacting 
+with the interface.
+Since the two-dimensional bubble considered in the previous chapter
+breaks up after a time of the order of
+$t=4(a/g)^{1/2}$ seconds
+(where $a$ is the initial radius of the bubble) and takes about
+$(a/g)^{1/2}$ seconds to rise one bubble radius
+(Baker and Moore, 1989), 
+a bubble that starts much further away from the free-surface than about
+$4$ bubble radii will split up before getting close. Bearing this 
+in mind, some of the example results given at the end of the 
+chapter for larger bubbles are somewhat unphysical.
+However for the purposes of 
+studying the behaviour of bubbles in bioreactors where 
+the bubble sizes are of the order of a millimeter, surface 
+tension will act so as to keep the bubble shape roughly elliptical
+and will prevent jetting and breakup; thus the example for a
+bubble with a radius of one millimeter, is more realistic.
+It is for this reason that it was deemed necessary to include 
+surface tension into the model in this chapter.
+
+As for the bubble in an infinite fluid, we wish to solve for the 
+velocity field as the gradient of a potential, $\phi$. The kinematic
+condition is as before, namely that particles on the bubble and 
+free-surface remain there throughout the motion. The dynamic condition
+is again from Bernoulli's theorem
+$${p_\infty}=p+{1\over2}\rho|\bd{u}|^{2}+
+\rho{\partial\phi\over\partial t}+\rho gy,\eqno(3.2.1)$$
+where $p_\infty$ is the fluid pressure at infinity just below the 
+gas/liquid interface. 
+The surface tension introduces a discontinuity into the pressure
+field, dependent on the curvature of an interface. For the 
+case considered here, a two-dimensional bubble may be thought of
+as being between two sheets of glass, thus 
+at a point on the plane midway between the sheets there is 
+curvature in two directions: $\kappa$ tangential to the 2-D 
+representation and $\kappa^\star$ normal to the glass. The
+latter value is assumed constant.
+Both curvatures
+are taken as positive if the corresponding surface is concave
+on the gas side.
+So the pressure just below the free-surface is given by
+$$p=p_{atm}-\sigma(\kappa+\kappa^\star),\eqno (3.2.2)$$
+where $\sigma$ is the surface tension coefficient of the gas/liquid
+interface, and $p_{atm}$ is atmospheric pressure. 
+Since $\kappa=0$ at infinity, (3.2.2) evaluated at the free-surface gives
+$$p_\infty=p_{atm}-\sigma\kappa^\star.\eqno (3.2.3)$$
+Using (3.2.2) and (3.2.3) in (3.2.1),
+the Bernoulli pressure condition at the free-surface 
+can be written as
+$${1\over2}\rho|\bd{u}|^{2}+
+\rho{\partial\phi\over\partial t}+\rho gy-\sigma\kappa=0.\eqno(3.2.4)$$
+The pressure balance at the bubble surface is
+$$p=p_b(t)-\sigma(\kappa+\kappa^\star),\eqno (3.2.5)$$
+where $p_b(t)$ is the pressure inside the bubble.
+Assume that the bubble is initially circular with radius $a$,
+at rest and at a distance $h$ below the liquid surface.
+Evaluating (3.2.5) and (3.2.1) at $t=0, y=-h$ 
+(where use is made of the Walters and Davidson (1962) expression for the 
+potential for small times, (2.8.10)) and eliminating $p$
+we find that the pressure inside the bubble is initially given by
+$$p_b(0)=p_\infty+\rho gh+\sigma\left(
+{1\over a}+\kappa^\star\right).\eqno(3.2.6)$$
+Substituting for $p$ and $p_\infty$ in (3.2.1) using (3.2.5) and 
+(3.2.6) gives
+the pressure condition at the bubble surface,
+$${1\over 2}\rho|\bd{u}|^2+
+\rho{\partial\phi\over\partial t}+\rho g(y+h)+
+\sigma\left({1\over a}-\kappa\right)+p_b(t)-p_b(0)=0.
+\eqno(3.2.7)$$
+
+It is convenient to scale lengths with respect to $a$,
+times with respect to $(a/g)^{1/2}$ and pressures with respect to
+$\rho ga$.
+On applying the substantial derivative to (3.2.4) and (3.2.7), we get
+for the free-surface,
+$${D\phi\over Dt}={1\over 2}|\bd{u}|^{2}-y+
+{4\kappa\over E_o},
+\eqno (3.2.8)$$
+and for the bubble,
+$${D\phi\over Dt}={1\over 2}|\bd{u}|^{2}-(y+\gamma_1)+
+{4\over E_o}(\kappa-1)+p_b(0)-p_b(t),\eqno (3.2.9)$$
+where $\gamma_1=h/a$ is the initial dimensionless distance
+beneath the surface and we introduce the E\"otvos number,
+$E_o={4\rho ga^2/\sigma}$.
+Note that $\kappa$ is now the
+non-dimensional curvature in the plane of the bubble.
+Writing the dynamic boundary condition in terms of the initial
+conditions, ensures that changes of the potential for each surface will be
+initially centred on zero, thus reducing round-off
+errors, especially for very small or deeply submerged bubbles.
+
+The solution domain of the problem is the semi-infinite region 
+of the complex $z$-plane below the free-surface, $S$, that is initially the
+real axis. The domain is bounded internally by the closed curve, $B$,
+representing the bubble. This region represents the area covered by the 
+liquid and is denoted by $\Omega_-$. Its complement in the complex plane
+is the gas of the atmosphere and bubble and is denoted $\Omega_+$.
+For convenience, write $C=S\cup B$. Normals to $C$ are taken into $\Omega_+$.
+\vskip 15pt
+\c{\it 3.2.2 Solution by boundary integral method.}
+\vskip 5pt
+The conformal mapping
+$$\zeta=-\left({z+i\gamma_1\over z-i\gamma_1}\right),\eqno(3.2.10)$$
+transforms the unbounded region, $\Omega_-$, of the $z$-plane onto
+a finite region, $\tilde\Omega_-$, in the \hbox{$\zeta$-plane}, bounded
+externally by the closed contour, $\tilde S$, initially the unit circle
+centred on the origin, $\tilde O$, and internally by the image of the 
+bubble, $\tilde B$.
+
+If $z=x+iy$ and $\zeta=\xi+i\eta$, then (3.2.10) gives 
+the following expressions transforming co-ordinates:
+$$y=\gamma_1{\xi^2-1+\eta^2\over(\xi+1)^2+\eta^2};\qquad
+x={-2\gamma_1\eta\over(\xi+1)^2+\eta^2}$$
+and
+$$\xi=-{y^2-\gamma_1^2+x^2\over(y-\gamma_1)^2+x^2};
+\qquad\eta={-2\gamma_1 x\over(y-\gamma_1)^2+x^2}.$$
+
+If we denote the complex potential in the $\zeta$-plane by $\tilde W$,
+then we have the relationship $\tilde W(\zeta,t)=W\bigl(z(\zeta),t\bigr)$,
+and as the map is conformal in the solution domain, $\nabla^2\tilde\phi=0$, where 
+$\tilde\phi=\Re[\tilde W]$.
+Hence we may apply Green's formula to $\tilde\phi$.
+
+In order to determine the value of the $p_b(0)-p_b(t)$ term of (3.2.9), we
+introduce the quantity,
+$k(t)=\int_0^t(p_b(t')-p_b(0))dt'$, and write the boundary 
+values of the potential as
+$$\tilde f(\zeta,t)=\tilde\phi(\zeta,t)+\cases{k(t),
+&$\zeta\in \tilde B,$\cr 0,&$\zeta\in \tilde S.$}$$
+Once we insist that the bubble is to remain of constant volume,
+the problem becomes equivalent to a modified Dirichlet boundary 
+value problem. This is one in which
+the potential on each disconnected surface is known only
+up to a constant which may depend on the particular 
+surface; we are free to choose one of the constants to be zero
+(see for example Muskhelishvili, 1953). The constants are determined 
+by the side condition that the potential is the real part of a
+complex function analytic in the solution domain. In a 
+fluid dynamics context, this implies
+that the flow field has no circulation or 
+expansion due to a multivalued potential or stream function 
+respectively.
+
+Evaluating Green's formula (2.2.6),
+where the integration is carried out over the surface 
+$\tilde C=\tilde S\cup\tilde B$,
+for $\zeta^\star\in\tilde\Omega_-$, $\zeta\in \tilde C$ gives
+$$\tilde\phi(\zeta^\star)=\int_{\tilde C}\left(G(\zeta^\star,\zeta')
+{\partial\tilde\phi\over\partial n}(\zeta')-
+\bigl(\tilde\phi(\zeta')-\tilde\phi(\zeta)\bigr)
+{\partial G\over\partial n'}(\zeta^\star,\zeta')\right)ds'-
+\tilde\phi(\zeta)\int_{\tilde C}{\partial G\over\partial n'}
+(\zeta^\star,\zeta')ds',\eqno(3.2.11)$$
+where, as in the previous chapter, $G$ is the free-space Green's
+function for Laplace's equation.
+The last integral of (3.2.11) is equal to 
+the angle subtended at $\zeta^\star$,
+by $\tilde S$ divided by $2\pi$, and is thus equal to $-1$.
+
+In practice, we use the boundary values of the potential
+in terms of the function $\tilde f$, defined above, and work 
+with $\tilde f$ entirely. Taking the limit of (3.2.11) as 
+$\zeta^\star\rightarrow\zeta$ and
+writing in terms of $\tilde f$ gives
+$$\int_{\tilde C}\left(G{\partial\tilde\phi\over\partial n}(\zeta')-
+\bigl(\tilde f(\zeta')-\tilde f(\zeta)\bigr)
+{\partial G\over\partial n'}\right)ds'
++\cases{k,&$\zeta\in \tilde B,$\cr 0,&$\zeta\in \tilde S$}=0.\eqno(3.2.12)$$
+The side condition that the complex potential is analytic
+manifests itself, as suggested above, in the form of an integral 
+requiring that the total flow out of the bubble vanishes
+$$\int_{\tilde B}{\partial\phi\over\partial n}ds=0.\eqno(3.2.13)$$
+The dynamic conditions for $\tilde f$, from (3.2.8) 
+and (3.2.9) are:
+for the free-surface
+$$\eqalignno{
+{D\tilde f\over Dt}=&{1\over 2}|\bd{u}|^{2}-y+
+{4\kappa\over E_o},&(3.2.14)\cr
+\noalign{\hbox{and for the bubble}}
+{D\tilde f\over Dt}=&{1\over 2}|\bd{u}|^{2}-(y+\gamma_1)+
+{4\over E_o}(\kappa-1).&(3.2.15)}$$
+
+In order to update the position of a discrete set of
+Lagrangian points taken on $\tilde C$,
+the velocities are required in the $\zeta$-plane. Consider the 
+identity
+$${D\zeta\over Dt}={d\zeta\over dz}{Dz\over Dt}.$$
+As the second factor on the right-hand side
+is just the Lagrangian velocity of points in the
+$z$-plane, which is simply the gradient of the potential, we have
+$$\eqalign{{D\zeta\over Dt}=&{d\zeta\over dz}\left({dW\over dz}\right)^*
+\cr =&\left|{d\zeta\over dz}\right|^2\left({d\tilde W\over 
+d\zeta}\right)^*,}\eqno(3.2.16)$$
+where an asterisk denotes a complex conjugate.
+Hence using (3.2.10) to evaluate the first factor of (3.2.16)
+and taking
+components, it is easily seen that the normal and tangential particle
+velocities in the $\zeta$-plane are
+$${1\over 4\gamma_1^2}|\zeta+1|^4{\partial\tilde\phi\over\partial n}
+\eqno(3.2.17)$$
+and
+$${1\over 4\gamma_1^2}|\zeta+1|^4{\partial\tilde\phi\over\partial s}
+\eqno (3.2.18)$$
+respectively, where here $\partial/\partial n$ and
+$\partial/\partial s$ represent derivatives
+taken normally and tangentially in the $\zeta$-plane. The
+normal, $n$, and tangent, $\tau$, are oriented relative to each other 
+in the sense $n=i\tau$.
+
+In order to evaluate the Bernoulli pressure condition, it is
+necessary to determine the value of the $|\bd{u}|^2/2$ term.
+Here we make use of the fact that
+$$\left|{dW\over dz}\right|^2=\left|{d\zeta\over dz}\right|^2
+\left|{d\tilde W\over d\zeta}\right|^2,$$
+and so from (3.2.10) above,
+$$|\bd{u}|^2={4\gamma_1^2\over |\zeta+1|^4}\left|
+{D\zeta\over Dt}\right|^2.\eqno (3.2.19)$$
+
+Computationally, the method used here is essentially the same as
+that described in section 2.5. The surfaces in the $\zeta$-plane
+are discretised using $N_B$ and $N_S$ nodes on the images of the bubble
+and free-surface respectively. 
+The only major difference is that when updating positions 
+of nodal points and values of potentials
+in the $\zeta$-plane, (3.2.17), (3.2.18) and 
+(3.2.19) are used to ensure that the correct kinematic and dynamic 
+conditions are obeyed by the $z$-plane values.
+By fitting quadratics to three adjacent points
+on the surfaces in the $z$-plane, arc-length derivatives
+can be found which give in turn tangents
+and hence the curvatures for use in the dynamic 
+conditions (3.2.14) and (3.2.15).
+This `5-point' method for finding curvatures gives
+reasonable results provided that there are not surface 
+oscillations on the scale of the segment lengths, which may be
+avoided by using a sufficient number of nodes together with frequent 
+application of the Longuet-Higgins and Cokelet (1976) smoothing formula.
+
+Due to the conformal mapping,
+repositioning is done in a slightly different way to that in 
+Chapter 2. Here, points on the free-surface are spaced out evenly with
+respect to the $\zeta$-plane, whereas the repositioning 
+of the bubble surface is done in the $z$-plane. This ensures
+that the resolution of the free-surface is not lost for the 
+purposes of the calculations, but also has the effect that the output
+bubble shapes have points evenly spaced. Similar comments apply to the
+initial nodal spacings.
+\pg
+\hbox{\bf 3.3 Perturbation expansion approximation.}
+\vskip 5pt
+Analytical solutions have been developed for many free-surface problems.
+One of the most well-known examples being the simple but successful 
+solution of the linearised equations for small amplitude gravity waves.
+Many more complicated problems have been studied, for instance
+Havelock (1927) considered the problem of a circular 
+cylinder submerged in a uniform stream and its effect on the 
+surface elevation. He did this by first using a dipole
+and its image in the flat, surface, together with a 
+distribution of dipoles behind this image. For the case of a 
+horizontal dipole, he reflected this image system back in the 
+cylinder to yield a second approximation, reinforcing the boundary
+condition at the cylinder itself.
+
+Many free-stream problems in two-dimensional potential flow
+can be greatly simplified by considering an inverse problem
+formulation. That is, by writing the position in space as  
+a function of a complex potential, $W=\phi+i\psi$, 
+rather than the other way around. With this scheme, 
+steady free-surfaces become the straight lines $\psi=const$.
+Problems such as the free-stream flow past a finite, flat plate
+or flow out of an orifice which would otherwise be very
+difficult, may be tackled in a straightforward manner by
+using appropriate conformal maps. For example the 
+hodograph transformation, $w=\log(dz/dW)$, can be used  to  map 
+steady,
+free-surfaces onto lines $\Re[w]=const$ and straight, rigid surfaces onto
+lines $\Im[w]=const$. Following this by a Schwartz-Cristoffel
+transformation to map the resulting straight-sided figure onto 
+the upper half-plane, yields a problem that can be easily solved.
+By considering the steady 
+Bernoulli equation, written in terms of inverse variables,
+evaluated at $\psi=0$, Vanden Broeck, Schwartz and Tuck (1978),
+developed a power series, in the square of a Froude number,
+for position as a function of potential. In this way they were
+able to generate terms in the asymptotic expansions 
+far more easily than with more direct methods. 
+They considered some examples of free-surface flows one of which
+is the response of a gas/liquid interface to a submerged source or sink.
+The results obtained show a stagnation point above the source. 
+However for somewhat larger Froude numbers, such solutions do not 
+exist. Tuck and Vanden Broeck (1984) and King and Bloor (1988)
+found solutions with a downward pointing cusps for larger Froude numbers. 
+Forbes and Hocking (1990) considered the same problem and compared 
+the results from a regular expansion in terms of the square of 
+a Froude number with a steady, boundary integral solution.
+
+In order to approximate the effect of a rising bubble on a free-surface,
+consider the problem of finding the surface elevation as
+a function of time due to a  dipole  moving  far  below  the
+surface. We may expect this to give reasonable agreement with the 
+numerical result since for a bubble of constant volume,
+the dipole term is dominant in the far field (see (2.2.13)).
+
+With the same scalings as in section 3.2, assume that the dipole
+accelerates from rest from a point a distance
+$\gamma_1=1/\epsilon$ below the surface,
+for $\epsilon\ll 1$ and let $\gamma(t)>0$ be the distance of the
+dipole below the $x-$axis as a function of time.
+Re-defining $\Omega_-$ to be the whole of the semi-infinite region below the 
+surface, the 
+problem can be formulated as follows. Laplace's equation must be 
+satisfied by the potential everywhere except at the dipole, 
+namely
+$$\nabla^2\phi=0,\quad\hbox{in}\quad\Omega_-\setminus
+\{(0,-\gamma(t))\},\eqno(3.3.1)$$
+with 
+$$\phi(\bd{r})\sim-U(t){y+\gamma(t)\over x^2+(y+\gamma(t))^2},
+\quad\hbox{as}\quad\bd{r}\rightarrow 
+(0,-\gamma(t)),\eqno(3.3.2)$$
+where $U(t)=-d\gamma/dt$ is the dipole's rise speed and
+$U(0)=0$. Initially, the surface, given by the curve 
+$y=\eta(x,t)$, is flat and the fluid occupying $\Omega_-$ is stationary.
+
+The first boundary condition is the usual kinematic condition, this 
+time in the Eulerian form
+$${D\eta\over Dt}=\bh{\j}\cdot\nabla\phi\Big|_{y=\eta},$$
+where $\bh{\j}$ is the unit vector in the $y$ direction.
+This can be written more conveniently as 
+$${\partial\eta\over\partial t}+{\partial\phi\over\partial x}
+\Big|_{y=\eta}{\partial\eta\over\partial x}
+={\partial\phi\over\partial y}\Big|_{y=\eta}.\eqno(3.3.3)$$
+If we assume that the curvatures on the surface
+remain small, the pressures across this interface 
+can be assumed to be continuous and the dynamic condition (3.2.4) gives, in 
+dimensionless variables,
+$$\left({1\over 2}|\nabla\phi|^2+{\partial\phi\over\partial t}
+\right)\Big|_{y=\eta}+\eta=0.\eqno(3.3.4)$$
+
+Since $\gamma=O(\epsilon^{-1})$, ${(y+\gamma)/
+[x^2+(y+\gamma)^2]}=O(\epsilon)$, as $\epsilon\rightarrow 0$
+for fixed $x$ and $y$, and so we expect to be able to expand
+the potential and surface elevation in the form
+$$\eqalignno{
+\phi(x,y,t)=&\epsilon\phi_1(x,y,t)+\epsilon^2\phi_2(x,y,t)+
+O(\epsilon^3),&(3.3.5)\cr
+\eta(x,t)=&\epsilon\eta_1(x,t)+\epsilon^2\eta_2(x,t)+
+O(\epsilon^3),&(3.3.6)}$$
+with the first order potential given by the solution to
+$$\nabla^2\phi_1=0,\quad\hbox{in}\quad\Omega_-
+\setminus\{(0,-\gamma(t))\},\eqno(3.3.7)$$
+and
+$$\phi_1(\bd{r})\sim-{U(t)\over\epsilon}{y+\gamma(t)\over 
+x^2+(y+\gamma(t))^2},
+\quad\hbox{as}\quad\bd{r}\rightarrow (0,-\gamma(t)),
+\eqno(3.3.8)$$
+and higher orders satisfying
+$$\nabla^2\phi_i=0,\quad\hbox{in}\quad\Omega_-,\quad i\ge 2.
+\eqno(3.3.9)$$
+Since this is a free-boundary perturbation problem, Taylor 
+expand each of the terms in (3.3.5) about $y=0$, and substitute for 
+$\eta$ as defined in (3.3.6). This gives
+$$\phi(x,\eta,t)=\epsilon\phi_1\Big|_{y=0}+\epsilon^2\left(
+\eta_1{\partial\phi_1\over\partial y}+\phi_2\right)\Big|_{y=0}
++O(\epsilon^3).\eqno(3.3.10)$$
+By differentiating (3.3.5) it is clear that we can write down similar
+expressions for $\partial\phi/\partial t$, $\partial\phi/\partial x$
+and $\partial\phi/\partial y$ at the surface.
+Substituting (3.3.6) and (3.3.10) into the kinematic and dynamic conditions 
+(3.3.3) and (3.3.4), produces the first order, linearised boundary conditions
+$${\partial\phi_1\over\partial t}\Big|_{y=0}+\eta_1=0,\eqno(3.3.11)$$
+and 
+$${\partial\eta_1\over\partial t}
+={\partial\phi_1\over\partial y}\Big|_{y=0}.\eqno(3.3.12)$$
+The second order boundary conditions are given by
+$$\left\{\left({\partial\phi_1\over\partial x}\right)^2
++\left({\partial\phi_1\over\partial y}\right)^2
++2\left(\eta_1{\partial^2\phi_1\over\partial y\partial t}
++{\partial\phi_2\over\partial t}\right)\right\}\Bigg|_{y=0}
++2\eta_2=0,$$
+and
+$${\partial\eta_2\over\partial t}+
+{\partial\phi_1\over\partial x}\Big|_{y=0}{\partial\eta_1\over\partial x}=
+\eta_1{\partial^2\phi_1\over\partial y^2}\Big|_{y=0}+
+{\partial\phi_2\over\partial y}\Big|_{y=0},$$
+but here, we restrict ourselves to solving only the first order problem.
+
+Combining equations (3.3.11) and (3.3.12) gives a condition for the first 
+order potential
+$$\left({\partial^2\phi_1\over\partial t^2}
++{\partial\phi_1\over\partial y}\right)\Big|_{y=0}=0.\eqno(3.3.13)$$
+To solve the first order problem posed by equations (3.3.7), 
+(3.3.8) and (3.3.13),
+apply a technique analogous to that used by Havelock (1927) for a
+similar problem by writing $\phi_1$ as the sum
+of a singular part,
+$$\phi_S(x,y,t)=-{U(t)\over\epsilon}\left( 
+{y+\gamma(t)\over x^2+(y+\gamma(t))^2}+ 
+{y-\gamma(t)\over x^2+(y-\gamma(t))^2}\right),\eqno(3.3.14)$$
+and an unknown harmonic part, $\phi_H$.
+The same approach can be employed to find 
+the response of a free-surface to the fundamental singularity 
+of the Laplace equation and hence determine the Green's function;
+see for example Wehausen and Laitone (1960), where many surface wave
+problems are examined in detail.
+Note that the second term in (3.3.14) makes the 
+analysis slightly simpler by
+anticipating the form of the final solution: in fact, from
+(3.3.11), $\phi_S$
+does not contribute to the surface elevation since 
+$\phi_S\big|_{y=0}=0$.
+
+We now take the Fourier transform with respect to $x$, ${\cal F}_x$,
+and the Laplace transform with respect to t, ${\cal L}_t$, of the singular
+potential, $\phi_S$, given by (3.3.14).
+By consulting tables of transforms or using a simple 
+application of the calculus of residues for an appropriate complex
+contour, it can be seen that for $|y|<\gamma$
+$$\hat\phi_S(q,y,t)\equiv{\cal F}_x[\phi_S]=-\sqrt{\pi\over 2}
+{U(t)\over\epsilon}
+\bigg(\exp\big(-|q|(y+\gamma(t))\big)-\exp\big(-|q|(\gamma(t)-y)\big)
+\bigg).
+\eqno(3.3.15)$$
+Thus 
+$${\partial\hat\phi_S\over\partial y}\Big|_{y=0}=\sqrt{2\pi}
+{U(t)\over\epsilon}|q|e^{-|q|\gamma(t)}.\eqno(3.3.16)$$
+If $\bar\phi_S(q,y,s)\equiv{\cal L}_t[\hat\phi_S]$ and
+we define
+$\bar h(q,s)={\cal L}_t[U(t)\displaystyle{e^{-|q|\gamma(t)}}]$, then we have
+$${\partial\bar\phi_S\over\partial y}\Big|_{y=0}=
+{\sqrt{2\pi}\over\epsilon}|q|\bar h(q,s).\eqno(3.3.17)$$
+Similarly, transforming Laplace's equation, satisfied by $\phi_H$
+throughout $\Omega_-$, gives
+$${\partial^2\bar\phi_H\over\partial y^2}
+-q^2\bar\phi_H=0,\eqno(3.3.18)$$
+from which we may deduce that 
+$$\bar\phi_H=\bar A(q,s)e^{|q|y},\eqno(3.3.19)$$
+so that $\bar\phi_H\rightarrow 0$ as 
+$y\rightarrow -\infty$, for all $q\ne 0$.
+Transform the boundary conditions (3.3.13) to give
+$$\left(s^2\bar\phi_1+{\partial\bar\phi_1\over\partial y}\right)
+\Big|_{y=0}=0.\eqno(3.3.20)$$
+In calculating the time transform we have assumed that,
+since the fluid starts at rest, the potential is initially 
+zero and, on using (3.3.11), we have taken ${\partial\phi_1/\partial 
+t}(x,0,0)=0$ since
+the surface is initially flat.
+
+Substituting $\bar\phi_1=\bar\phi_S+\bar\phi_H$ into (3.3.20) and 
+using (3.3.17) and (3.3.19) immediately gives us
+$$\bar A(q,s)=-{\sqrt{2\pi}\over\epsilon}{|q|\over s^2+|q|}
+\bar h(q,s).\eqno(3.3.21)$$
+We may now use the convolution theorem for Laplace transforms
+which, together with
+the definition of the function $\bar h$, allows us to invert
+the time transform for the harmonic potential given
+by (3.3.19), to yield
+$$\hat\phi_H(q,y,t)=-{\sqrt{2|q|\pi}\over\epsilon}e^{|q|y}\int_0^t
+U(t')e^{-|q|\gamma(t')}\sin(\sqrt{|q|}(t-t'))dt'.
+\eqno(3.3.22)$$
+Proceeding with a direct inversion of the Fourier transform gives
+$$\phi_H(x,y,t)=-\int_{-\infty}^\infty e^{iqx}{\sqrt{|q|}\over\epsilon}
+e^{|q|y}\left(\int_0^t
+U(t')e^{-|q|\gamma(t')}\sin(\sqrt{|q|}(t-t'))dt'
+\right)dq.\eqno(3.3.23)$$
+In order to simplify the appearance of (3.3.23)
+slightly, we separate the intervals
+$(-\infty,0)$ and $[0,\infty)$ of the $q$ integral
+and interchange the order of integration to give, finally,
+$$\phi_H(x,y,t)=-2\int_0^t {U(t')\over\epsilon}\left(\int_0^\infty
+\sqrt{q}\exp(-q(\gamma(t')-y))\sin(\sqrt{q}(t-t'))\cos(qx)dq\right)
+dt'.\eqno(3.3.24)$$
+With the potential written in this form, we can easily use (3.3.11) 
+to get an expression for the first order surface elevation, namely
+$$\eta(x,t)=2\int_0^tU(t')\left(\int_0^\infty q 
+e^{-q\gamma(t')}\cos(\sqrt{q}(t-t'))\cos(qx)dq\right)dt'+O(\epsilon^2).
+\eqno(3.3.25)$$
+
+Once the dipole speed $U(t)$ and hence depth $\gamma(t)$ are known,
+the integrals in (3.3.25) can be calculated accurately numerically and
+the assumption that the bubble rises with unit acceleration so that
+$U=t$ and $\gamma=\gamma_1-t^2/2$, will give good results for small times.
+However a small bubble flattens as it rises (see section 3.4 below)
+and so its added mass increases and its acceleration decreases
+leading to inaccuracies in the surface elevation.
+Bearing this in mind, it is instructive to consider the expansion of 
+the inner integral of (3.3.25) for
+large $\gamma$. Since, in this case, the integral will be dominated by 
+the contribution from a small region around $q=0$, 
+substitute $q'=\gamma(t')q$
+and expand the cosine term on the assumption that $t\ll\gamma^{1/2}$.
+Retaining only the first term,
+and using the fact that $U(t')dt'=-d\gamma$, we find that
+the surface elevation is
+$$\eta(x,t)=2\left[{\gamma'\over x^2+\gamma'^2}\right]
+_{\gamma'=1/\epsilon}^{\gamma(t)}+O(\epsilon^2).
+\eqno(3.3.26)$$
+We thus can use (3.3.26) to approximate the surface elevation
+without knowing the history of the dipole's motion, simply by using
+the initial and current bubble centroid positions.
+Equation (3.3.26) is also the result of substituting $\phi_S$, given by
+(3.3.14) into (3.3.12).
+\vskip 15pt
+\hbox{\bf 3.4 Results and discussion.}
+\vskip 5pt
+The boundary integral code described in section 3.2  was  used  to 
+solve the problem for various different E\"otvos numbers and initial 
+distances from the free-surface. The first two figures show results 
+for a bubble with $E_o=53$, equivalent to a $1cm$
+bubble in water. Figure 3.1 is a
+bubble that starts at rest with $\gamma_1=2$ bubble radii from the surface,
+whereas figure 3.2 is with $\gamma_1=10$. The latter figure is a test case
+where
+it is clear that for large distances from the interface, the bubble moves 
+as if it were in an infinite fluid. This also shows the effect of 
+surface tension for this bubble is very small (compare with figure 
+2.1). The effect of the free-surface for $\gamma_1=2$ is not very 
+strong, but the jet broadens out earlier since the flow around the 
+bubble is slightly slower. This is due to gravity acting on the 
+free-surface thus preventing, to a certain extent, flow from above 
+the bubble which is unhindered in the infinite fluid case.
+Figure 3.3 shows a time sequence for a bubble with 
+$E_o=0.53$, $\gamma_1=10$. Here the surface tension effect is much
+larger and acts so as to keep the bubble almost elliptical, without any jet 
+formation. This figure is more relevant to the long-term 
+studies of bubbles in bioreactors.
+
+Pressures are calculated in the same manner as in Chapter 2. The potentials
+for a grid of points in the $z$-plane are calculated for each equivalent 
+$\zeta$-plane position using 
+$$\tilde\phi(\zeta)=\int_{\tilde C}\left(G
+{\partial\tilde\phi\over\partial n}(\zeta')-
+\tilde f(\zeta'){\partial G\over\partial n'}\right)ds'.\eqno(3.4.1)$$
+In order to improve resolution around the bubble 
+and free-surface, the pressure at these surfaces is calculated
+explicitly using 
+$$p(\zeta,t)=p_\infty+\cases{dk/dt-4(\kappa-1)/E_o+
+\gamma_1,&$\zeta\in\tilde B,$\cr
+-4\kappa/E_o,&$\zeta\in\tilde S.$}\eqno(3.4.2)$$
+Streamlines are calculated by using the stream function, given by
+$$\tilde\psi(\zeta)=\int_{\tilde C}
+\left(-\theta(\zeta'-\zeta){\partial\tilde\phi\over\partial n}(\zeta')
++\tilde f(\zeta'){\partial G\over\partial s'}
+(\zeta,\zeta')\right)ds',\eqno(3.4.3)$$
+where $2\pi\theta(\zeta'-\zeta)$ is the angle between $\zeta'-\zeta$
+and the $\xi$-axis.
+
+Figure 3.4 shows pressure and streamline plots corresponding to the bubble
+in figure 3.3 at time $t=5.5$. The lower pressures around the sides of the 
+bubble, as a result of faster flow than at the top, can be seen. To reach an
+equilibrium, the bubble has moved into an elliptical shape so that the 
+curvatures at the sides allow for the correct jump between the fluid pressure
+and the uniform bubble pressure. It is also clear from the pressure plot that 
+there is a higher pressure region directly above the bubble. This acts to push
+the free-surface up as the bubble approaches. The streamlines indicate
+that the free-surface is moving up above the bubble and down and outwards to 
+the left and right of the bubble.
+
+In order to investigate the convergence of the solution 
+of the discretised form of the integral equation (3.2.12)
+as the number of nodal points increases, we consider
+an example problem where the exact solution is known. This problem
+is
+$$\nabla^2\phi=0,\quad\hbox{in}\quad \Omega_-,\eqno(3.4.4)$$
+with Dirichlet boundary conditions,
+$$\eqalign{\phi&=0,\quad\hbox{on}\quad S,\cr
+\phi&=-\left\{y+\gamma + {y-\gamma\over 1-4y\gamma}\right\},
+\quad\hbox{on}\quad B.}\eqno(3.4.5)$$
+As before, $S$ is the free-surface, taken here to be the
+$x$-axis, and $B$ is the bubble, taken to be the unit circle 
+centred at $(0,-\gamma)$.
+The exact solution is given by
+$$\phi(x,y)=-\left\{{y+\gamma\over x^2+(y+\gamma)^2}+
+{y-\gamma\over x^2 + (y-\gamma)^2}\right\},\eqno(3.4.6)$$
+which is clearly just a dipole, representing the bubble's
+translation, together with its image in $S$. 
+On the basis of the analysis in Section 3.3, 
+equation (3.3.14) in particular, we would expect this to be
+typical of the type of boundary value problem
+solved by the numerical code when calculating
+the bubble motion, and hence it should give us a practical
+estimate for the rate-of-convergence.
+\vskip 5pt
+To measure convergence, the normal derivative
+estimated on the transformed free-surface by the 
+boundary integral method with $N_S=N_B=N$ nodes, denoted
+$\tilde\psi_N$, is compared with that from the exact solution.
+The exact normal derivative in the $z$-plane is, from (3.4.6),
+$$\psi\Big|_S\equiv{\partial\phi\over\partial n}\Big|_S=
+{4\gamma^2\over
+(x^2+\gamma^2)^2}-{2\over x^2+\gamma^2},\eqno(3.4.7)$$
+and is related to that in the 
+$\zeta$-plane, $\tilde\psi$, by the expression
+$$\tilde\psi=\left|{dz\over d\zeta}\right|\psi.\eqno(3.4.8)$$
+We define the error, $E_N$, by
+$$E_N=\max_{i=1,\ldots,N}\{\tilde\psi_N(x_i)-\tilde\psi(x_i)\}.\eqno(3.4.9)$$
+
+Inspection of figure 3.5 shows that the error falls off as $N^{-2}$, 
+as is the case for a corresponding second-kind 
+integral equation using a piecewise linear collocation method (see
+for example Atkinson et al, 1983). It was found in Chapter 2 that the 
+1-norm condition numbers for the discretised
+first-kind formulation, such as the 
+Green's formula method used here, are significantly larger
+than for second-kind 
+vortex or dipole distribution methods. Thus small errors 
+introduced at each time-step may be amplified faster using
+this method. A source of such errors is the integration of
+(3.2.14) and (3.2.15), particularly because of the difficulty involved in
+accurately differentiating the surface shape twice to find the 
+curvatures. Indeed, it is the inclusion of surface tension
+that necessitates the use of smoothing.
+
+Problems can occur when solving integral
+equations with weakly singular kernels 
+if elements become very close to nodes on
+other parts of the surface.
+If this happens on parts of the surfaces where the distances between
+adjacent nodes are
+relatively large, so that few quadrature points are used,
+the integrals along the elements closest to the observation node 
+will not be calculated accurately.
+In the context of problems considered here,
+this typically occurs in the cases 
+when a small, circular bubble gets very close to the free-surface
+or when a large bubble has developed a jet which is about to pinch 
+off smaller bubbles. We find that the problem tends to manifest
+itself by causing excessively
+large values for the normal derivatives as solutions to the
+integral equation. 
+The time-step is chosen in the manner described in Chapter 2,
+so that the maximum change in potential is restricted for each step.
+From the dynamic conditions
+(3.2.14) and (3.2.15), we see that large velocities
+result in correspondingly large rates-of-change of potential,
+and thus a small time-step, eventually causing 
+the calculation to grind to a halt.
+It is, however, important to note that for this particular application,
+these problems occur in situations where
+one may expect viscous effects to be important, namely
+in the drainage of thin films. 
+Thus the method will give good results to physical problems
+provided that small enough elements are used
+to ensure accuracy up to the point 
+where the underlying assumptions of the model cease to be valid.
+
+Figure 3.6 shows the  results  of  the  asymptotic  expansion
+described in section 3.3, for the case $\gamma_1=10$.
+The solid lines represent the 
+surface elevations according to the analytic solution (3.3.26)
+and the broken lines the solution from the boundary integral method. 
+As expected, the curves compare best for small times when the bubble is 
+further from the free-surface and when the surface elevation 
+and velocity are small. As the bubble moves closer, the comparison is less satisfactory.
+There are several reasons for inaccuracy at later times.
+One factor is the fact that in the
+above analysis we assume that the bubble is represented by a dipole, and
+make no other attempt to ensure that the kinematic boundary conditions at 
+the bubble are satisfied. Thus as it deforms  from  circular  or 
+becomes much closer to the free-surface the simple dipole model starts to
+break down. To get a better approximation, one could use 
+the method of images to reinforce the boundary condition at the bubble on 
+the assumption that it is a rigid cylinder (Havelock, 1927).
+One may also consider taking more terms in the asymptotic expansion.
+This should improve the comparison, however it should be emphasised
+that this would only yield a better approximation to the solution of the 
+problem of a {\it dipole's} effect on a free-surface and so could not
+predict accurately the situation when the bubble becomes much
+closer to the surface, for the reason pointed out above.
+
+Figure 3.7 shows an example of the possible motion when a $1mm$ 
+two-dimensional gas bubble bursts at a free-surface.
+Unlike the corresponding 
+calculation of Chapter 5, where a high speed jet is seen to
+form, only a small bump can be observed here.
+Much of the energy from the burst seems to propagate outwards in
+the form of surface waves. Part of the reason for the lack of jet is
+that, in two-dimensions, there is no component of the surface tension
+force that in the axisymmetric case acts radially to
+thin and lengthen a straight jet. For the same reason, the cavity formed by
+the bubble collapses in a completely different way to the 
+three-dimensional case where it is rapidly pulled inwards near to the
+base by surface tension.
+
+

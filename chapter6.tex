@@ -1,0 +1,320 @@
+\vbox{
+\c{\bigrmb Chapter 6.}
+\vskip 1cm
+\c{\bigrm CONCLUDING REMARKS AND}
+\c{\bigrm FUTURE DEVELOPMENTS}
+\vskip 15pt
+\hbox{\bf 6.1 Conclusions}
+\vskip 5pt
+}
+In this thesis we develop and utilise powerful boundary integral
+techniques in order to study unsteady gas bubble rise and burst
+at high Reynolds number.
+This was motivated by the problem of cell destruction
+in bubble aerated bioreactors. In particular, we have focused on the 
+bubble disengagement which experiments highlight as an important
+damaging factor. A consideration of the effect of a free surface on 
+the motion of bubbles is also of interest. This, together with bubble bursting,
+is a theme running through a large portion of this work.
+An examination of the motions of two-dimensional bubbles provides an
+important introduction both into the types of fluid behaviours that 
+one may expect in three-dimensions and into the numerical methods used to 
+study them. As the axisymmetric boundary integral method is effectively
+a two-dimensional method with a modified Green's function, the step up
+from two to three-dimensional bubbles is straightforward.
+Although, through choice, we use splines for interpolation along the
+interfaces in the latter case rather than linear elements,
+the axisymmetric method still affords a simple, easily managed
+surface representation, when compared to a fully three-dimensional 
+code. The effectiveness of these techniques for solving  
+often complicated, non-linear, unsteady fluid motions is apparent from the
+previous chapters. At the very heart of the boundary integral methods used
+is the ability to follow fluid interfaces through time and thus
+gain an understanding of the physical processes involved which would not
+have been possible through the use of purely analytical techniques.
+Useful functions of the flow field such as streamlines, pressures and 
+energy dissipation rates can also be calculated with relative ease.
+
+Several boundary integral methods are compared for
+solving the problem of a rising two-dimensional bubble.
+The methods used are in many ways very similar. Unlike Baker et al (1982) and
+Baker and Moore (1989) who form equations which can be used to directly update 
+singularity strengths for the surface distributions, in each case we retain
+the same form for the dynamic boundary condition and use this to update surface 
+potentials. This comparison therefore depends mainly upon the relative merits
+of the underlying integral equations upon which the methods rely.
+In all of the methods used in Chapter 2,
+linear elements are used to interpolate surface nodes for integration
+purposes. The use of quadratic elements affords increased accuracy
+for the determination of tangential derivatives but is also sometimes necessary
+in the calculation of integrals over elements adjoining
+the field point node in order to maintain the regularity of the integrand.
+Superficially, the results indicate very little difference between the various 
+approaches except for the case of a source distribution method which fails
+to calculate the motion beyond the first stages of jet formation. Otherwise the
+bubble profiles agree with independent calculations performed by Baker and 
+Moore (1989). 
+The vortex method seems to conserve energy best, particularly in the final
+stages 
+of the calculations. The numerical stability of the Green's formula method,
+based on a first-kind Fredholm equation, is comparatively
+poor. When using an initial bubble perturbed by just $1\%$, with a wave number of
+$18$ the top of the bubble develops a severe
+Rayleigh-Taylor instability within a very 
+short time. The underside of the bubble, where the liquid is accelerated
+towards the lighter gas phase, is largely unaffected by the initial 
+perturbation as might be expected.
+This instability seems to be as a result of ill-conditioning of the Green's
+formula method, which greatly amplifies a slightly altered initial condition.
+
+An investigation of the physical stability of a two-dimensional bubble
+rising from rest for small times, when an analytical solution for the 
+unperturbed motion is available, shows that a small amount of surface tension
+can stabilise a bubble, at least for short wavelength perturbations, 
+even though this surface tension has very little
+effect on the motion of an unperturbed bubble, where the 
+surface curvatures are much less. This suggests that the Green's formula
+method may reflect reality better than the other methods.
+
+The reason for the lack of success with the source and modified source methods
+is not clear --- the condition numbers of the modified source method
+which relies on a second-kind equation are not significantly higher
+than those for the Green's formula method. 
+It seems that there is an inherent problem with trying to accurately solve a 
+problem with a dipole far-field potential based solely 
+on a distribution of sources.
+
+By employing a conformal map to transform a semi-infinite region onto a 
+bounded domain, the boundary integral methods described in Chapter 2 are
+extended to allow the modelling of a two-dimensional bubble beneath a free
+gas/liquid interface. The bubble behaviour is very similar to that
+for the infinite fluid case, especially when the 
+bubble rises from a distance far below the interface; a fact that gives us 
+confidence in the accuracy of our results. 
+Nearer to the interface, the fluid is less mobile due to the stabilising effect
+of gravity on the free-surface.
+Consequently, the jet formed on a bubble rising in
+close proximity to the surface is appreciably slower and thus broadens earlier.
+The inclusion of surface tension allows us to model bubbles that do not
+form jets, but that become flattened as they rise due to the lower pressures 
+around the sides. The pressure at a point in the fluid above the bubble
+increases as the bubble approaches so that the free-surface
+rises noticeably when the bubble becomes close. This surface elevation
+compares well with calculations based on the assumption 
+that a deeply submerged, circular, constant volume bubble may 
+be regarded as a dipole.
+
+Several similarities in the bubble shapes for the two and three-dimensional cases
+become apparent when we consider the problem of axisymmetric rising bubbles.
+For low surface tension, a much faster jet is formed which,
+although initially broader,
+impacts on the far side of the bubble rather than spreading out.
+The broadening of the jet tip, which subsequently pinches off a ring bubble
+leaving a spherical cap, occurs only in the case of non-zero 
+surface tension. Increasing surface
+tension results in wider jets, until no secondary, toroidal bubble 
+is released. 
+
+The interaction of two axisymmetric bubbles
+is also considered. The effect on the 
+lower bubble is greater, its top being drawn up with the fluid 
+flowing into the jet of other. This phenomenon is not as 
+marked as in the corresponding 
+situation for two-dimensional bubbles
+(considered by Robinson, 1992; Robinson et al, 1993),
+since a proportionately greater volume
+of the fluid forming the jet originates further from the axis of symmetry
+in three-dimensions.
+As the top of the lower bubble is pulled upward, the bubble as a whole thins
+reducing its added mass so that it rises faster than it 
+would if it were in an infinite fluid. Its jet speed is correspondingly 
+increased.
+
+As an example of an alternative use of boundary integral methods, the problem
+of a bubble rising steadily due to the balance of viscous drag and buoyancy is
+considered. This problem is formulated as a large set of non-linear integral
+and differential equations which when put into a discrete form 
+are solved using Newton iteration. The results match closely those
+of Miksis, Vanden Broeck and Keller (1982) who first took this approach
+to this problem.
+
+In the last chapter, we develop a numerical model of bursting bubbles 
+for the time 
+between immediately after the rupturing of the film up until jet and 
+drop formation.
+The formation of jets is the result of the
+collapse of the bubble crater towards the axis of symmetry so that fluid is
+eventually forced both upwards and downwards.
+High speed jets do not feature in larger (over about $2.5mm$ radius) bubble
+bursts as there is insufficient potential energy in the initial configuration.
+This is due to the reduced equilibrium depth of a larger, more buoyant
+bubble.
+
+High energy dissipation rates prior to jet rise
+have been identified as a possible indicator of cell damage.
+The maximum values of energy dissipation rates are reduced 
+exponentially as the bubble radius is increased.
+With regard to the problem of cell damage 
+in aerated bioreactors, this is very encouraging, particularly as 
+experiments suggest that only the very small bubbles cause damage. However,
+the full implications can only become apparent when we know
+more details of the likely positions of cells in relation to
+regions of high rates of strain, both around the crater as it collapses and
+below the bubble as the jets form.
+The survivability of cells in specific flow environments also needs
+to be studied in more depth before any concrete conclusions are 
+drawn in this respect.
+
+A technique for including viscous forces in a stress-free boundary
+layer, based on the method of Lundgren and Mansour, is introduced. 
+This utilises the fact that a linearisation of the velocities in
+the boundary layer results in material elements that remain straight
+and perpendicular to the interface. This has the
+effect of obviating the need to use a complicated boundary layer
+mesh to calculate numerical values for the first order perturbation 
+to tangential velocities.
+The only noticeable effect of the boundary layer on the
+motion is on the jet which is slowed slightly due to viscous dissipation.
+The onset of boundary layer separation gives initial conditions for an estimate
+of the vorticity development in the upward and downward jets.
+This suggests only a small contribution to the total stress placed on cells,
+and indicates that the potential flow model gives essentially accurate
+information of the fluid motion subsequent to film rupture.
+\vskip 15pt
+\hbox{\bf 6.2 Future directions.}
+\vskip 5pt
+Although the work described in Chapter 5 provides an important basis
+for future mathematical research into cell damage in bubble aerated bioreactors,
+there remain many unexplored avenues of investigation.  In this section, we
+indicate some of the main topics which need to be analysed further,
+in order to arrive at a more definite set of damage mechanisms.
+These topics may be divided into three main areas: bubble/free-surface
+interactions; film rupture and foam production; cell motion. 
+We consider each in turn below.
+\vskip 15pt
+\c{\it 6.2.1 Bubble/free-surface interactions.}
+\nobreak
+\vskip 5pt
+The available evidence strongly suggests that
+damage is linked with bubble/cell
+interactions at the air/medium interface. Small bubbles, less than 5mm diameter,
+appear to be the most lethal, but these often burst in clusters 
+(Oh, Nienow, Al-Rubeai and Emery, 1992), 
+rather than singly as was assumed in Chapter 5. This will clearly
+affect the bursting process. Neighbouring bubbles are likely to 
+inhibit much of the inflow of fluid required to produce the jet, and so one may
+expect clustering bubbles to cause less damage.
+
+Experimentation so far has been largely confined to 
+studies with actual, scaled-down bioreactors and little
+attention has been paid to observing the stresses placed on a cell
+in the vicinity of a bursting bubble. A greater amount of experimental
+information regarding the behaviour of a cell in a straining flow such
+as that which is seen to occur at the base of the bursting bubble immediately
+prior to jet formation, would be of great value in this respect.
+Placing a cell at the stagnation point of a four-roll mill would be a 
+useful experiment that could be performed as a means of 
+determining the maximum strain which a cell can withstand.
+
+In bioreactors, the medium is rarely a pure liquid.
+Surface active compounds will often be present and
+any good model of the flow must take account of surface 
+rigidity and surface tension gradients. So far, qualitative agreement
+with experiment has been obtained, but the results of 
+the last chapter indicate that
+it is of tremendous importance to determine accurately
+the position of the bubble in the fluid when it bursts.
+This will clearly affect greatly the
+amount of energy released at burst, a factor critical
+in deciding whether the burst will be deliterious to nearby cells.
+It is clear that surface chemistry will play a role in
+this, as well as altering the ensuing bursting motion.
+
+Mathematically, the addition of surface active compounds to the reactor
+medium, poses us a number of problems. The amount of surfactant
+will vary from place to place:
+there may be a different concentration on the free surface than on the 
+rising bubbles that eventually burst there.
+Consequently there will be a 
+variation in surface tension so that we need to take into account the
+associated contribution to tangential particle motions. 
+The advection and diffusion of surfactant also needs to be included
+in the calculations.
+If there is sufficient surfactant, the liquid/gas interfaces will be effectively
+rigid to tangential motion. 
+The potential flow solution will not be able to take into account a 
+no-slip boundary condition as well as the other boundary conditions.
+The resulting boundary layer correction for the velocity at the boundary
+is likely to have a greater effect on the flow 
+than the stress-free case studied in the previous chapter.
+In any case, as the surface tension gradients exert a force tangentially,
+the surface will be able to support a non-zero stress and so
+the techniques used in Chapter 5 will not be applicable.
+\vskip 15pt
+\c{\it 6.2.2 Film rupture and foam production.}
+\vskip 5pt
+There are two important aspects to this topic. The first of these is
+based on the proposal of Chalmers and Bavarian (1991) that
+film rupture occurring at bubble burst is a possible
+cause of cell damage. This rests on the claim of Culick (1960) that 
+the region of film in front of the rapidly expanding toroidal rim
+of a rupturing film is almost stationary, thus any cells adsorbed on the
+film will be struck by the rim with considerable force. 
+
+The other important aspect of film rupture is its relationship to foams.
+Experimentally it has been shown that the cell damage rates are 
+very sensitive to the amount and stability of any foam produced 
+and on the thickness of the lamellae separating bubbles.
+The production of commercially viable bioreactors
+depends critically on determining the precise physico-chemical properties of the
+bioreactor medium that will support a stable foam
+which, it has been observed (Handa, Emery and Spier, 1987), significantly
+reduces the cell death rates. The mechanism for the protection afforded by
+the presence of Pluronic F-68, which itself allows a stable foam to be formed,
+is also a matter of great debate (Handa, Emery and Spier, 1987; Kowalski, 1991).
+An understanding of the effects of the various
+physical and chemical parameters on the bubble drainage times
+would provide a vital cornerstone for the future success of this research.
+\vskip 15pt
+\c{\it 6.2.3 Cell motion.}
+\vskip 5pt
+In any complete study of the role of bubbles in damaging cells, there
+must be a consideration of where the cells are in relation to the bubbles.
+The work of Blanchard and Syzdek (1972) shows that certain solid particles
+in this case bacteria, tend to become adsorbed onto bubble walls as they rise 
+through the liquid.
+Cells adsorbed onto bubbles are clearly in a position where they are 
+vulnerable to damage from the stresses produced by bubble bursting.
+
+Using similar techniques to those of Stoos and Leal (1990), a 
+boundary integral method can be employed to calculate the motion
+of a solid particle attached to a gas/liquid interface. In this way it 
+is possible to gain important
+information about the cell distribution on the bubble at the time of burst.
+If they tend to congregate near to the base of the bubble as it rises then they
+are likely to move into the jet during the burst, thus undergoing a period 
+of high stress.
+The possibility that cells may be dragged up through
+the fluid in the wake of a rising bubble, leaving them at risk
+of possible damage by the downward jet (Chalmers, 1992) is also of possible
+interest.
+\vskip 40pt
+To conclude, we remark that we have developed boundary integral 
+techniques which have allowed accurate calculations of the 
+unsteady motions of rising and bursting gas bubbles in 
+two and three-dimensional
+flow domains. 
+By devising a scheme whereby stress-free
+interface conditions can easily be incorporated into a boundary integral method
+through a viscous boundary layer, we have been able to approximate the 
+advection of separated vorticity around a bursting bubble.
+The presence of a free-surface or other nearby bubbles 
+often has a significant effect on the fluid flow near to rising bubbles
+and this is clearly reflected in the bubble motion.
+The ratio of surface tension forces to buoyancy forces is
+of great importance, both in terms of its effect on the deformation rate 
+of rising bubbles and through
+the ascertainment of initial conditions for bubble burst.
+The latter being a critical factor in the determination of the
+energy released during the burst itself.
+

@@ -1,0 +1,1229 @@
+\vbox{
+\c{\bigrmb Chapter 2.}
+\vskip 1cm
+\c{\bigrm A TWO-DIMENSIONAL BUBBLE}
+\c{\bigrm IN AN INFINITE FLUID.}
+\vskip 15pt
+\hbox {\bf 2.1 Introduction.}
+\vskip 5pt
+}
+Two-dimensional bubbles are less physically realistic
+than their three-dimensional counterparts. Nevertheless their 
+study provides a useful introduction
+to the mathematical concepts involved in potential theory and
+boundary integral equations.
+
+Two-dimensional bubbles have been the subject of the mathematical
+attention of a  number  of researchers. Walters and
+Davidson (1962) found an analytic expression for the initial motion.
+They also conducted experimental studies and, in their paper, they include
+photographs of a bubble rising in the narrow gap between two sheets of glass.
+
+A complex-variable technique was used by Baumel et al (1982) to
+compute the bubble motion.
+They developed a series solution which they summed using 
+a variant of Pad{\'e} approximants.
+This approach successfully predicted
+the position of the top and bottom of the bubble through time.
+However because of singularities in the complex
+plane, their series does not have a very large radius of convergence,
+thus they could only use it to give information for small times.
+
+Baker and Moore (1989) successfully used numerical techniques to model the
+motion of the bubble.
+Their methods hinge on finding equations describing the evolution of
+the strengths of vortex or dipole singularities distributed over the 
+gas/liquid interface.
+The dipole method is given in detail in Baker, Meiron and Orszag (1982), and
+works by deriving a second-kind Fredholm equation for the rate
+of change of the dipole strength, which may be solved iteratively.
+Vortex methods have been used extensively in other problems,
+for example in the modelling of large 
+amplitude surface waves (Baker, Meiron and Orszag, 1982),
+and in studying the surface water waves induced by a submerged body (Soh, 1987).
+\vskip 15pt
+\hbox {\bf 2.2 Mathematical preliminaries.}
+\vskip 5pt
+\c{\it 2.2.1 Formulation of the problem.}
+\vskip 5pt
+Incompressible fluid fills the infinite
+region of the \hbox{$(x,y)$-plane}, $\Omega_-$.
+The fluid is bounded internally by the closed curve, $C$, representing
+the bubble's surface. Denote the interior of $C$ by $\Omega_+$.
+It is assumed that the fluid is inviscid 
+and that the flow is irrotational since it is initially at rest.
+Incompressibility leads to
+$\nabla\cdot\bd{u}=0$ and irrotationality to
+$\nabla\times\bd{u}=\bd{0}$ so that the velocity
+field, $\bd{u}$, may be expressed as the gradient
+of a potential, $\varphi$, which satisfies
+the Laplace equation, $\nabla^2\varphi=0$.
+Initially, the fluid is at rest so that the potential, $\varphi$,
+is constant throughout the domain of solution, $\Omega_-$.
+Particles on the boundary of the bubble, 
+for this two-dimensional problem given by the
+Lagrangian description $\bd{q}(\eta,t)$,
+$\eta\in[0,1)$ say, must remain there.
+This gives us the kinematic condition
+$${\partial\bd{q}\over\partial t}(\eta,t) = \nabla\varphi(
+\bd{q}(\eta,t),t),\quad\forall \eta\in[0,1),t\ge0.\eqno(2.2.1)$$
+The dynamic boundary condition takes the form of the Bernoulli theorem,
+namely
+$${{p_\infty}\over\rho}={p\over\rho}+{1\over2}|\bd{u}|^{2}+
+{\partial\varphi\over\partial t}+\Phi,\eqno(2.2.2)$$
+where $p_\infty$ is the ambient pressure
+and $\Phi$ is the gravitational potential ($= gy$).
+Due to the relatively low density of the gas inside the
+bubble, we assume that the pressure inside the bubble
+is a function of time only. 
+
+Lengths are scaled with respect to the radius of 
+the initially circular bubble, $a$,
+times with respect to $(a/g)^{1/2}$ and pressures with respect to
+$\rho ga$.
+Evaluating (2.2.2) at the bubble surface and using the
+substantial derivative,
+$${D\varphi\over Dt}={\partial\varphi\over\partial t}+
+|\bd{u}|^2,$$
+yields an equation describing the evolution of the potential 
+of fluid particles on the bubble. In terms of dimensionless variables,
+$${D\varphi\over Dt}=
+{1\over 2}|\bd{u}|^2-y+p_\infty-p_b(t),$$
+where $p_b(t)$ is the bubble's internal pressure.
+
+The total volume change for a bubble containing an ideal gas at
+fixed temperature, is given by
+$${V\over V_0}\simeq \left(1-\rho ga\Delta y/p_\infty\right)^{-1}.$$
+If $p_\infty$ is taken to be 
+atmospheric pressure of the order of $10^6 dyn/cm^2$,
+and we assume that the total translation of the bubble
+before it splits up (see Walters and Davidson, 1962),
+$\Delta y$, is only a few bubble radii,
+then $\rho ga\Delta y/p_\infty\ll 1$
+and we may assume that the bubble volume remains constant.
+This agrees with the experimental findings of Walters and Davidson (1962).
+To conserve bubble volume, we insist that the total flux of fluid 
+through the bubble's surface vanishes, i.e.
+$$\int_C{\partial\phi\over\partial n} ds = 0.$$
+As a far-field condition for the potential, we may assume in this case that 
+$\varphi(\bd{x})\rightarrow 0$ as $|\bd{x}|
+\rightarrow\infty$.
+As will be seen presently, this condition provides us with a 
+means of calculating the unknown value of $p_\infty-p_b(t)$.
+
+To remove the $p_\infty-p_b(t)$ term from the dynamic condition, we 
+define a new potential, $\phi$, by 
+$$\phi=\varphi+\int_0^t(p_b(t')-p_\infty)dt',\eqno (2.2.3)$$
+(see also Lundgren and Mansour, 1991), thus yielding
+$${D\phi\over Dt}={1\over 2}|\bd{u}|^2-y,\eqno (2.2.4)$$
+for $\phi$ on the bubble.
+\vskip 5pt
+\c{\it 2.2.2 Green's Theorem.}
+\nobreak
+\vskip 5pt
+In a similar manner to the three-dimensional case,
+Green's formula may be used in the plane, namely
+$$\int_A\left (G\nabla^2\phi(\bd{x}')-
+\phi(\bd{x}'){\nabla'}^2G\right)dA'=\int_{C\cup\Sigma_R}
+\left(G{\partial\phi\over\partial n}(\bd{x}')
+-\phi(\bd{x}'){\partial G\over\partial n'}\right)ds',\eqno(2.2.5)$$
+where here $A$ is a finite region of $\Omega_-$, bounded internally by $C$
+and externally by $\Sigma_R$. Here,
+$$G(\bd{x},\bd{x}') =
+{1\over 2\pi}\log{1\over |\bd{x}-\bd{x}'|}$$
+is the free-space Green's function for the
+two-dimensional Laplace equation, i.e.
+$${\nabla'}^2 G(\bd{x},\bd{x}')=
+-\delta(\bd{x}-\bd{x}').$$
+To resolve any ambiguity with functions of two space variables,
+$\bd{x}$ and $\bd{x}'$,
+differentiations and integrations with respect to $\bd{x}'$
+are indicated by a prime: so that for example
+$\{\nabla'\}_i\equiv \partial/\partial x_i'$.
+
+If $\nabla^2\phi=0, \forall \bd{x}\in A$, we get
+$$c(\bd{x})\phi(\bd{x})=\int_{C\cup\Sigma_R}
+\left(G{\partial\phi\over\partial n}(\bd{x}')-
+\phi(\bd{x}'){\partial G\over\partial n'}\right)ds',\eqno(2.2.6)$$
+where
+$$c(\bd{x})=\cases{1,&$\bd{x}\in A\subset\Omega_-,$\cr
+{1\over 2},&$\bd{x} \in C\cup\Sigma_R,$\cr 0,&$\bd{x} \in \Omega_+.$}$$
+These values for $c(\bd{x})$ come about as a result of the fact that in
+two dimensions, Green's formula can be derived as the real part of 
+a Cauchy integral. The factor of a half for the case where the 
+field point is on the contour, represents the Cauchy principal value.
+
+The integral over $\Sigma_R$ in (2.2.6) can be significantly simplified.
+Following Batchelor (1967), this is perhaps
+best seen if $\Sigma_R$ is taken to be a circle of radius $R$ around the
+point $\bd{y}\in A$ which coincides with the field point, $\bd{x}$.
+In this case the integral can be written as
+$${1 \over 2\pi}\left(\log{1\over R}\int_{\Sigma_R}
+{\partial\phi\over\partial R}ds+
+{1\over R}\int_{\Sigma_R}\phi ds \right).\eqno(2.2.7)$$
+The second integral in (2.2.7) over $\Sigma_R$ is just
+$$\int_0^{2\pi}\phi d\theta.$$
+In the general case, when
+$${1\over 2\pi}\int_S{\partial\phi\over\partial n} ds = -m_S,
+\eqno(2.2.8)$$
+over any curve, $S$, enclosing the bubble, we have
+by the divergence theorem that
+$m_S=m$ is independent of the particular contour, $S$, since
+$\nabla^2\phi=0$ in $A$. Thus $m$ is the rate of expansion of
+the bubble. So taking $S$ to be $\Sigma_R$ and writing (2.2.8) in terms
+of an angular variable, $\theta$, as above, we have
+$${R\over 2\pi}\int_0^{2\pi} {\partial \phi\over\partial R}d\theta=-m.
+\eqno (2.2.9)$$
+Integrating (2.2.9) with respect to $R$ gives
+$${1\over 2\pi}\int_0^{2\pi}\phi d\theta = m\log{1\over R}+k.\eqno (2.2.10)$$
+Moreover $k$ is independent of $\bd{y}$, the centre of $\Sigma_R$,
+since differentiating (2.2.10) with respect to $y_i$ gives
+$${\partial k\over\partial y_i}={1\over 2\pi}\int_0^{2\pi}
+{\partial\phi\over\partial y_i}d\theta,\eqno (2.2.11)$$
+where this expression is independent of $R$ and, in the limit
+$R\rightarrow\infty$, the right-hand-side is seen to be zero,
+since the fluid is at rest at infinity.
+
+Thus combining (2.2.6), (2.2.7), (2.2.9) and (2.2.10), we get the final form 
+of Green's theorem
+which can be used as a basis for boundary integral methods
+in the unbounded domain, $\Omega_-$, viz
+$$c(\bd{x})\phi(\bd{x})=k+\int_C
+\left(G{\partial\phi\over\partial n}(\bd{x}')-
+\phi(\bd{x}'){\partial G\over\partial n'}\right)ds'.\eqno(2.2.12)$$
+
+Information as to the form of $\phi$ given by (2.2.12) can
+be found by expanding in a Taylor
+series (Batchelor,t 1967; Lighthill, 1986) for points
+$\bd{x}\in \Omega_-$ with $r=|\bd{x}|\gg|\bd{x}'|$.
+On doing this, we find
+$$\phi(\bd{x})=k-{m\over 2\pi}\log{1\over r}-
+{\bd{x}\over 2\pi r^2}\cdot\left({d(\bd{c}V)\over dt}+
+{\bd{I}\over\rho}\right)+O(r^{-2}).\eqno(2.2.13)$$
+
+Here $m$, the strength of the source term, is the expansion rate 
+of (2.2.9). The second term represents a dipole and is made up of two
+components. The first is related to the centroid velocity, where
+$\bd{c}$ is the centroid position and $V$ is the volume 
+of the bubble. The second part is related to the Kelvin
+impulse defined by
+$$\bd{I}=\int_C\rho\phi\bh{n}ds.$$
+It was suggested by Lamb (1932) that
+the Kelvin impulse can be thought of as an impulsive wrench which
+induces the motion on a fluid initially at rest, analogous to
+the notion of impulse in the theory of particle mechanics.
+
+It is clear from (2.2.13) that, if we take $\phi$ to be the modified 
+potential defined in section 2.2.1, $k$ is the 
+limiting value of $\phi$ as $r\rightarrow\infty$ and so,
+from the far-field condition on the original potential,
+$\varphi$, we have that 
+$$k=\int_0^t(p_b(t')-p_\infty)dt'.\eqno(2.2.14)$$ 
+\vskip 5pt
+\c{\it 2.2.3 Indirect formulations.}
+\nobreak
+\vskip 5pt
+From Green's theorem, the potential may be written as a simple
+source or dipole distribution which can then give rise to
+two so-called `indirect' boundary integral methods
+(see also Brebbia and Walker, 1980 and Jaswon and Symm, 1977).
+If, in (2.2.5), we had chosen $A$ to be the internal
+region, $\Omega_+$, we would have immediately had
+$$\tilde c(\bd{x})\tilde\phi(\bd{x})=-\int_C
+\left(G{\partial\tilde\phi\over\partial n}(\bd{x}')-
+\tilde\phi(\bd{x}'){\partial G\over\partial n'}\right)ds',\eqno(2.2.15)$$
+(the `$-$' sign is because we are taking normal derivatives in the
+same direction as in (2.2.6), i.e. into $\Omega_+$)
+where
+$$\tilde c(\bd{x})=\cases{1,&$\bd{x} \in \Omega_+,$\cr
+{1\over 2},&$\bd{x} \in C,$\cr 0,&$\bd{x} \in \Omega_-.$}$$
+
+Hence adding (2.2.15) to (2.2.12) gives, for all $\bd{x}$,
+$$\phi(\bd{x})=k+\int_C
+\left\{\left({\partial\phi\over\partial n}(\bd{x}')-
+{\partial\tilde\phi\over\partial n}(\bd{x}')\right)G-
+\left(\phi(\bd{x}')-\tilde\phi(\bd{x}')\right)
+{\partial G\over\partial n'}\right\}ds'.$$
+If we assert that the potential is to be continuous across $C$
+then
+$$\phi(\bd{x})=k+{1\over 2\pi}\int_C\sigma(\bd{x}')
+\log{1\over|\bd{x}'-\bd{x}|}ds',\eqno(2.2.16)$$
+where $\sigma(\bd{x}')=\left({\partial\phi/\partial n}-
+{\partial\tilde\phi/\partial n}\right)$
+and if the normal derivative is continuous across $C$,
+$$\phi(\bd{x})=k-{1\over 2\pi}\int_C
+\mu(\bd{x}'){\partial\over\partial n'}\log{1\over|\bd{x}'-
+\bd{x}|}ds',\eqno(2.2.17)$$
+where $\mu(\bd{x}')= (\phi-\tilde\phi)$.
+\vskip 15pt
+\vbox{
+\hbox {\bf 2.3 Source distribution method.}
+\vskip 5pt
+\c{\it 2.3.1 Formulation.}
+\vskip 5pt
+}
+\nobreak
+The source formulation, given by (2.2.16), may be derived from the
+Green's formula as shown above or may be thought of as a Poisson
+integral for the solution of
+\hbox{$\nabla^2\phi=-\int_C\sigma(\bd{q}(s))\delta(\bd{x}-\bd{q}(s))ds$},
+where $\bd{q}(s)$ is an arc-length parametrisation of the bubble surface.
+
+Consider the integral of the normal derivative of the
+potential (by re-writing (A3)) for the cases
+where the field point $\bd{x}^\star$ approaches $\bd{x}$ from 
+$\Omega_+$ and from $\Omega_-$,
+$$\int_C{\partial\phi\over\partial n}ds=
+\int_C\left({1\over 2\pi}\int_C\sigma(\bd{x}'){\partial\over\partial
+n}\log{1\over|\bd{x}'-\bd{x}|}ds'
+\mp{1\over 2}\sigma(\bd{x})\right)ds,\quad \bd{x}^\star
+\rightarrow \bd{x}_\pm.\eqno(2.3.1)$$
+Here $\bd{x}_\pm$ is shorthand for the two limiting cases.
+Note that, for $\bd{x}'\in C$, the Cauchy-Riemann relations
+with inward facing normals, 
+applied to the complex logarithm, give us
+$$\int_C{\partial\over\partial n}\log{1\over|\bd{x}'-
+\bd{x}|}ds
+=\int_C{\partial\theta\over\partial s}ds=\pi,\eqno (2.3.2)$$
+where ${\partial/\partial s}$ represents a tangential derivative and
+$\theta$ is the angle between $\bd{x}$ and $\bd{x}'$.
+So we have, on reversing the order of integration in (2.3.1) and applying
+(2.3.2), that
+$$\int_C{\partial\phi\over\partial n}ds=
+\cases{\int_C\sigma(\bd{x}')ds',
+&$\bd{x}^\star\rightarrow \bd{x}_-,$\cr
+0,&$\bd{x}^\star\rightarrow \bd{x}_+.$}\eqno(2.3.3)$$
+So in the case considered here, we need to explicitly constrain the
+integral of source strengths over the surface to be zero, in order
+that the volume remains constant.
+To show that this can be done, consider the
+problem of finding a potential in an internal domain, $D$,
+with constant Dirichlet boundary conditions. If we are given that
+$\phi=1$ on $\partial D$, then we have the following Fredholm
+equation to solve for $\lambda$ on $\partial D$:
+$${1\over 2\pi}\int_{\partial D}\lambda(\bd{x}')\log{1\over|\bd{x}'-
+\bd{x}|}ds'=1,\quad \forall\bd{x}\in\partial D,\eqno(2.3.4)$$
+(see for example Jaswon and Symm, 1963).
+By the Dirichlet existence theorems, $\phi=1$ throughout $D$,
+and so taking the derivative of (2.3.4) normal to
+$\partial D$, into $D$ yields (as in (2.3.1))
+$${1\over 2\pi}\int_{\partial D}\lambda(\bd{x}'){\partial\over\partial 
+n}
+\log{1\over|\bd{x}'-\bd{x}|}ds'-{1\over 2}\lambda(\bd{x})=0,
+\quad\forall\bd{x}\in \partial D.$$
+This has non-trivial solutions since application of (2.3.2) shows that its 
+adjoint,
+$${1\over 2\pi}\int_{\partial D}\mu(\bd{x}'){\partial\over\partial n'}
+\log{1\over|\bd{x}-\bd{x}'|}ds'-{1\over 2}\mu(\bd{x})=0,
+\quad\forall\bd{x}\in \partial D,$$
+certainly has non-trivial solutions for $\mu$ --- namely $\mu=const$.
+Multiplying  (2.2.16) by $\lambda(\bd{x})$, integrating over $C$, interchanging
+the order of integration and using (2.3.4),
+for the case $\partial D=C$, it is evident that the
+volume remains fixed, according to (2.3.3), when 
+$$k={\int_C\lambda(\bd{x})\phi(\bd{x})ds\over
+{\int_C\lambda(\bd{x})ds}}.$$
+In practice we do not need to find $\lambda$ in order to determine
+the correct constant, $k$, as we can use (2.2.16) in conjunction
+with a volume constraint. Thus, from (2.3.3), we need to solve the system: 
+$$\eqalignno{\phi(\bd{x})&=k+{1\over 2\pi}
+\int_C\sigma(\bd{x}')
+\log{1\over|\bd{x}'-\bd{x}|}ds',&(2.3.5)\cr
+0&=\int_C\sigma(\bd{x}')ds'.&(2.3.6)}$$
+\vskip 5pt
+\c{\it 2.3.2 Discretisation.}
+\nobreak
+\vskip 5pt
+In order to solve the problem of the two-dimensional bubble 
+computationally, the surface shape and functions defined on the surface 
+need to be represented; in this case, discrete forms are used.
+The symmetry of the problem means that only half of the bubble need be
+followed through time, but a more general code
+not requiring symmetry was written.
+Only the repositioning routine assumes symmetry (see section 2.3.3),
+but modification for the general case is straightforward.
+The program should therefore be able to handle other problems such
+as finding the motion of many bubbles 
+in  arbitrary  arrangements (see Robinson, 1992;
+Robinson, Boulton-Stone and Blake, 1993)
+or, by using an appropriate Green's function, 
+a bubble rising under an inclined plane.
+In this particular case, the whole of the bubble's surface was represented at 
+$N$
+discrete points. It was found that in order to maintain stability
+for those methods which produced good results, it was necessary to
+place points either side of the central axis at the top and bottom
+of the bubble, rather than on this axis. Since a linear representation
+for the bubble shape was used here, this is the same as insisting that the
+tangents to the top and bottom of the bubble are horizontal as
+required physically due to the symmetry of the
+problem.
+
+An isoparametric representation was used, for both the bubble
+surface and the source strength, $\sigma$, namely that
+on the $i^{th}$ element $(i=1,2,\ldots,N)$,
+$$\eqalign{
+\bd{q}(\epsilon)&=(1-\epsilon)\bd{x}_i+
+\epsilon\bd{x}_{i+1},\cr
+\sigma(\epsilon)&=(1-\epsilon)\sigma_i+\epsilon\sigma_{i+1},
+}\eqno (2.3.7)$$
+for $\epsilon\in [0,1]$, where $\bd{x}_{N+1}\equiv\bd{x}_1$ and
+$\sigma_{N+1}\equiv\sigma_1$.
+Thus equation (2.3.5) becomes
+$$\phi_i\equiv\phi(\bd{x}_i)={1\over 2\pi}\sum_{j=1}^{N}\int_0^1
+\left(\bigl((1-\epsilon)\sigma_j+\epsilon\sigma_{j+1}\bigr)
+\log{1\over |\bd{q}(\epsilon)-\bd{x}_i|}\right)d_j d\epsilon+k,
+\eqno (2.3.8)$$
+where $d_j=|\bd{x}_{j+1}-\bd{x}_j|$, is the length of the 
+$j^{th}$ element
+The coefficients of the $\sigma_i$ in the integrals (2.3.8)
+can be placed in a matrix,
+\hbox{$G\in R_{N+1\times N+1}$},
+with ones in the $N+1^{st}$ column to represent the constant, $k$.
+The $N+1^{st}$ equation is the volume constraint (2.3.6) which discretises to
+$$0=\sum_{j=1}^{N}{d_j\over 2}(\sigma_j+\sigma_{j+1}),$$
+so that $G_{N+1,j}=(d_j + d_{j-1})/2$.
+
+A 4-point Gauss quadrature scheme is used to calculate the integrals in (2.3.8)
+except in the case where $\bd{q}$ lies on an element adjacent to the
+node $\bd{x}_i$, in which case it is a simple matter to
+calculate them analytically.
+Once $G$ is found, the equation $G\ub{\sigma}=\ub{\phi}$
+where $\ub{\sigma}=(\sigma_1,\sigma_2,\ldots,\sigma_N,k)^T$
+and $\ub{\phi}=(\phi_1,\phi_2,\ldots,\phi_N,0)^T$ can be solved
+using Gauss elimination.
+
+In order to update the positions of the nodes on the bubble, the derivatives
+of the potential in the normal and tangential directions are required.
+Differentiating (2.2.16), the expression for the potential, gives
+(see A3)
+$${\partial\phi\over\partial n}(\bd{x})={1\over 2\pi}\int_C
+\bigl(\sigma(\bd{x}')\bh{n}(\bd{x})-
+\sigma(\bd{x})\bh{n}(\bd{x}')\bigr)\cdot
+{\bd{x}'-\bd{x} \over |\bd{x}'-\bd{x}|^2}ds',
+\quad\bd{x}\in C,\eqno (2.3.9)$$
+where $\bh{n}$ is the normal to the bubble surface at $\bd{x}$
+or $\bd{x}'$ as indicated.
+The knowledge of $\sigma$ on $C$ can be employed to find
+$\partial\phi/\partial n$ at all points on $C$.
+This integral is  calculated using the discretisation scheme of
+(2.3.7), thus yielding an expression similar to (2.3.8).
+We take the normal at $\bd{x}'$ to be in the direction
+perpendicular to the line joining the ends of  each segment of integration.
+However since $\bd{x}$, the observation point, is situated on a node
+rather than along an element, it is necessary to use a quadratic fit
+to the curve through the point and its two neighbours to get a good
+approximation for the direction of the normal.
+The exception to this rule is in the case where $\bd{x}'$ lies on the
+intervals adjacent to
+the node at $\bd{x}$. Here, the normal at $\bd{x}'$ is also taken
+to be the normal to a quadratic through three points, and we use
+quadratic interpolation for the integration (see Appendix B). If this
+is not done, then as $\bd{x}'$ approaches $\bd{x}$ the normals
+do not become parallel and thus the expression
+$\sigma(\bd{x}')\bh{n}(\bd{x})-\sigma(\bd{x})\bh{n}(\bd{x}')$ 
+of (2.3.9) does not vanish as it clearly should.
+A 4-point Gauss rule is again used for all the integrals.
+Placing the coefficients of the $\sigma_j$ in the integrals
+corresponding to (2.3.9) into a matrix, $H\in R_{N\times N}$, and defining
+$$\psi_i \equiv {\partial\phi\over\partial n}\Bigl |_{\bd{x}_i},$$
+we have $\ub{\psi}=H\ub{\sigma}$,
+which can then be used to calculate the normal velocities.
+
+The tangential derivatives of $\phi$ and hence the tangential velocities
+are calculated by fitting a quadratic to each set of potentials at
+three adjacent nodes (Taib, 1985).
+The boundary conditions (2.2.1) and (2.2.4) allow us to update
+the nodal positions and potentials respectively,
+integrating with a simple iterative trapezium rule (see below).
+Once a single step of the method has been completed, the initial
+conditions for the next step --- the potentials at and positions of the nodes 
+--- are known. Thus repeating this process, the motion of the bubble can be
+followed through time.
+\vskip 15pt
+\c{\it 2.3.3 Time-stepping and repositioning.}
+\nobreak
+\vskip 5pt
+To move the position of the bubble and the potential at its
+surface through time, an iterative trapezium rule is used for
+each $\bd{x}_i(t)$ and $\phi_i(t)$, $i=1,2,\ldots,N$.
+Firstly, a new value is predicted using Euler's rule; for instance, for
+$\phi_i(t)$
+$$\phi_i^{(0)}(t+\delta t)=\phi_i (t)+\delta t {D\phi_i \over Dt}(t),$$
+where ${D\phi/Dt}$ is given by
+the right-hand side of (2.2.4).
+The trapezium rule,
+$$\phi_i^{(j+1)}(t+\delta t)=\phi_i (t)+
+{\delta t\over 2}\left\{{D\phi_i \over Dt}(t)+
+{D\phi_i^{(j)} \over Dt}(t+\delta t)\right\},$$
+is then used repeatedly.
+The same scheme is used, in parallel, for $\bd{x}_i (t)$, with
+the velocities given by (2.2.1).
+(For simplicity, the velocities are resolved into cartesian
+coordinates, when updating the position vectors).
+Notice that the integral equations need to be re-formulated and solved
+for the velocities at time $t+\delta t$
+after the first Euler and each trapezium step, until convergence, thus
+making the time-stepping process computationally expensive.
+
+The time-step is chosen so that
+$$\delta t=\min_{i=1,\ldots,N}\left\{\left|{\Delta\phi\over{D\phi_i/Dt}}
+\right|\right\},$$
+where $\Delta\phi$ has a prescribed value. This time-step is calculated
+immediately before the first Euler step, and fixed until the time-step
+has been completed.
+Convergence is assumed when the position of the bubble does not change
+between iterations, according to the criterion
+$${\max\limits_{i=1,\ldots,N}\left\{\left|\bd{x}_i^{(j+1)}(t+\delta t)-
+\bd{x}_i^{(j)}(t+\delta t)\right|\right\}
+\over \max\limits_{i=1,\ldots,N}\left\{\left|\bd{x}_i(t)\right|\right\}}
+<\epsilon.$$
+Typically, $\epsilon=10^{-4}$.
+If the method fails to
+converge after $j_{max}$ steps, or starts to diverge after $j_{min}$
+steps the time-step, $\delta t$, is halved and the procedure repeated.
+
+If, after any of the time-steps, the nodes become too close, i.e.
+if for any $j$
+$$kd_j<{1\over N}\sum_{i=1}^N d_i,$$
+then the original nodes are repositioned. Typically, $k=2$ gives
+good results.
+Repositioning is carried out by stepping around the
+bubble and placing new nodes equally spaced according to the
+linear arc-lengths of the old positions. The new positions and
+potentials can be found by quadratic interpolation to three points.
+Note that there is an arbitrariness here, since the new
+point is generally on an old element, and thus a choice needs to be made
+as to which of the two points at the ends of the adjacent elements to take 
+for the third interpolation point.
+Since the problem is symmetrical, we fix the side from which
+the final node is taken and only reposition half of the surface
+after which we reflect the data in the $y$-axis.
+This reflection is also required on the grounds that it is not
+the exact arc-length being used above to find the new positions of the
+nodes, so it is likely that there would, otherwise, be a different
+distribution of points on either side of the bubble, after repositioning.
+The reason for using quadratic interpolation is
+that with linear interpolation, the bubble tends to flatten
+off and corners begin to appear after many repositionings.
+\vskip 15pt
+\hbox {\bf 2.4 Dipole distribution method.}
+\nobreak
+\vskip 5pt
+Returning to Green's theorem and noticing that, for a fixed volume bubble,
+the source term is identically zero in the far-field expansion (2.2.13),
+it is reasonable to expect a double-layer distribution to
+represent  well the behaviour of the bubble. 
+If we know the potential initially then, in principle, we may use (2.2.17) to
+find the
+dipole strength, $\mu$. However as $\bd{x}\rightarrow C_-$, we get
+the boundary problem
+$$\phi(\bd{x})-k=-{1\over 2\pi}\int_{C}
+\mu(\bd{x}'){\partial\over\partial n'}\log{1\over|\bd{x}'-
+\bd{x}|}ds'+{1\over 2}\mu(\bd{x}),
+\quad \bd{x}\in C,\eqno(2.4.1)$$
+and from (2.3.2), the right-hand side vanishes if $\mu=const$.
+One way to get round this problem is to add a vortex term to the integrand.
+This was studied by Kre$\beta$ and Spassov (1983) for the Helmholtz and 
+Laplace
+equations, with a view to minimising the condition number of the
+corresponding integral operators. However in order to keep this method as a
+pure dipole method, the following resolution, detailed in Mikhlin (1957),
+is used here.
+
+Consider the complex form of (2.2.17), namely
+$$W(z)=k-{1\over 2\pi i}\int_C {\mu (z')\over z'-z}dz',
+\quad z\in\Omega_-,$$
+and set $k$ to be the real constant,
+$$k=-{1\over 2\pi}\int_C \mu(z')ds'.$$
+As $z$ approaches $C$, the real part of the potential is given by (2.4.1).
+If the homogeneous problem, i.e. $\phi\equiv\Re[W]=0$ on $C$, has solution
+$\mu_0(z)$, then for $z\in\Omega_-$, define the function
+$$W_0(z)=-{1\over 2\pi i}\int_C {\mu_0(z')\over z'-z}dz'-{1\over 2\pi}
+\int_C \mu_0(z')ds'.\eqno (2.4.2)$$
+Since $W_0$ is analytic with $\Re[W_0]=0$ on $C$,
+it must be an imaginary constant, i.e. $W_0=ia$.
+As $z\rightarrow\infty$ in (2.4.2), the first integral vanishes and so we
+have
+$$ia=-{1\over 2\pi}\int_C \mu_0(z')ds'.\eqno (2.4.3)$$
+As $\mu_0$ is real, $a=0$ and so $W_0(z)=0,\forall z\in\Omega_-$, so that
+(see Muskhelishvili, 1953), $\mu_0$ is the boundary value of a
+function, $\Psi$, continuous on $C\cup\Omega_-$, analytic on $\Omega_-$.
+Again as $\mu_0$ is real, $\Im\bigl[\Psi(z)\bigr]=0$ and as $\Psi$ is
+analytic, it must be a real constant, $c$, i.e. $\mu_0=c$, but as
+$a=0$, (by virtue of 2.4.3), $c=0$ and thus there are no non-trivial
+solutions to the boundary problem.
+
+Hence the dipole method used is based on the integral equation
+$$\phi(\bd{x})={1\over 2\pi}\int_C\bigl(\mu(\bd{x}')-
+\mu(\bd{x})\bigr)\bh{n}(\bd{x}')\cdot
+{\bd{x}'-\bd{x}\over|\bd{x}'-\bd{x}|^2}ds'-
+{1\over 2\pi}\int_C \mu(\bd{x}')ds',
+\quad\bd{x}\in C,\eqno (2.4.4)$$
+(see A5).
+The method is, from now on, very similar to the source method, except
+that no volume constraint is required: this is implicit.
+
+Discretising the first integral of (2.4.4) according to (2.3.7) gives
+$${1\over 2\pi}\sum_{j=1}^N\int_0^1\bigl((1-\epsilon)\mu_j
++\epsilon\mu_{j+1}-\mu_i\bigr)
+\bh{n}\bigl(\bd{q}(\epsilon)\bigr)\cdot
+{\bd{q}(\epsilon)-\bd{x}_i\over
+|\bd{q}(\epsilon)-\bd{x}_i|^2}
+d_j d\epsilon.\eqno (2.4.5)$$
+If $G$ is the matrix of coefficients of the
+$\mu$'s of (2.4.4), of which a contribution $\tilde G$ is from (2.4.5), with
+$\tilde G^1$ and $\tilde G^2$ coming from the first and second terms
+of the integrals of (2.4.5), then
+$$\tilde G_{ij}=\cases{\tilde G^1_{ij}+\tilde G^2_{ij},&$j\ne i,$
+\cr \tilde G^1_{ii}+\tilde G^2_{ii}+\tilde G^3_i,&$j=i,$}$$
+where $\tilde G^3$ is the coefficient of the dipole
+strength at the observation node  in  each  of  the  integrals  of 
+(2.4.5).
+It is clear that for the linear, isoparametric interpolation used,
+$$\eqalign{\tilde G^3_i&=-\sum_{j=1}^N(\tilde G^1_{ij}+\tilde G^2_{ij+1})
+\cr &=-\left(\sum_{j\ne i}\tilde G_{ij}+\tilde G^1_{ii}+\tilde G^2_{ii}
+\right).}$$
+This gives
+$$\tilde G_{ii}=-\sum_{j\not = i}\tilde G_{ij},\eqno (2.4.6)$$
+thus removing the need to explicitly calculate the integrals for the
+diagonal terms of $G$.
+
+Taking the normal at $\bd{q}$ as the linear normal, the
+integrand of (2.4.5) vanishes when 
+$\bd{q}$ is adjacent to $\bd{x}_i$.
+The constant term in the second integral of (2.4.4) gives a contribution
+to $G_{ij}$ of \hbox{$-(d_j+d_{j-1})/4\pi$}.
+
+As before, we get a linear algebraic system, $\ub{\phi}=G\ub{\mu}$,
+to solve, this time for the dipole strength at each node.
+The normal derivative of (2.2.17) (see A6) is
+$${\partial\phi\over\partial n}(\bd{x})=-{1\over 2\pi}\int_C
+\left({d\mu\over ds}(\bd{x}')\bh{t}(\bd{x})-
+{d\mu\over ds}(\bd{x})\bh{t}(\bd{x}')\right)\cdot
+{\bd{x}'-\bd{x}\over|\bd{x}'-\bd{x}|^2}ds',
+\quad\bd{x}\in C,\eqno(2.4.7)$$
+where $\bh{t}$ is the tangent to the bubble.
+
+The tangent at $\bd{x}'$ is taken to be the
+linear tangent, whereas the
+tangent at $\bd{x}$ is taken to be the quadratic-fit tangent (compare
+with source method). Again, the exception is when $\bd{x}$ and
+$\bd{x}'$ are adjacent, when the quadratic integration has to be used,
+so that the integrand is non-singular as
+$\bd{x}' \rightarrow \bd{x}$.
+The tangential derivatives of the dipole strength are also found by a
+quadratic fit to three points. Thus the coefficient matrix
+for the discretisation of (2.4.7) allows us to calculate
+the normal velocities on the bubble surface. The tangential
+velocities can be calculated, as before, from the tangential derivatives
+of the potentials.
+The positions and potentials are then updated (see \S 2.3.3), thus
+completing a single time step.
+\pg
+\hbox {\bf 2.5 Green's formula method.}
+\vskip 5pt
+A very common approach to solving potential problems by boundary integral
+methods is to use Green's formula (2.2.12) directly.
+The Green's formula method may be thought of as a distribution of both
+single and double layer potentials on the surface of the bubble.
+However the strengths of these distributions are the physically significant
+potential and its normal derivative, rather than the jumps of these
+values across the surface of the bubble, as is the case in
+the indirect methods described in the last two sections.
+
+Analogous to (A5) we may express the second integral of (2.2.12) in a regular
+form so that Green's formula may be written as
+$$\phi(\bd{x})={1\over 2\pi}\int_C{\partial\phi\over\partial n}(\bd{x}')
+\log{1\over|\bd{x}'-\bd{x}|}ds'+{1\over 2\pi}
+\int_C\bigl(\phi(\bd{x}')-\phi(\bd{x})\bigr)\bh{n}
+(\bd{x}')\cdot{\bd{x}'-\bd{x}\over|\bd{x}'-\bd{x}|^2}
+ds'+k,\eqno (2.5.1)$$
+for $\bd{x}\in C$.
+As, initially at least, we know the potential, $\phi$, at each of the points
+on the bubble's surface, we can in principle solve (2.5.1) as a
+Fredholm integral equation of the first kind for
+${\partial\phi/\partial n}$ on $C$.
+
+Since the method allows for a source-like behaviour, it is necessary to
+apply the constraint
+$$\int_C{\partial\phi\over\partial n}ds=0,\eqno (2.5.2)$$
+to ensure a constant volume and determine the unknown constant, $k$.
+Proceeding in a similar manner to previously, we discretise the
+integrals using linear representations for the surface, the potential
+and its normal derivative.
+
+Define $G\in R_{N+1\times N+1}$ and $H\in R_{N+1\times N}$ to be
+the coefficient matrices of the normal derivative and potential
+respectively. Placing the second integral on the left-hand
+side and using (2.4.6) we have
+$$H_{ii}=1-\sum_{j\ne i}H_{ij}.$$
+The $N+1^{st}$ row of $H$ contains zeros
+and the volume constraint equation (2.5.2) gives
+$G_{N+1,j}=(d_j+d_{j-1})/2$.
+The $N+1^{st}$ column of $G$ contains all ones --- the coefficients of
+the constant, $k$.
+
+The linear system $G\ub{\psi}=H\ub{\phi}$,
+can then be solved for $\ub{\psi}$, the vector of normal velocities.
+Note that the integrals are exactly those which appear for the potentials in 
+the source and dipole formulations and are calculated in the same way.
+Once the normal derivatives and the tangential derivatives are found,
+the potential and positions can be updated, thus completing a step
+of the method.
+\vskip 15pt
+\hbox {\bf 2.6 Vorticity distribution method.}
+\vskip 5pt
+It is possible to solve the problem using a distribution of point vortices
+around the bubble's surface. As the fluid is incompressible, we may
+write $\bd{u}={\nabla}\times\bd{B}$ for a vector
+field, $\bd{B}$.  If $\ub{\omega}$ is a vorticity distribution,
+we have that
+$$\ub{\omega}=\nabla\times\bd{u}=
+\nabla(\nabla\cdot\bd{B})-\nabla^2\bd{B}.\eqno(2.6.1)$$
+If (2.6.1) were simply
+$\nabla^2\bd{B}=-\ub{\omega}$, it would
+have the solution given by the Poisson integral,
+$$\bd{B}(\bd{x})
+={1\over 2\pi}\int_A \ub{\omega}(\bd{x}')
+\log{1\over |\bd{x}'-\bd{x}|}dA'.\eqno(2.6.2)$$
+It can be shown, by an application of the divergence theorem (Batchelor, 1967),
+that $\nabla\cdot\bd{B}=0$ if the region, $A$, extends to infinity
+where the fluid is at rest or if $A$ is extended to a region with a boundary
+that is everywhere tangent to the vorticity, $\ub{\omega}$.
+
+For a distribution of vorticity $\ub{\Gamma}(\bd{x}')=\ub{\omega}(\bd{x}')dn$
+on the bubble, where $dn$ is an element normal to the surface, 
+the vector potential (2.6.2) may be written
+$$\bd{B}(\bd{x})
+={1\over 2\pi}\int_C \ub{\Gamma}(\bd{x}')
+\log{1\over |\bd{x}'-\bd{x}|}ds'.\eqno(2.6.3)$$
+We may be able to invert this integral equation to find the vorticity
+distribution,
+given the vector potential. In order to find the velocity with
+which the bubble's surface moves, we consider the complex potentials. As
+$\bd{u}=\nabla\times\bd{B}$, for a
+two-dimensional velocity field, $\bd{u}$, it must be that
+$\bd{B}=(0,0,\psi)^T$, where $\psi$ is the stream function of the
+flow, and $\ub{\Gamma}=(0,0,\Gamma)^T$. Thus from (2.6.3)
+the complex potential, $W=\phi+i\psi$, is given by
+$$W(z)=-{1\over 2\pi i}\int_C 
+{\Gamma(z')\over\tau(z')}\log{1\over z'-z}dz',\eqno(2.6.4)$$
+with $\tau(z)=dz/ds$ the tangent to $C$.
+The derivative of (2.6.4) forms the basis of the vortex 
+method used by Soh (1987).
+Here, we use the normal and tangential velocity components
+which, for the external problem, (see (A8-9)) are given by
+$${\partial\phi\over\partial n}=-{1\over 2\pi}\int_C
+\bigl(\Gamma(\bd{x}')\bh{t}(\bd{x})-
+\Gamma(\bd{x})\bh{t}(\bd{x}')\bigr)\cdot
+{\bd{x}'-\bd{x}\over|\bd{x}'-\bd{x}|^2}ds',\eqno(2.6.5)$$
+and
+$${\partial\phi\over\partial s}={1\over 2\pi}\int_C
+\bigl(\Gamma(\bd{x}')\bh{n}(\bd{x})-
+\Gamma(\bd{x})\bh{n}(\bd{x}')\bigr)\cdot
+{\bd{x}'-\bd{x}\over|\bd{x}'-\bd{x}|^2}ds',\eqno(2.6.6)$$
+for $\bd{x} \in C$.
+
+The computational scheme here is slightly different from previously.
+Once the integrals (2.6.5) and (2.6.6) 
+have been calculated, in the same manner as the normal derivatives of the
+source and dipole integrals, two matrix equations are obtained
+$$\ub{\phi}_n=H\ub{\gamma},\eqno (2.6.7)$$
+and
+$$\ub{\phi}_s=G\ub{\gamma},\eqno (2.6.8)$$
+respectively, with $\ub{\phi}_n$, $\ub{\phi}_s$ and $\ub{\gamma}$ denoting
+vectors of $R^N$ containing nodal values of normal velocities, tangential 
+velocities and vortex strengths respectively; $G,H\in R_{N\times N}$ are 
+coefficient matrices.
+Thus given a potential distribution on the bubble (initially constant),
+its tangential derivatives are first calculated by a quadratic fit.
+Equation (2.6.8) is then solved for the vortex strengths $\ub{\gamma}$
+and this substituted into (2.6.7) to find the normal velocities. In
+this way the bubble can be stepped through time exactly as before.
+\vskip 15pt
+\hbox {\bf 2.7 Results and discussion.}
+\nobreak
+\vskip 5pt
+The following pages show examples of the output from the four codes described
+above.
+Calculations shown are based on a standard set-up with $N=50$ 
+points,
+the repositioning parameter $k=2$, the time-step parameter $\Delta\phi=0.1$
+and the convergence parameter $\epsilon=10^{-4}$ (see \S 2.3.3). In order
+to get insight into the effect of changing some of the parameters, other
+runs were also carried out.
+For the dipole, vortex and Green's methods the results are visually identical
+and sample output for the vortex method only is included in figure 2.1. 
+The number
+of time-steps required to reach $t=4.0$ was $82$ for these three 
+methods, in addition to which $8$, $7$ and $7$ time-steps 
+respectively were abandoned in order to reposition points.
+An estimate of the
+average convergence rates in the time-stepping routine can be calculated
+from the ratio of the number of iterations required in the trapezium rule
+routine to the number of time-steps. The dipole, vortex and Green's
+methods gave values of $2.86$, $2.82$ and $2.83$ iterations per
+time-step respectively.
+Thus, based
+on this data so far there is nothing to distinguish these three methods.
+
+The results in figure 2.1 closely match those of Baker and Moore (1989),
+who went on to examine the discrepancies between calculation and experiment. 
+The main difference, which can be clearly seen in the photographs
+of Walters and Davidson (1962), is that the jet in the experiment widens out when
+it is further away from the top of the bubble. 
+This was shown to be as a result of a  greater computed jet 
+speed. This discrepancy was not removed by including surface tension
+forces into the calculations.
+Possible reasons for differences were put forward. 
+These relate to the fact that in the experiments, a two-dimensional bubble is 
+approximated by injecting gas into the
+narrow gap between two sheets of glass which is filled with liquid.
+Thus, three-dimensional effects
+such as the formation of a meniscus or a thin film 
+separating the bubble from the glass may be important.
+
+Figure 2.2 shows the poor performance of the source method. 
+This was as far as
+we could manage to get it to run. There seems to be an inherent instability
+on the lower part of the surface, near the indent. We attempted to
+smooth this out using the Longuet-Higgins and Cokelet (1976) 5-point 
+formula, but this
+made little difference.     
+We also used a modified source distribution technique (Muskhelishvili, 1953),
+by integrating (2.2.16) by parts to give, for $\bd{x}\in C$,
+$$\phi(\bd{x})={1\over 2\pi}\int_C\bigl(\nu(\bd{x}')
+-\nu(\bd{x})\bigr)\bh{t}(\bd{x}')\cdot
+{\bd{x}'-\bd{x}\over |\bd{x}'-\bd{x}|^2}ds'+k,$$
+where
+$${d\nu\over ds}\Bigl|_{\bd{x}}\equiv\sigma(\bd{x}).$$
+As in the dipole method, $k$ was chosen to be
+$$k={1\over 2\pi}\int_C\nu(\bd{x}')ds',$$
+to ensure solvability of the corresponding Dirichlet problem and thus
+preserve bubble volume.
+The normal velocities are again given by equation (2.3.9).
+Results from this method were also very disappointing,
+with only a small improvement over the original source method.
+
+A routine to calculate the total energy in the fluid was included in all 
+codes.
+As in Baker and Moore (1989) the quantity $|T+V|/V$ was output at several
+times throughout the runs. However, for all methods these values range
+from about $10^{-3}$ up to $10^{-2}$ with no difference between
+the dipole and Green's methods of 
+magnitude significantly larger than the variation
+with time. However for the vortex method the energy
+ratios remain of the order  of  $10^{-3}$  throughout
+most of the
+latter part of the run, through to $t=4.0$, whereas the  other  two
+methods that completed the run have figures higher than this by a 
+factor of $10$.
+
+To investigate the stability of the various codes, an initial perturbation
+was applied to the bubble. Specifically, the initial radius was taken as
+$$r=1+e\cos(f\theta).$$
+For the case of 
+a perturbation amplitude of $0.01$ and a wave number of $18$, a clear initial
+amplification of the perturbation is apparent for the Green's method
+(figure 2.3),
+suggesting that it is significantly less stable than the other methods
+which ran to  completion  by  sweeping  the  perturbation  to  the
+underside of the bubble (figure 2.4).
+For a lower wave number of $5$, both the dipole and vortex methods are
+relatively untouched whereas the  Green's method reaches  $t=4.0$ 
+visibly perturbed.
+For a wave number of $9$,
+a jagged region develops on the jet
+in the vortex method causing the code to break down. It is 
+however clear that the results for initially
+large wave numbers are 
+somewhat restricted by the point resolution on the bubble
+so that the actual wave number 
+imposed numerically may be much less than this and irregular
+in apparent amplitude.
+
+The 1-norm condition numbers for the various methods were also examined.
+The average values for a complete run starting with the unperturbed 
+bubble were
+$1.2\times 10^2$, $6.1\times 10^1$ and $4.6\times 10^2$
+for the dipole, vortex and Green's methods were respectively.
+This may explain the
+initial amplification of the perturbation for the Green's method as
+opposed to the other methods, but work needs to be done on how stable
+a two dimensional bubble really is
+(see section 2.8), as in all of the methods
+the repositioning will damp out perturbations to a certain extent
+(Moore, 1981).
+The greater success of the vortex and dipole methods may have been
+anticipated on the grounds that they hinge on solving second-kind
+rather  than  first-kind  equations.
+
+It is interesting to note that the average condition numbers for the
+source and modified source methods were $4.2\times 10^4$ and $5.8\times 10^2$
+respectively, which suggests that it is not the stability of the
+modified source method that hinders its progress, although this 
+may contribute to the lack of success with the source method. 
+
+The coloured plots of figures 2.5 and 2.6 show the pressure in 
+the fluid at times $t=1.5$ and $t = 3.5$ respectively.
+The pressures are calculated from (2.2.2) by working out,
+at two successive time-steps, the potential, $\varphi$, at
+a large number of points in the fluid using (2.2.12),
+viz for $\bd{x}\in \Omega_-$,
+$$\varphi(\bd{x})=\int_C
+\left(G{\partial\phi\over\partial n}(\bd{x}')-
+\phi(\bd{x}'){\partial G\over\partial n'}\right)ds'.$$
+In  this  case,  a 
+$30\times 30$ grid of  points is used.
+Derivatives of the potential are calculated
+by a finite difference scheme.
+Figures 2.5 and 2.6 
+also show the streamlines at the corresponding times. These
+are calculated by taking the conjugate harmonic function to 
+(2.2.12) which gives the stream function in the fluid in 
+terms of the boundary values of the potential and its normal 
+derivative, namely for $\bd{x}\in \Omega_-$,
+$$\psi(\bd{x})={1\over 2\pi}\int_C\left(-\theta(\bd{x}'-
+\bd{x}){\partial\phi\over\partial n}(\bd{x}')+
+\phi(\bd{x}')\bh{t}(\bd{x}')\cdot
+{\bd{x}'-\bd{x}\over|\bd{x}'-\bd{x}|^2}
+\right)ds',$$
+where $\theta(\bd{x}'-\bd{x})$ is the angle between 
+the vector $\bd{x}'-\bd{x}$ and the $x$-axis,in the 
+sense defined in Jaswon and Symm (1977, p 155), so that 
+the function is continuous as $\bd{x}'$ traverses the bubble
+surface for any fixed $\bd{x}\in\Omega_-$.
+The pressure plots (figures 2.5 (a) and (c))
+show the pressure near the centre of the underside
+of the bubble to be slightly greater  than  the pressure beneath 
+the outer parts; this helps to accelerate the jet through the 
+bubble. 
+At the later time, this high pressure is seen to extend into the 
+middle of the jet causing the subsequent broadening.
+The streamlines (figures 2.5 (b) and (d)) 
+show the bubble to exhibit the essential behaviour
+of a dipole, as predicted by equation (2.2.13).
+
+If no repositioning is performed, all of the successful
+methods  break  down  just 
+before the jet starts to broaden out.
+Due to the translation of the bubble,
+the points move rapidly around to the lower part of the bubble
+as it moves up through the fluid,
+thus resolution is soon lost on the upper part. This can be clearly seen
+in figure 2.6(b) where the paths taken by particles on the bubble's surface
+are followed through time. Even points that start near the top of the bubble
+end up well into the jet by $t=4.0$. 
+Repositioning 
+was not used in some of the calculations that have been done for
+cavitation bubbles, for example Blake et al (1986),
+where translating velocities are  much smaller than jet 
+velocities. 
+
+The programs were also run with reduced time-step convergence
+parameters, so that the stepping routine converged with 
+just one pass through the trapezium rule. All three working
+methods ran through to t=4.0, thus indicating that the 
+higher accuracy in the time-stepping routine may be superfluous.
+\vskip 15pt
+\hbox {\bf 2.8 Stability analysis.}
+\nobreak
+\vskip 5pt
+\c{\it 2.8.1 Formulation of the equations.}
+\nobreak
+\vskip 5pt
+In this section, we examine the  growth of 
+small perturbations to a two-dimensional bubble.
+This is done by utilising the analytic solution
+of Walters and Davidson (1962) which is valid for small times.
+Initially, the bubble has acceleration $g$ and thus the 
+analysis is slightly different from that of Batchelor (1987)
+who examined the stability of a spherical cap bubble which
+had reached a steady state. It may be possible to adapt
+Batchelor's results for a two-dimensional bubble that
+has almost reached a terminal velocity and, on the upper surface
+at least, is changing shape very slowly. This could
+be used in conjunction with this analysis to judge its long-term
+stability.
+
+For convenience, place the co-ordinate origin at the centre of 
+the accelerating bubble. If this centre rises at a speed $U(t)$
+then, as in Walters and Davidson (1962), Bernoulli's theorem 
+becomes 
+$${p_\infty\over\rho}={p\over\rho}+{1\over 2}|\bd{u}|^2
++{\partial\phi\over\partial 
+t}+g\left(\int_0^tU(t')dt'+r\cos\theta\right),\eqno (2.8.1)$$
+where $\bd{u}$ and $\phi$ are the velocity and 
+corresponding potential, taken with respect to the fluid
+which is at rest at infinity, and $(r,\theta)$ represent 
+polar co-ordinates from the moving centre with
+$\theta=0$ in the direction of travel.
+If the bubble has internal pressure $p_b(t)$, we have the 
+pressure balance at the bubble surface
+$$p=p_b-\sigma\kappa,\eqno (2.8.2)$$
+where $\sigma$ is the surface tension, and $\kappa$ is the curvature.
+Thus using (2.8.1) and (2.8.2) gives  
+$${1\over 2}|\bd{u}|^2+{\partial\phi\over\partial t}
+\Big|_{\hbox{\smrm fixed in}\atop\hbox{\smrm space}}+
+g\left(\int_0^tU(t')dt'+R\cos\theta\right)
+-\sigma\kappa=P(t),\eqno (2.8.3)$$
+on the bubble surface, given by $r=R(\theta,t)$, where
+$P(t)={(p_\infty-p_b(t))/\rho}$.
+
+For the corresponding kinematic condition, as before,
+use the fact that particles of fluid on the bubble surface
+must remain there. In order to determine this condition, first define
+the potential for the bubble
+at rest with the fluid moving around it by $f=\phi-Ur\cos\theta$.
+Thus the kinematic condition is 
+$${\partial R\over\partial t}+{1\over R^2}
+{\partial f\over\partial\theta}\Big|_{r=R}
+{\partial R\over\partial\theta}=
+{\partial f\over\partial r}\Big|_{r=R}.\eqno(2.8.4)$$
+In terms of $\phi$, (2.8.4) becomes
+$${\partial R\over\partial t}+{1\over R}
+\left({1\over R}{\partial\phi\over\partial\theta}\Big |_{r=R}
++U\sin\theta\right)
+{\partial R\over\partial\theta}=
+{\partial\phi\over\partial r}\Big|_{r=R}-U\cos\theta.
+\eqno(2.8.5)$$
+
+Now introduce perturbations $\eta(\theta,t)$ to the bubble
+surface and $\psi$ to the potential.
+Substitute these into (2.8.3) and (2.8.5), expand about $r=R$,
+neglecting squares of small terms, and subtract the corresponding
+unperturbed equations. This gives, for the dynamic condition,
+$$\eta u_\theta{\partial u_\theta\over\partial r}+
+{u_\theta\over R}{\partial\psi\over\partial\theta}+
+\eta u_r{\partial u_r\over\partial\theta}+
+u_r{\partial\psi\over\partial r}+
+\eta{\partial^2\phi\over\partial r\partial t}+
+{\partial\psi\over\partial t}+g\eta\cos\theta-\sigma\kappa'=0,
+\eqno (2.8.6)$$
+and, for the kinematic condition,
+$${\partial\eta\over\partial t}+{1\over R^2}\left\{
+{\partial R\over\partial\theta}\left(
+\eta{\partial^2\phi\over\partial r\partial\theta}+
+{\partial\psi\over\partial\theta}-
+U\eta\sin\theta-
+2{\eta\over R}{\partial\phi\over\partial\theta}\right)+
+{\partial\eta\over\partial\theta}\left(
+{\partial\phi\over\partial\theta}+
+UR\sin\theta\right)\right\}=
+\eta{\partial^2\phi\over\partial r^2}+
+{\partial\psi\over\partial r}.\eqno(2.8.7)$$
+Here $u_\theta=\partial\phi/R\partial\theta$,
+$u_r=\partial\phi/\partial r$ and $\kappa'$ is the 
+small change in curvature.
+
+In order to solve these equations and determine the 
+evolution of the perturbation, it is necessary to
+know the unperturbed quantities appearing in
+(2.8.6) and (2.8.7). For this, we refer to the 
+work of Walters and Davidson (1962). They derived
+an approximate solution for the motion of the 
+bubble, correct for small times. Here we use the
+highest order terms in their expansion for the 
+undisturbed potential. They assumed a general
+potential of the form
+$$\phi=\sum_{n=1}^\infty\beta_n(t){\cos n\theta\over r^n},
+\eqno(2.8.8)$$
+which they substituted into the Bernoulli equation (2.8.1),
+ignoring the effects of surface tension and assumed the pressure
+to be uniform throughout the bubble, since the density of the
+gas contents is small compared to that of the surrounding fluid.
+This gave them a first approximation to the unknown $\beta$'s,
+ignoring non-linear terms, of
+$$\eqalign{\beta_1^{(1)}=&-U^{(1)}a^2=-gta^2,\cr
+\beta_n^{(1)}=&{(-1)^n(n-1)!n!2^na^2\over (2n)!t}(gt^2)^n.}\eqno 
+(2.8.9)$$
+The first two terms of the potential give
+$$\phi\sim -gt{a^2\over r}\cos\theta+
+{1\over 3}g^2t^3{a^2\over r^2}\cos2\theta,\quad t\rightarrow 0.
+\eqno (2.8.10)$$
+The unperturbed surface elevation can be obtained from
+the kinematic condition (2.8.5). If the 
+surface elevation is $R=a(1+\zeta)$, $\zeta\ll 1$, then
+since $R\sim a$ as $t\rightarrow 0$, the first term of the 
+power series in $t$ for $R$ must be $a$, and thus independent
+of $\theta$. Hence by considering the second term in the
+series, we see that 
+$\partial R/\partial\theta=O(t\partial R/\partial t)$
+as $t\rightarrow 0$,
+for almost all $\theta$: the coefficient of the second
+term may vanish for some values of $\theta$, with its
+derivative non-zero. Thus the terms of (2.8.5) in 
+$\partial R/\partial\theta$ are of order
+$t^2\partial R/\partial t$ as $t\rightarrow 0$,
+and so may be neglected for small times. This leaves us with
+a first order ordinary differential equation for $\zeta$,
+$$a{\partial\zeta\over\partial t}=
+{\partial\phi\over\partial r}-U\cos\theta.
+\eqno (2.8.11)$$
+On substituting (2.8.10) into (2.8.11), using $U=gt$ and linearising
+with respect to $\zeta$, we find the
+solution, retaining just the first term in
+$t$, for $\zeta$ is
+$$R\sim a\left(1-{g^2t^4\over 6a^2}\cos 2\theta\right),
+\quad t\rightarrow 0.\eqno (2.8.12)$$
+Now with (2.8.10) and (2.8.12) and their respective derivatives
+substituted into (2.8.6), we find
+$$2\eta g\cos\theta+{\partial\psi\over\partial\theta}{gt\over a}
+\sin\theta+{\partial\psi\over\partial r}gt\cos\theta+
+{\sigma\over\rho a^2}{\partial^2\eta\over\partial\theta^2}+
+{\partial\psi\over\partial t}=0,\eqno (2.8.13)$$
+where a term proportional to $\eta g^2t^2/a$ has been
+neglected in comparison to the $\eta g\cos\theta$
+term. This is true for $t\ll (a/g\cos\theta)^{1/2}$, or if
+$\theta\ll 1$ for $t\ll (a/g)^{1/2}$.
+Similarly, we get for (2.8.7), 
+$${\partial\eta\over\partial t}+2\eta{gt\over a}\cos\theta+
+{1\over 3}{\partial\psi\over\partial\theta}{g^2t^4\over a^3}
+\sin 2\theta - {\partial\psi\over \partial r}+
+2{\partial\eta\over\partial\theta}{gt\over a}\sin\theta=0.
+\eqno (2.8.14)$$
+Again terms of order $t^5$ have been neglected in comparison
+to terms of order $t$, when $t\ll (a/g)^{1/2}$.
+
+Next, follow Batchelor (1987) by confining ourselves to
+$\theta\ll 1$. Near the top, the interface
+is almost flat, so introduce non-dimensional, cartesian
+co-ordinates defined by $x=\theta, z=r/a-1, \tau=(g/a)^{1/2}t$.
+Thus at $z=0$, (2.8.13) and (2.8.14) become
+$$2\eta+{\partial\psi\over\partial x}\tau x+
+{\partial\psi\over\partial z}\tau+
+k{\partial^2\eta\over\partial x^2}+
+{\partial\psi\over\partial\tau}=0,\eqno (2.8.15)$$
+and
+$${\partial\eta\over\partial\tau}+2\eta\tau+
+{2\over 3}{\partial\psi\over\partial x}\tau^4x-
+{\partial\psi\over\partial z}+
+2{\partial\eta\over\partial x}\tau x=0,\eqno (2.8.16)$$
+where $k=\sigma/\rho ga^2$.
+
+In order to solve these equations, try a solution of the 
+form
+$$\eqalign{\psi=&A(\tau)\exp[n(\tau)(ix-z)],\cr
+\eta=&B(\tau)\exp[in(\tau)x].}\eqno(2.8.17)$$
+These are substituted into (2.8.15) and (2.8.16),
+bearing in mind that 
+$${\partial\phi\over\partial t}
+\Big|_{\hbox{\smrm fixed in}\atop\hbox{\smrm space}}
+={\partial\phi\over\partial t}\Big|_{\hbox{\smrm fixed}\atop r,\,\theta}+
+{\partial\phi\over\partial r}{dr\over dt}+
+{\partial\phi\over\partial\theta}{d\theta\over dt},$$
+where the first term on the right is taken in the accelerating
+frame of reference.
+
+Neglecting the $\tau^4$ term as $\tau\ll 1$, 
+the imaginary parts of (2.8.15) and (2.8.16) give $dn/d\tau+2n\tau=0$,
+thus 
+$$n=n_0\exp(-\tau^2),\eqno (2.8.18)$$
+whereas the real parts give
+$$\eqalign{{dA\over d\tau}=&B(kn^2-2),\cr
+{dB\over d\tau}=&-2B\tau-An.}\eqno (2.8.19)$$
+The form of equations (2.8.18) and (2.8.19) are in many ways similar 
+to those found by Batchelor (1987). A couple of differences are worth
+mentioning. In both this problem and that considered by Batchelor
+as one moves around the bubble from 
+a position above the upper stagnation point to the  equatorial region,
+the flow speed relative to a frame where the bubble is stationary
+increases and so the corresponding streamlines  become closer together.
+Consequently any waves propagated along the bubble surface will
+become elongated and attenuated. The effect of this
+straining flow around the bubble is seen here for 
+a single Fourier component of a travelling wave. In the case of an 
+accelerating bubble the decay of the wave number is also dependent
+upon time. For small times,  when the bubble is not rising
+very fast, (2.8.18) shows that the
+increase in wavelength is not as rapid as for the
+steadily rising bubble. The other notable feature of these equations
+is that, from (2.8.19),
+the critical nondimensional wavelength, above which disturbances would be
+expected to grow, is $2\pi/(\sqrt{2/k})=2\pi/\sqrt{2g\rho a^2/\sigma}$. 
+This is due to the 
+destabilising effect of the upward acceleration in addition to that of gravity;
+hence $2g$ rather than $g$ as is the case of steady rise.
+The meaning of the terms in equations (2.8.19)
+becomes slightly more transparent if we eliminate $A$ to give
+$${d^2B\over d\tau^2}+4\tau{dB\over d\tau}+B\left\{2+4\tau^2-
+2n\left(1-{n^2\over n_c^2}\right)\right\}=0,\eqno(2.8.20)$$
+where, as in Batchelor (1987), $n_c$ is the critical wave number, in this case
+in non-dimensional form and equal to $\sqrt{2/k}$.
+\vskip 15pt
+\c{\it 2.8.2 Solutions and discussion.}
+\vskip 5pt
+Equations (2.8.19) are  solved  numerically, using  NAG routine
+D02BBF, and  the 
+results are given in figures 2.7(a)-(c).
+For initial conditions it is assumed that the bubble  shape  is
+perfectly circular, but that the initial velocity on the bubble
+is perturbed slightly from zero. Thus we take $B(0)=0$ and
+$dB/d\tau(0)=\delta$, and hence $A(0)=-\delta/n_0$.
+As the equations are linear, $\delta$ is taken to be 
+$0.01$, in all cases. These initial conditions are similar to those 
+used by Batchelor (1987) for a spherical cap bubble, rising 
+steadily. 
+
+Figure 2.7(a) shows the effect of surface tension on the amplitude
+of the perturbation, $B$, on the bubble, as a function of time,
+for $n_0=6$ and $k=0$, $0.076$, $0.15$, $0.23$ and $0.30$.
+This value of $n_0$ is the critical wavenumber if $k=0.056$, so that only 
+the smallest two values for $k$ exhibit continued growth.
+The other curves, which are beginning to show oscillatory behaviour
+are higher values of the surface tension parameter, $k$,
+thus confirming the stabilising effect of surface tension.
+Note that as the physical validity of the results is confined to
+$\tau\ll 1$ the attenuation due to the vertical contraction of the
+fluid moving around the bubble is not apparent in these calculations,
+although (2.8.20) shows that the amplitude would eventually approach zero
+were they continued beyond $\tau=1$.
+Figure 2.7(b) shows the effect of  changing  the 
+initial wave number, for a value of $k=74/(980\times 2.54^2)$ corresponding to
+a one inch bubble in water (this value was chosen to allow
+a comparison with the Walters and Davidson (1962) and Baker and Moore (1989)).
+Here we take $n_0=5$, $15$, $25$ and $35$.
+A higher initial  wavenumber  results  in
+higher frequency waves, which, as the initial velocity
+is fixed at $0.01$, therefore have lower peak amplitudes.
+Again growth is only observed when $n_0$ is (approximately)
+less than $n_c$.
+The lowest wave number plotted does not reach a
+high enough amplitude for small times for us to say that
+such a case is unstable.
+This leads us to comment that
+the analysis as given is limited by the 
+fact that it can only predict instability if it occurs very
+early on (i.e. for $\tau\ll 1$), and cannot really predict long-term
+stability at all. For this, further, more detailed calculations
+are required.
+
+The analysis given becomes more interesting if we
+examine figure 2.7(c) where the results of different initial wave 
+numbers for zero surface tension are given,
+with the same set of values of $n_0$.  The  fastest  growing 
+curves are those with  highest  wave  numbers
+as the coefficient of the $B$ term in (2.8.20) is now
+initially negative for $n_0>1$.  For  
+the largest wave  number, provided that the results still
+hold close to $\tau=1$, the amplitude of the  surface  perturbation
+may be sufficient to induce bubble break-up. This indicates that 
+the results given in figure 2.3, where the Green's method  is  applied 
+to a perturbed bubble are what would happen in reality
+with zero surface tension.
+However if we look back at figure 2.7(b) for a one
+inch bubble with a short wave length perturbation, and thus 
+correspondingly high curvatures, surface tension induces large
+restoring forces to produce
+small amplitude oscillations. Thus on the basis of this  analysis,
+bearing in mind the above caveat, one may expect such a bubble
+to be stable to small surface perturbations.
+
+To conclude, we mention that for
+a one inch bubble, where according to Baker and Moore (1989) surface tension
+has little effect on the unperturbed motion,  figures  2.7(b)  and 
+(c) show that this small amount of  surface  tension  affects  the 
+perturbed motion tremendously.
+The initial growth of the amplitude is unchecked in the case of  zero 
+surface tension with the result that such bubbles are unstable.

@@ -1,0 +1,115 @@
+\c {\bigrm Appendix B: Details of interpolation scheme}
+\c {\bigrm for chapter 2.}
+\vskip 15pt
+This appendix gives the quadratic interpolation used to integrate over
+elements neighbouring the observation node on the bubble, in the cases
+indicated in the text. The same interpolation was used to give the
+directions of normals and tangents at nodes and to give surface
+derivatives of potentials and dipole strengths.
+
+Since the distance between points is not, in general, uniform, a
+Lagrangian interpolation polynomial is used, parameterised
+with respect to a linear arc-length, $s$. We require the polynomial, $X_i(s)$,
+to go through $(-d_{i-1},x_{i-1})$, $(0,x_i)$ 
+and $(d_i,x_{i+1})$, where
+$d_j=|\bd{x}_{j+1}-\bd{x}_j|$ is the distance between nodes.
+To avoid lengthy expressions, define the functions
+${\cal A}_a$, $(a=1,2)$, acting on three consecutive members of an
+ordered set of scalars or vectors, by
+$${\cal A}_1(\{x_{i-1},x_i,x_{i+1}\})=d_{i-1}^2x_{i+1}-(d_{i-1}^2-d_i^2)
+x_i-d_i^2x_{i-1},$$
+and
+$${\cal A}_2(\{x_{i-1},x_i,x_{i+1}\})=d_ix_{i-1}-(d_{i-1}+d_i)x_i+
+d_{i-1}x_{i+1}.$$
+For convenience, write these as ${\cal A}_1(x_i)$ and ${\cal A}_2(x_i)$
+respectively.
+It turns out that $X_i$ is given by
+$$X_i(s)={1\over D_i}\left(s^2{\cal A}_2(x_i)+s{\cal A}_1(x_i)\right)+x_i,$$
+where $D_i=d_id_{i-1}(d_i+d_{i-1})$.
+
+In particular, we have that
+$$\bd{q}_i(s)={1\over D_i}\left(s^2{\cal A}_2(\bd{x}_i)+
+s{\cal A}_1(\bd{x}_i)\right)+\bd{x}_i.$$
+From this, we immediately see that the tangent at node $i$ is in the
+direction ${\cal A}_1(\bd{x}_i)$ and hence the normal,
+which we denote by ${\cal A}_1^\bot(\bd{x}_i)$, may be found.
+We are now in a position to express the integrals in terms of the
+interpolation polynomials.
+\pg
+\hbox{(i) Integrals of the form -}
+$$\int_C\bigl(f(\bd{x}')\bh{n}(\bd{x})-
+f(\bd{x})\bh{n}(\bd{x}')\bigr)\cdot
+{\bd{x}'-\bd{x}\over|\bd{x}'-\bd{x}|^2}ds',$$
+where $f$ represents some quantity such as the dipole strength.
+For the interval of integration where
+$\bd{x}'\in[\bd{x}_{i-1},\bd{x}_{i+1}]$,
+we get
+$$\eqalign{\int_{-d_{i-1}}^{d_i}
+&\left\{\left[
+{s^2{\cal A}_2(f_i)\over D_i}+{s{\cal A}_1(f_i)\over D_i}+f_i
+\right]
+{{\cal A}_1^\bot(\bd{x}_i)\over|{\cal A}_1(\bd{x}_i)|}-
+f_i
+\left[
+{2s{\cal A}_2^\bot(\bd{x}_i)+{\cal A}_1^\bot(\bd{x}_i)\over
+|2s{\cal A}_2(\bd{x}_i)+{\cal A}_1(\bd{x}_i)|}
+\right]\right\}\cr
+\cdot &D_i\left[
+{s^2{\cal A}_2(\bd{x}_i)+s{\cal A}_1(\bd{x}_i)\over
+|s^2{\cal A}_2(\bd{x}_i)+s{\cal A}_1(\bd{x}_i)|^2}
+\right]
+\left|{d\bd{q}\over ds}\right|ds.}$$
+Noting that ${\cal A}_a(\bd{x}_i)\cdot{\cal A}_a^\bot(\bd{x}_i)=0$,
+$(a=1,2)$, a factor of $s^2$ cancels and we are left with
+$$\eqalign{\int_{-d_{i-1}}^{d_i}
+&{|2s{\cal A}_2(\bd{x}_i)+{\cal A}_1(\bd{x}_i)|
+\over D_i|s{\cal A}_2(\bd{x}_i)+{\cal A}_1(\bd{x}_i)|^2}
+\left[
+\left(s^2{\cal A}_2(f_i)+s{\cal A}_1(f_i)+D_if_i\right)
+{{\cal A}_1^\bot(\bd{x}_i)\cdot{\cal A}_2(\bd{x}_i)
+\over|{\cal A}_1(\bd{x}_i)|}
+\right]\cr
+&-f_i
+\left[
+{2{\cal A}_2^\bot(\bd{x}_i)\cdot{\cal A}_1(\bd{x}_i)+
+{\cal A}_1^\bot(\bd{x}_i)\cdot{\cal A}_2(\bd{x}_i)
+\over|s{\cal A}_2(\bd{x}_i)+{\cal A}_1(\bd{x}_i)|^2}
+\right]ds.}$$
+Substituting the values for the ${\cal A}$'s into this, the integrand
+and hence the integral's value may be calculated.
+\vskip 15pt
+\hbox{(ii) Integrals of the form -}
+$$\int_C\bigl(f(\bd{x}')\bh{t}(\bd{x})-
+f(\bd{x})\bh{t}(\bd{x}')\bigr)\cdot
+{\bd{x}'-\bd{x}\over|\bd{x}'-\bd{x}|^2}ds'.$$
+This integral is slightly more difficult in that the factor of $s^2$
+does not explicitly cancel, though the integrand is still bounded
+as $s\to0$. For the interval of integration
+where $\bd{x}'\in[\bd{x}_{i-1},\bd{x}_{i+1}]$, we write it as
+$$\eqalign{\int_{-d_{i-1}}^{d_i}
+&\left\{\left[
+{s^2{\cal A}_2(f_i)\over D_i}+{s{\cal A}_1(f_i)\over D_i}+f_i
+\right]
+{{\cal A}_1(\bd{x}_i)\over|{\cal A}_1(\bd{x}_i)|}-
+f_i
+\left[
+{2s{\cal A}_2(\bd{x}_i)+{\cal A}_1(\bd{x}_i)\over
+|2s{\cal A}_2(\bd{x}_i)+{\cal A}_1(\bd{x}_i)|}
+\right]\right\}\cr
+&\cdot D_i
+\left[
+{s^2{\cal A}_2(\bd{x}_i)+s{\cal A}_1(\bd{x}_i)\over
+|s^2{\cal A}_2(\bd{x}_i)+s{\cal A}_1(\bd{x}_i)|^2}
+\right]
+\left|{d\bd{q}\over ds}\right|ds.}$$
+The term in the first factor
+that does not contain an $s$ in the numerator is equal to
+$${f_i\over D_i}{\cal A}_1(\bd{x}_i)\left|{d\bd{q}\over ds}\right|^{-1}
+\left[{|2s{\cal A}_2(\bd{x}_i)+{\cal A}_1(\bd{x}_i)|\over
+|{\cal A}_1(\bd{x}_i)|}-1\right],$$
+and is clearly of order $s$ as $s\to0$, since the tangents at the observation
+point and the integration point become equal at $s=0$. If the quadrature
+routine evaluates the integrand at very small values of $s$, it would be
+worthwhile expanding this difference in powers of $s$ in order to
+avoid division by small quantities.
+

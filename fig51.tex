@@ -1,0 +1,46 @@
+\vbox{
+\setlinear
+\setcoordinatesystem units <2pt,2pt>
+$$
+%axes
+\putrule from -100 5 to 100 5
+\plot 97 6 100 5 97 4 /
+\plot -1 12 0 15 1 12 /
+\put {$r$} at 100 2
+\put {$z$} at -4 15
+\put {$C_0$} at -30 8
+\put {$\Omega_-$} at 45 -25
+\put {$\Omega_+$} at 45 13
+\putrule from -60 5 to -60 13
+\plot -59 10 -60 13 -61 10 /
+\put {\bh{n}} at -65 13
+\setdashpattern <2pt,3pt,7pt,3pt>
+\putrule from 0 15 to 0 -65
+%Bubble1
+\setsolid
+\circulararc 360 degrees from -10 -15 center at 0 -15
+\plot 0 -15 7 -22 /
+\put {$r_1$} at 4 -14
+\betweenarrows {$\gamma_1$} from -20 -15 to -20 5
+\setdashpattern <4pt,2pt>
+\putrule from -23 -15 to 0 -15
+\put {$C_1$} at -13 -11
+%Bubble1
+\setsolid
+\circulararc 360 degrees from -15 -45 center at 0 -45
+\plot 0 -45 11 -55 /
+\put {$r_2$} at 7 -47
+\betweenarrows {$\gamma_2$} from -47 -45 to -47 5
+\setdashpattern <4pt,2pt>
+\putrule from -50 -45 to 0 -45
+\put {$C_2$} at -18 -41
+$$
+{\baselineskip 15pt
+\medrm
+\parindent 0pt
+Figure 5.1. The initial position of bubbles $C_1$ and $C_2$ below the free-surface,
+$C_0$. In most calculations presented, the free-surface is not flat as depicted,
+but takes the shape of a bubble for which the film cap has just ruptured,
+together with a meniscus extending to infinity (see also figure 5.2).
+}
+}
