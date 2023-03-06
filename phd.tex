@@ -36,6 +36,10 @@
 \def\folio{\ifnum\pageno<0 \romannumeral -\pageno \else\number\pageno \fi}
 \def\nopagenumbers{\footline={\hfil}}
 \def\pagenumbers{\footline={\hss\timesrm-- \folio\ --\hss}}
+\def\imagefigure#1{
+  \includegraphics[angle=0.5, trim=1.4in 0in 0in 1.4in]{#1}
+  \pg
+}
 \def\advpg{\ifnum\pageno<0 \global\advance\pageno by -1
   \else\global\advance\pageno by 1 \fi}
 \timesrm
@@ -55,6 +59,7 @@
 \def\bh#1{\hbox{\bi \^ #1}}
 \def\s{\smrm}
 \input pictex
+\input pst-graphicx
 \nopagenumbers
 \input prelims
 \pg
@@ -70,23 +75,69 @@
 %
 \input chapter2
 \pg
-%
-\global\advance\pageno by 7
+\nopagenumbers
+\imagefigure{figs/fig2_1.png}
+\imagefigure{figs/fig2_2.png}
+\imagefigure{figs/fig2_3.png}
+\imagefigure{figs/fig2_4.png}
+\imagefigure{figs/fig2_5.png}
+\imagefigure{figs/fig2_6.png}
+\imagefigure{figs/fig2_7.png}
+\pagenumbers
 %%
 \input chapter3
 \pg
-%%
-\global\advance\pageno by 7
+\nopagenumbers
+\imagefigure{figs/fig3_0.png}
+\imagefigure{figs/fig3_1.png}
+\imagefigure{figs/fig3_2.png}
+\imagefigure{figs/fig3_3.png}
+\imagefigure{figs/fig3_4.png}
+\imagefigure{figs/fig3_5.png}
+\imagefigure{figs/fig3_6.png}
+\pagenumbers
 %%
 \input chapter4
 \pg
-%%
-\global\advance\pageno by 12
+\nopagenumbers
+\imagefigure{figs/fig4_0.png}
+\imagefigure{figs/fig4_1.png}
+\imagefigure{figs/fig4_2.png}
+\imagefigure{figs/fig4_3.png}
+\imagefigure{figs/fig4_4.png}
+\imagefigure{figs/fig4_5.png}
+\imagefigure{figs/fig4_6.png}
+\imagefigure{figs/fig4_7.png}
+\imagefigure{figs/fig4_8.png}
+\imagefigure{figs/fig4_9.png}
+\imagefigure{figs/fig4_10.png}
+\imagefigure{figs/fig4_11.png}
+\pagenumbers
 %%
 \input chapter5
 \pg
-%%
-\global\advance\pageno by 20
+\nopagenumbers
+\imagefigure{figs/fig5_0.png}
+\imagefigure{figs/fig5_1.png}
+\imagefigure{figs/fig5_2.png}
+\imagefigure{figs/fig5_3.png}
+\imagefigure{figs/fig5_4.png}
+\imagefigure{figs/fig5_5.png}
+\imagefigure{figs/fig5_6.png}
+\imagefigure{figs/fig5_7.png}
+\imagefigure{figs/fig5_8.png}
+\imagefigure{figs/fig5_9.png}
+\imagefigure{figs/fig5_10.png}
+\imagefigure{figs/fig5_11.png}
+\imagefigure{figs/fig5_12.png}
+\imagefigure{figs/fig5_13.png}
+\imagefigure{figs/fig5_14.png}
+\imagefigure{figs/fig5_15.png}
+\imagefigure{figs/fig5_16.png}
+\imagefigure{figs/fig5_17.png}
+\imagefigure{figs/fig5_18.png}
+\imagefigure{figs/fig5_19.png}
+\pagenumbers
 %%
 \input chapter6
 \pg
